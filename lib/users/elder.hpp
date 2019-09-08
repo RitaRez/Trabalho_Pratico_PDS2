@@ -8,7 +8,8 @@ class Elder: public Adult{
 private:
 
 public:
-    Elder(std::string id, std::string name, float budget);
+    Elder();
+    Elder(int id, std::string category, std::string name, int age, float budget);
 };
  
 #endif

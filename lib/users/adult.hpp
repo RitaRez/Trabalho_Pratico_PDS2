@@ -9,8 +9,14 @@ class Adult: public User{
     
 private:
     std::vector<Kid> children;
+    
 public:
-    Adult(std::string id, std::string name, float budget);
+    Adult(){}
+    Adult(int id, std::string category, std::string name, int age, float budget);
+
+    std::vector<Kid> get_children(){return children;}
+    void add_children(Kid kid);
+
 };
  
 #endif

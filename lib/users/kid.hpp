@@ -9,7 +9,8 @@ private:
     User resposible;
 
 public:
-    Kid(std::string id, std::string name, float , User responsible);
+    Kid();
+    Kid(int id, std::string category, std::string name, int age, float budget, User responsible);
 
     User get_responsible(){return resposible;}
 };

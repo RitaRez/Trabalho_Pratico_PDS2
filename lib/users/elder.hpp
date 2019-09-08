@@ -1,10 +1,8 @@
-#include<iostream>
-#include<string>
-#include<Adult.h>
-
 #ifndef ELDER_H
 #define ELDER_H
  
+#include "adult.hpp"
+
 class Elder: public Adult{
     
 private:

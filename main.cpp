@@ -1,6 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <./lib/User.hpp>
+
+
+std::vector<User> parse_users(std::string StringArray){
+
+}
 
 std::vector<std::string> read_file(std::string fileName){
     

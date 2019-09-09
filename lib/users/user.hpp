@@ -7,6 +7,7 @@
 
 
 class User {
+    
 protected:
     int id;
     std::string category;

@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <iterator>
 #include <vector> 
+#include <map> 
+
 
 #include "./lib/users/user.hpp"
 #include "./lib/users/kid.hpp"
@@ -15,8 +17,7 @@
 #include "./lib/events/adult_event.hpp"
 
 
-std::vector<User> parse_users(std::vector<std::string> StringArray){
-    std::vector<User> users;
+void parse_users(std::vector<std::string> StringArray, std::map<int, Kid> *kids, std::map<int, Adult> *adults, std::map<int, Elder> *elders){
     std::vector<std::string> aux;
     
     for(std::string str : StringArray){
@@ -28,21 +29,21 @@ std::vector<User> parse_users(std::vector<std::string> StringArray){
         }         
         
         if(std::string(aux[1]) == "crianca"){     
-            Kid new_kid(std::stoi(aux[0]), std::string(aux[1]), std::string(aux[2]), std::stoi(aux[3]), ::atof(aux[4].c_str()), users[std::stoi(aux[5])]);
-            users.push_back(new_kid);
+            Kid new_kid(std::stoi(aux[0]), std::string(aux[1]), std::string(aux[2]), std::stoi(aux[3]), ::atof(aux[4].c_str()), std::stoi(aux[5]));
+            (*kids)[new_kid.get_id()] = new_kid;
+            
+            //(*adults)[std::stoi(aux[5])].add_children(&new_kid);
         
         } else if(std::string(aux[1]) == "adulto"){
             Adult new_adult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),::atof(aux[4].c_str()));
-            users.push_back(new_adult);    
+            (*adults)[new_adult.get_id()] = new_adult;    
 
         } else {
             Elder new_elder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),::atof(aux[4].c_str()));
-            users.push_back(new_elder);    
+            (*elders)[new_elder.get_id()] = new_elder;    
         }
         aux.clear();
     } 
-
-   return users;
 }
 
 // std::vector<Event::Event> parse_events(std::vector<std::string> StringArray){
@@ -100,18 +101,21 @@ std::vector<std::string> read_file(std::string fileName){
 int main(int argc, const char** argv) {
     
     std::ifstream inFile;
-    std::vector<std::string> UsersArray;
+    std::vector<std::string> usersArray;
     std::vector<std::string> EventsArray;
-    std::vector<User> Users;
+    std::map<int, Kid> *kids;
+    std::map<int, Adult> *adults;
+    std::map<int, Elder> *elders;
+
 
     if(argc != 3) {
         std::cerr << "There arent enough arguments\n";
         exit(1);
     }
     
-    UsersArray = read_file(argv[1]);
+    usersArray = read_file(argv[1]);
     EventsArray = read_file(argv[2]);
-    Users = parse_users(UsersArray);
+    parse_users(usersArray,kids,adults,elders);
 
 
     return 0;

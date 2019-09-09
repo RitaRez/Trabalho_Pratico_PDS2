@@ -15,7 +15,7 @@ public:
     Adult(int id, std::string category, std::string name, int age, float budget);
 
     std::vector<Kid> get_children(){return children;}
-    void add_children(Kid kid);
+    void add_children(Kid *kid);
 
 };
  

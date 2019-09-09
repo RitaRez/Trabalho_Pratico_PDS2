@@ -6,13 +6,13 @@
 class Kid: public User{
     
 private:
-    User resposible;
+    int resposible;
 
 public:
     Kid();
-    Kid(int id, std::string category, std::string name, int age, float budget, User responsible);
+    Kid(int id, std::string category, std::string name, int age, float budget, int responsible);
 
-    User get_responsible(){return resposible;}
+    int get_responsible(){return resposible;}
 };
  
 #endif

@@ -15,8 +15,8 @@
 #include "./lib/events/adult_event.hpp"
 
 
-std::vector<User::User> parse_users(std::vector<std::string> StringArray){
-    std::vector<User::User> users;
+std::vector<User> parse_users(std::vector<std::string> StringArray){
+    std::vector<User> users;
     std::vector<std::string> aux;
     
     for(std::string str : StringArray){
@@ -28,21 +28,15 @@ std::vector<User::User> parse_users(std::vector<std::string> StringArray){
         }         
         
         if(std::string(aux[1]) == "crianca"){     
-            Kid::Kid new_kid = new Kid::Kid(int(aux[0]), std::string(aux[1]), std::string(aux[2]), 
-                int(aux[3]), int(aux[4]), users[int(aux[5])]);
-            
+            Kid new_kid(std::stoi(aux[0]), std::string(aux[1]), std::string(aux[2]), std::stoi(aux[3]), ::atof(aux[4].c_str()), users[std::stoi(aux[5])]);
             users.push_back(new_kid);
         
         } else if(std::string(aux[1]) == "adulto"){
-            Adult::Adult new_adult = new Adult::Adult(
-                int(aux[0]),aux[1], aux[2],int(aux[3]),float(aux[4]));
-            
+            Adult new_adult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),::atof(aux[4].c_str()));
             users.push_back(new_adult);    
-        
-        } else {
-            Elder::Elder new_elder = new Elder::Elder(
-                int(aux[0]),aux[1], aux[2],int(aux[3]),float(aux[4]));
 
+        } else {
+            Elder new_elder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),::atof(aux[4].c_str()));
             users.push_back(new_elder);    
         }
         aux.clear();
@@ -51,34 +45,34 @@ std::vector<User::User> parse_users(std::vector<std::string> StringArray){
    return users;
 }
 
-std::vector<Event::Event> parse_events(std::vector<std::string> StringArray){
-    std::vector<User> events;
-    std::vector<std::string> aux;
+// std::vector<Event::Event> parse_events(std::vector<std::string> StringArray){
+//     std::vector<User> events;
+//     std::vector<std::string> aux;
     
-    for(std::string str : StringArray){
-        std::stringstream ss(str);
-        std::string token;
+//     for(std::string str : StringArray){
+//         std::stringstream ss(str);
+//         std::string token;
         
-        while (std::getline(ss, token, ',')){ 
-            aux.push_back(token);
-        }         
+//         while (std::getline(ss, token, ',')){ 
+//             aux.push_back(token);
+//         }         
         
-        if(std::string(aux[1]) == "infantil"){    
+//         if(std::string(aux[1]) == "infantil"){    
         
-        } else if(std::string(aux[1]) == "adulto"){   
-            if(std::string(aux[2]) == "show") {
+//         } else if(std::string(aux[1]) == "adulto"){   
+//             if(std::string(aux[2]) == "show") {
 
-            } else{
+//             } else{
 
-            }
-        } else {
+//             }
+//         } else {
 
-        }
-        aux.clear();
-    } 
+//         }
+//         aux.clear();
+//     } 
 
-   return events;
-}
+//    return events;
+// }
 
 std::vector<std::string> read_file(std::string fileName){
     

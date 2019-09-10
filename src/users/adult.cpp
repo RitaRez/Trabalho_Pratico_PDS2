@@ -11,4 +11,6 @@ Adult::Adult(int new_id, std::string new_category, std::string new_name, int new
     budget = new_budget;
 }
 
-//void add_children(Kid::Kid kid){children.push_back(kid);}
+void Adult::add_children(int kid){
+    children.push_back(kid);
+}

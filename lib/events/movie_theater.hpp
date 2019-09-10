@@ -10,7 +10,7 @@ private:
     int runningTime;
 
 public:
-    MovieTheater(std::string id, std::string name, std::vector<int> capacity, std::vector<int> prices,
+    MovieTheater(int id, std::string category, std::string name, std::vector<int> capacity, std::vector<int> prices,
         std::vector<int> movieSchedules, int runningTime);
 };
  

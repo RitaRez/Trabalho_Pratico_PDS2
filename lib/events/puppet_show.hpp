@@ -10,7 +10,7 @@ private:
 
 public:
     PuppetShow();
-    PuppetShow(std::string id, std::string name, std::vector<int> capacity, std::vector<int> prices,
+    PuppetShow(int id, std::string category, std::string name, int n_responsible, std::vector<int> capacity, std::vector<int> prices,
         std::vector<int> theaterSchedules);
 };
  

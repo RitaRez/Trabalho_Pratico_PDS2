@@ -36,17 +36,17 @@ void parse_users(std::vector<std::string> StringArray, std::map<int, Kid> *kids,
         }  
 
         if(aux[1].compare("crianca") == 0){     
-            Kid new_kid(std::stoi(aux[0]), aux[1], aux[2], std::stoi(aux[3]), std::stof(aux[4]), std::stoi(aux[5]));
-            (*kids)[new_kid.get_id()] = new_kid;
-            //(*adults)[std::stoi(aux[5])].add_children(&new_kid);
+            Kid newKid(std::stoi(aux[0]), aux[1], aux[2], std::stoi(aux[3]), std::stof(aux[4]), std::stoi(aux[5]));
+            (*kids)[newKid.get_id()] = newKid;
+            (*adults)[std::stoi(aux[5])].add_children(newKid.get_id());
          
          } else if(aux[1].compare("adulto") == 0){
-            Adult new_adult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
-            (*adults).insert({new_adult.get_id(), new_adult});    
+            Adult newAdult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
+            (*adults).insert({newAdult.get_id(), newAdult});    
         
         } else {
-            Elder new_elder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
-            (*elders)[new_elder.get_id()] = new_elder;   
+            Elder newElder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
+            (*elders)[newElder.get_id()] = newElder;   
         }
         aux.clear();
     } 
@@ -65,7 +65,9 @@ void parse_events(std::vector<std::string> StringArray, std::map<int, MovieTheat
         }         
         
         if(aux[1].compare("infantil") == 0){    
-        
+            // PuppetShow newPuppetShow(std::stoi(aux[0]), aux[2], aux[3], std::stoi(aux[3]), std::stof(aux[4]));
+            // (*puppetShows).insert({newPuppetShow.get_id()});
+
         } else if(aux[1].compare("adulto") == 0){   
             if(aux[2].compare("boate") == 0) {
 
@@ -121,11 +123,12 @@ int main(int argc, const char** argv) {
     std::map<int, Elder> *elders = new std::map<int, Elder>;
     parse_users(usersArray, kids, adults, elders);
 
+
     std::map<int, MovieTheater> *movieTheaters = new std::map<int, MovieTheater>;
     std::map<int, PuppetShow> *puppetShows = new std::map<int, PuppetShow>;
     std::map<int, Consert> *conserts = new std::map<int, Consert>;
     std::map<int, Club> *clubs = new std::map<int, Club>;
-    //parse_events(eventsArray, movieTheaters, puppetShows, conserts, clubs);
+    parse_events(eventsArray, movieTheaters, puppetShows, conserts, clubs);
 
     return 0;
 }

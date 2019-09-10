@@ -8,13 +8,17 @@
 class Event {
 
 protected:
-    std::string id;
+    int id;
+    int responsible;
+    std::string category;
     std::string name;
     std::vector<int> capacity;
     std::vector<int> prices;
 
 public:  
-    std::string get_id() { return id; }
+    int get_id() { return id; }
+    int get_responsible() { return responsible; }
+    std::string get_category() { return category; }
     std::string get_name() { return name; }
     std::vector<int> get_capacity()  { return capacity; }
     std::vector<int> get_prices()  { return prices; }

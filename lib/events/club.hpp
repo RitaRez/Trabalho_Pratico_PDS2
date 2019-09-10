@@ -12,7 +12,7 @@ private:
 public:  
     
     Club();
-    Club(int id, std::string category, std::string name, std::vector<int> capacity, std::vector<int> prices,
+    Club(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
         int elderAmount, int startingTime, int endingTime);
 
     int get_starting_time(){return startingTime;}

@@ -1,6 +1,6 @@
 #ifndef FILEPARSER_H
-#define FILEPARSER_H
- 
+#define FILEPARSER_
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -22,8 +22,7 @@
 #include "./events/consert.hpp"
 #include "./events/movie_theater.hpp"
 
-
-class FileParser: public Adult{
+class FileParser{
     
 private:
     std::vector<std::string> stringUser;

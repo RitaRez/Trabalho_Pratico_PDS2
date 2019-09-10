@@ -51,6 +51,7 @@ int main(int argc, const char** argv) {
     FileParser fp(usersArray, eventsArray);
     fp.parse_users();
     fp.parse_events();
+    fp.printKids();
 
     return 0;
 }

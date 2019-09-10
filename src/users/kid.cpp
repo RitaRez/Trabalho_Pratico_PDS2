@@ -1,4 +1,4 @@
-#include "../lib/users/kid.hpp"
+#include "../../lib/users/kid.hpp"
 
 Kid::Kid(){}
 

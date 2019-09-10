@@ -1,5 +1,5 @@
-#include "../lib/users/kid.hpp"
-#include "../lib/users/adult.hpp"
+#include "../../lib/users/kid.hpp"
+#include "../../lib/users/adult.hpp"
 
 Adult::Adult(){}
 

@@ -5,7 +5,7 @@
 
 class AdultEvent: public Event {
 
-private:
+protected:
     int elderAmount;  
 };
  

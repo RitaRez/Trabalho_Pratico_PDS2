@@ -11,8 +11,9 @@ private:
 
 public:  
     
+    Club::Club();
     Club(std::string id, std::string name, std::vector<int> capacity, std::vector<int> prices,
-        int startingTime, int endingTime);
+        int elderAmount, int startingTime, int endingTime);
 
     int get_starting_time(){return startingTime;}
     int get_ending_time(){return endingTime;} 

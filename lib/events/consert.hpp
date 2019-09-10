@@ -10,8 +10,9 @@ private:
     std::vector<std::string> artists;
 
 public:  
+    Consert::Consert();
     Consert(std::string id, std::string name, std::vector<int> capacity, std::vector<int> prices,
-        int gateOpening, std::vector<std::string> artists);
+        int elderAmount, int gateOpening, std::vector<std::string> artists);
 
     int get_gate_opening(){return gateOpening;}
     std::vector<std::string> get_artists(){return artists;} 

@@ -7,7 +7,7 @@
  
 class Event {
 
-private:
+protected:
     std::string id;
     std::string name;
     std::vector<int> capacity;

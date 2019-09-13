@@ -1,16 +1,16 @@
 #include "../../lib/events/movie_theater.hpp"
 
 
-MovieTheater::MovieTheater(int n_id, std::string n_category, std::string n_name, int n_responsible, std::vector<int> n_capacity, 
-    std::vector<int> n_prices, std::vector<int> n_movieSchedules, int n_runningTime){
+MovieTheater::MovieTheater(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, 
+    std::vector<int> prices, std::vector<int> movieSchedules, int runningTime){
 
-    id = n_id;
-    category = n_category;
-    name = n_name;
-    responsible = n_responsible;
-    capacity = n_capacity;
-    prices = n_prices;
-    movieSchedules = n_movieSchedules;
-    runningTime = n_runningTime;
+    this->id = id;
+    this->category = category;
+    this->name = name;
+    this->responsible = responsible;
+    this->capacity = capacity;
+    this->prices = prices;
+    this->movieSchedules = movieSchedules;
+    this->runningTime = runningTime;
 
 }

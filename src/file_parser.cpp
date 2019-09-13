@@ -2,9 +2,9 @@
 
 
 
-FileParser::FileParser(std::vector<std::string> n_stringUser, std::vector<std::string> n_stringEvent){
-    stringUser = n_stringUser;
-    stringEvent = n_stringEvent;   
+FileParser::FileParser(std::vector<std::string> stringUser, std::vector<std::string> stringEvent){
+    this->stringUser = stringUser;
+    this->stringEvent = stringEvent;   
 }
 
 void FileParser::parse_users(){

@@ -3,12 +3,12 @@
 
 Adult::Adult(){}
 
-Adult::Adult(int new_id, std::string new_category, std::string new_name, int new_age, float new_budget){
-    id = new_id;
-    category = new_category;
-    name = new_name;
-    age = new_age;
-    budget = new_budget;
+Adult::Adult(int id, std::string category, std::string name, int age, float budget){
+    this->id = id;
+    this->category = category;
+    this->name = name;
+    this->age = age;
+    this->budget = budget;
 }
 
 void Adult::add_children(int kid){

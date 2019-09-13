@@ -2,15 +2,15 @@
 
 PuppetShow::PuppetShow(){}
 
-PuppetShow::PuppetShow(int n_id, std::string n_category, std::string n_name, int n_responsible, std::vector<int> n_capacity, std::vector<int> n_prices,
-    std::vector<int> n_theaterSchedules){
+PuppetShow::PuppetShow(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+    std::vector<int> theaterSchedules){
 
-    id = n_id;
-    category = n_category;
-    name = n_name;
-    responsible = n_responsible;
-    capacity = n_capacity;
-    prices = n_prices;
-    theaterSchedules = n_theaterSchedules;
+    this->id = id;
+    this->category = category;
+    this->name = name;
+    this->responsible = responsible;
+    this->capacity = capacity;
+    this->prices = prices;
+    this->theaterSchedules = theaterSchedules;
     
 }

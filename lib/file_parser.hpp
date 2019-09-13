@@ -38,10 +38,12 @@ public:
 
     void parse_users();
     void parse_events();
-    void printKids();
-    void printAdults();
-    void printElders();
     
+    void print_kids();
+    void print_clubs();
+    void print_conserts();
+    void print_puppet_shows();
+    void print_movie_theaters();
 
 };
  

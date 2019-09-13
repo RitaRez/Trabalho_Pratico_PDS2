@@ -10,6 +10,8 @@ private:
 public:
     Elder();
     Elder(int id, std::string category, std::string name, int age, float budget);
+
+    void print();
 };
  
 #endif

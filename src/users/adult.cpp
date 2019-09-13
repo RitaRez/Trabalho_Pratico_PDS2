@@ -14,3 +14,4 @@ Adult::Adult(int id, std::string category, std::string name, int age, float budg
 void Adult::add_children(int kid){
     children.push_back(kid);
 }
+

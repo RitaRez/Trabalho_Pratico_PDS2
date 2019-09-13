@@ -15,6 +15,7 @@ public:
 
     std::vector<int> get_children(){return children;}
     void add_children(int kid);
+    void print();
 
 };
  

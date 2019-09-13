@@ -51,7 +51,11 @@ int main(int argc, const char** argv) {
     FileParser fp(usersArray, eventsArray);
     fp.parse_users();
     fp.parse_events();
-    fp.printKids();
+
+    fp.print_clubs();
+    fp.print_conserts();
+    fp.print_movie_theaters();
+    fp.print_puppet_shows();
 
     return 0;
 }

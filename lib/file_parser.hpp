@@ -1,11 +1,6 @@
 #ifndef FILEPARSER_H
 #define FILEPARSER_
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <algorithm>
-#include <iterator>
 #include <vector> 
 #include <map> 
 

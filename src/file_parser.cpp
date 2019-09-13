@@ -1,5 +1,10 @@
 #include "../lib/file_parser.hpp"
 
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
+#include <iterator>
 
 
 FileParser::FileParser(std::vector<std::string> stringUser, std::vector<std::string> stringEvent){

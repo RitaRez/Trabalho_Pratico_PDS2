@@ -21,8 +21,8 @@ class FileParser{
          
     public:
         std::vector<std::string> static read_file(std::string fileName);
-        void static parse_users(char *str, const std::map<int,Kid>& kids, const std::map<int,Adult>& adults, const std::map<int,Elder>& elders);
-        void static parse_events(char *str, const std::map<int,Club>& clubs, const std::map<int,Consert>& conserts, const std::map<int,PuppetShow>& puppet_shows, const std::map<int,MovieTheater>& movieTheaters);
+        void static parse_users(char *str, std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
+        void static parse_events(char *str, std::map<int,Club>& clubs, std::map<int,Consert>& conserts, std::map<int,PuppetShow>& puppet_shows, std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
 
 };
  

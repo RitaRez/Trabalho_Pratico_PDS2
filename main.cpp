@@ -7,11 +7,11 @@
 #include <vector> 
 #include <map> 
 
-#include "./lib/file_parser.hpp"
+#include "./lib/box_office.hpp"
 
 
 
-void output(FileParser fp){
+void output(BoxOffice fp){
     std::vector<float> age = fp.get_ages();
     std::vector<float> dependent = fp.get_dependents();
 
@@ -59,15 +59,10 @@ int main(int argc, const char** argv) {
         std::cerr << "There arent enough arguments\n";
         exit(1);
     }
-    
-    usersArray = read_file(argv[1]);
-    eventsArray = read_file(argv[2]);
 
-    FileParser fp(usersArray, eventsArray);
-    fp.parse_users();
-    fp.parse_events();
+    BoxOffice boxOffice(argv);
 
-    output(fp);
+    output(boxOffice);
     // fp.print_adults();
     // fp.print_elders();
 

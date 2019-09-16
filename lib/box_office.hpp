@@ -33,7 +33,7 @@ class BoxOffice {
         std::map<int, Club> clubs;
     
     public:
-        BoxOffice(char** args);
+        BoxOffice(const char** args);
 
         std::map<int, Kid> get_kids(){return kids;}
         std::map<int, Adult> get_adults(){return adults;}

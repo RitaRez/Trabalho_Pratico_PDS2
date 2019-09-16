@@ -36,10 +36,25 @@ public:
     FileParser();
     FileParser(std::vector<std::string> stringUser, std::vector<std::string> stringEvent);
 
+    std::map<int, Kid> get_kids(){return kids;}
+    std::map<int, Adult> get_adults(){return adults;}
+    std::map<int, Elder> get_elders(){return elders;}
+    std::map<int, MovieTheater> get_movie_theaters(){return movieTheaters;}    
+    std::map<int, PuppetShow> get_puppet_shows(){return puppetShows;} 
+    std::map<int, Consert> get_conserts(){return conserts;}
+    std::map<int, Club> get_clubs(){return clubs;}
+
     void parse_users();
     void parse_events();
+
+    std::vector<float> get_ages();
+    std::vector<float> get_dependents();
+    std::string get_dependent_relations();
+    std::string get_event_relations();
     
     void print_kids();
+    void print_adults();
+    void print_elders();
     void print_clubs();
     void print_conserts();
     void print_puppet_shows();

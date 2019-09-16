@@ -13,7 +13,7 @@ OBJECTS := $(patsubst $(SOURCE_PATH)/%,$(BUILD_PATH)/%,$(SOURCES:.$(SOURCE_EXT)=
 
 all: $(TARGET_NAME)
 
-$(BUILD_PATH)/%.o: $(SOURCE_PATH)/%.cpp
+$(BUILD_PATH)/%.o: $(SOURCE_PATH)/%.cpp $(LIB_PATH)/%.hpp
 	mkdir -p $(@D)
 	$(CC) -c -o $@ $<
 

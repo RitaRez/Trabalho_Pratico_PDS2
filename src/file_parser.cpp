@@ -14,25 +14,24 @@ FileParser::FileParser(std::vector<std::string> stringUser, std::vector<std::str
 
 void FileParser::parse_users(){
     std::vector<std::string> aux;
-
     for(std::string str : stringUser){
         std::stringstream ss(str);
         std::string token;
         
-        while (std::getline(ss, token, ',')){ 
-            token = token.c_str();
+        while (std::getline(ss, token, ',')){
             aux.push_back(token);
         }  
-        if(aux[1].compare("crianca") == 0){     
+        if(aux[1] == "crianca"){    
             Kid newKid(std::stoi(aux[0]), aux[1], aux[2], std::stoi(aux[3]), std::stof(aux[4]), std::stoi(aux[5]));
             kids[newKid.get_id()] = newKid;
-            adults[std::stoi(aux[5])].add_children(newKid.get_id());
-         
-         } else if(aux[1].compare("adulto") == 0){
+            if(adults.find(std::stoi(aux[5])) != adults.end())
+                adults[std::stoi(aux[5])].add_children(newKid.get_id());
+            else    
+                elders[std::stoi(aux[5])].add_children(newKid.get_id());
+         } else if(aux[1] == "adulto"){
             Adult newAdult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
-            adults.insert({newAdult.get_id(), newAdult});    
-        
-        } else {
+            adults[newAdult.get_id()] = newAdult;    
+        } else if (aux[1] == "idoso") {
             Elder newElder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
             elders[newElder.get_id()] = newElder;   
         }
@@ -77,9 +76,14 @@ void FileParser::parse_events(){
             }
             PuppetShow newPuppetShow(std::stoi(aux[0]), aux[2], aux[3], std::stoi(aux[4]), capacities, prices, schedules);
             puppetShows.insert({newPuppetShow.get_id(), newPuppetShow});
-        
+            if(adults.find(std::stoi(aux[4])) != adults.end())
+                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+            else if(elders.find(std::stoi(aux[4])) != elders.end())
+                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+
         } else if(aux[1].compare("adulto") == 0){   
             if(aux[2].compare("boate") == 0) {
+
                 end = 6 + (std::stoi(aux[5])*2);
                 for(int i = 6; i < aux.size(); i++){
                     if(i < end)
@@ -99,6 +103,11 @@ void FileParser::parse_events(){
                     std::stoi(aux[aux.size() - 2]), std::stoi(aux[aux.size() - 1]));
 
                 clubs.insert({newClub.get_id(), newClub});
+                if(adults.find(std::stoi(aux[4])) != adults.end())
+                    adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                else if(elders.find(std::stoi(aux[4])) != elders.end()) 
+                    elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+
             } else {
                 end = 6 + (std::stoi(aux[5])*2);
                 
@@ -116,6 +125,10 @@ void FileParser::parse_events(){
                     std::stoi(aux[end]), std::stoi(aux[end + 1]), artists);
 
                 conserts.insert({newConsert.get_id(), newConsert});
+                if(adults.find(std::stoi(aux[4])) != adults.end())
+                    adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                else if(elders.find(std::stoi(aux[4])) != elders.end()) 
+                    elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
             }
         } else {
             end = 5 + (std::stoi(aux[4])*2);
@@ -132,6 +145,11 @@ void FileParser::parse_events(){
                 std::stoi(aux[aux.size() - 1]));
 
             movieTheaters.insert({newMovieTheater.get_id(), newMovieTheater});
+            if(adults.find(std::stoi(aux[3])) != adults.end())
+                adults[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
+            else if(elders.find(std::stoi(aux[3])) != elders.end()) 
+                elders[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
+
         }
         aux.clear();
         capacities.clear();
@@ -139,6 +157,106 @@ void FileParser::parse_events(){
         schedules.clear();
         artists.clear();
     } 
+}
+
+std::vector<float> FileParser::get_ages(){
+    std::map<int, Kid>::iterator itr; 
+    std::map<int, Adult>::iterator itr2; 
+    std::map<int, Elder>::iterator itr3; 
+
+    std::vector<float> ages; 
+    float min, max = 0, avarage = 0;
+    int userCount = kids.size() + adults.size() + elders.size();
+    
+    for (itr = kids.begin(); itr != kids.end(); ++itr) { 
+        if(avarage == 0)
+            min = itr->second.get_age();
+        if(itr->second.get_age() < min)
+            min = itr->second.get_age();
+        if(itr->second.get_age() > max)
+            max = itr->second.get_age();
+        avarage += itr->second.get_age();    
+    } 
+
+    for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
+        if(itr2->second.get_age() < min)
+            min = itr2->second.get_age();
+        if(itr2->second.get_age() > max)
+            max = itr2->second.get_age();
+        avarage += itr2->second.get_age();    
+    } 
+    for (itr3 = elders.begin(); itr3 != elders.end(); ++itr3) { 
+        if(itr3->second.get_age() < min)
+            min = itr3->second.get_age();
+        if(itr3->second.get_age() > max)
+            max = itr3->second.get_age();
+        avarage += itr3->second.get_age();    
+    }    
+    avarage = avarage/userCount;
+    ages = {min, max, avarage};
+    return ages;
+}
+
+std::vector<float> FileParser::get_dependents(){
+    std::map<int, Elder>::iterator itr; 
+    std::map<int, Adult>::iterator itr2; 
+
+    std::vector<float> dependents; 
+    float min = elders.begin()->second.get_children().size(), max = 0, avarage = 0;
+    int userCount = adults.size() + elders.size();
+    int size = 0;
+
+    for (itr = elders.begin(); itr != elders.end(); ++itr) { 
+        if(!itr->second.get_children().empty())
+            size = itr->second.get_children().size();
+        if(size < min)
+            min = size;
+        if(size > max)
+            max = size;
+
+    } 
+
+    for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
+        if(!itr2->second.get_children().empty())
+            size = itr2->second.get_children().size();
+        if(size < min)
+           min = size;
+        if(size > max)
+            max = size;
+    }
+    avarage = (float)kids.size()/userCount;
+    dependents = {min, max, avarage};
+    return dependents;
+}
+
+std::string FileParser::get_dependent_relations(){
+    std::map<int, Elder>::iterator itr; 
+    std::map<int, Adult>::iterator itr2; 
+    std::vector<int>::iterator itrChildren; 
+    std::string str;
+
+    for (itr = elders.begin(); itr != elders.end(); ++itr) { 
+        if(!itr->second.get_children().empty()){
+            str += itr->second.get_name() + "(ID: " + std::to_string(itr->second.get_id()) + "): ";
+            for(auto child: itr->second.get_children()){
+                str += kids[child].get_name(); + "(ID: " + std::to_string(child) + "),";
+            }
+        }
+    } 
+
+    for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
+        if(!itr2->second.get_children().empty()){
+            str += "\n" + itr2->second.get_name() + "(ID: " + std::to_string(itr2->second.get_id()) + "): ";
+            for(auto child: itr2->second.get_children())
+                str += kids[child].get_name() + "(ID: " + std::to_string(child) + "), ";
+    
+        }
+    }
+    return str;
+}
+
+std::string FileParser::get_event_relations(){
+    return "";
 }
 
 void FileParser::print_kids(){
@@ -160,6 +278,34 @@ void FileParser::print_kids(){
             << "\nAge:" << itr->second.get_age() 
             << "\nBudget:" << itr->second.get_budget() 
             << "\nResponsible's name:" << responsible
+        << std::endl; 
+    } 
+}
+
+void FileParser::print_adults(){
+    std::map<int, Adult>::iterator itr; 
+    int id;
+    
+    for (itr = adults.begin(); itr != adults.end(); ++itr) {
+        std::cout 
+            << "\nId: " << itr->second.get_id() 
+            << "\nName:" << itr->second.get_name() 
+            << "\nAge:" << itr->second.get_age() 
+            << "\nBudget:" << itr->second.get_budget()
+        << std::endl; 
+    } 
+}
+
+void FileParser::print_elders(){
+    std::map<int, Elder>::iterator itr; 
+    int id;
+    
+    for (itr = elders.begin(); itr != elders.end(); ++itr) {
+        std::cout 
+            << "\nId: " << itr->second.get_id() 
+            << "\nName:" << itr->second.get_name() 
+            << "\nAge:" << itr->second.get_age() 
+            << "\nBudget:" << itr->second.get_budget()
         << std::endl; 
     } 
 }

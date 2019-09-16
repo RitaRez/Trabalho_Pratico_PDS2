@@ -1,5 +1,6 @@
 #include "../../lib/users/kid.hpp"
 #include "../../lib/users/adult.hpp"
+#include <iostream>
 
 Adult::Adult(){}
 
@@ -9,6 +10,7 @@ Adult::Adult(int id, std::string category, std::string name, int age, float budg
     this->name = name;
     this->age = age;
     this->budget = budget;
+
 }
 
 void Adult::add_children(int kid){

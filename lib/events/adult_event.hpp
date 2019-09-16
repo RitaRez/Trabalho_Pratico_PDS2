@@ -5,11 +5,11 @@
 
 class AdultEvent: public Event {
 
-protected:
-    int elderAmount;  
+    protected:
+        int elderAmount;  
 
-public:
-    int get_elder_amout(){return elderAmount;}
+    public:
+        int get_elder_amout(){return elderAmount;}
 };
  
 #endif

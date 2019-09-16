@@ -5,18 +5,18 @@
 
 class Club: public AdultEvent {
 
-private:
-    int startingTime;
-    int endingTime;
+    private:
+        int startingTime;
+        int endingTime;
 
-public:  
-    
-    Club();
-    Club(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
-        int elderAmount, int startingTime, int endingTime);
+    public:  
+        
+        Club();
+        Club(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+            int elderAmount, int startingTime, int endingTime);
 
-    int get_starting_time(){return startingTime;}
-    int get_ending_time(){return endingTime;} 
+        int get_starting_time(){return startingTime;}
+        int get_ending_time(){return endingTime;} 
 };
  
 #endif

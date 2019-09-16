@@ -5,13 +5,13 @@
 
 class Elder: public Adult{
     
-private:
+    private:
 
-public:
-    Elder();
-    Elder(int id, std::string category, std::string name, int age, float budget);
+    public:
+        Elder();
+        Elder(int id, std::string category, std::string name, int age, float budget);
 
-    void print();
+        void print();
 };
  
 #endif

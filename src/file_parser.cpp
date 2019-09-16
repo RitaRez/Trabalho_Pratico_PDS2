@@ -7,13 +7,32 @@
 #include <iterator>
 
 
-FileParser::FileParser(std::vector<std::string> stringUser, std::vector<std::string> stringEvent){
-    this->stringUser = stringUser;
-    this->stringEvent = stringEvent;   
+std::vector<std::string> FileParser::read_file(std::string fileName){
+    
+    std::string object;
+    std::vector<std::string> objectsArray;
+    std::ifstream inFile;
+
+
+    inFile.open(fileName);
+    if (!inFile) {
+        std::cerr << "Unable to open file\n";
+        exit(2); 
+    } 
+
+    while(!inFile.eof()){
+        getline(inFile, object);
+        objectsArray.push_back(object);
+    }
+    inFile.close();
+
+    return objectsArray;
 }
 
-void FileParser::parse_users(){
-    std::vector<std::string> aux;
+void FileParser::parse_users(char *str, const std::map<int,Kid>& kids, const std::map<int,Adult>& adults, const std::map<int,Elder>& elders){
+    std::vector<std::string> aux;  
+    std::vector<std::string> stringUser = read_file(str);
+    
     for(std::string str : stringUser){
         std::stringstream ss(str);
         std::string token;

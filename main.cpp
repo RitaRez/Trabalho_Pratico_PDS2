@@ -10,27 +10,6 @@
 #include "./lib/file_parser.hpp"
 
 
-std::vector<std::string> read_file(std::string fileName){
-    
-    std::string object;
-    std::vector<std::string> objectsArray;
-    std::ifstream inFile;
-
-
-    inFile.open(fileName);
-    if (!inFile) {
-        std::cerr << "Unable to open file\n";
-        exit(2); 
-    } 
-
-    while(!inFile.eof()){
-        getline(inFile, object);
-        objectsArray.push_back(object);
-    }
-    inFile.close();
-
-    return objectsArray;
-}
 
 void output(FileParser fp){
     std::vector<float> age = fp.get_ages();

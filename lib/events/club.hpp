@@ -12,7 +12,7 @@ class Club: public AdultEvent {
     public:  
         
         Club();
-        Club(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+        Club(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
             int elderAmount, int startingTime, int endingTime);
 
         int get_starting_time(){return startingTime;}

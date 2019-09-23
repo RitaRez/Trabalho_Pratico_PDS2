@@ -1,5 +1,7 @@
 #include "../lib/box_office.hpp"
 #include "../lib/file_parser.hpp"
+#include <iomanip>
+
 
 BoxOffice::BoxOffice(const char** args){
     FileParser::parse_users((char *)args[1], kids, adults, elders);
@@ -76,34 +78,129 @@ std::vector<float> BoxOffice::get_dependents(){
     return dependents;
 }
 
-std::string BoxOffice::get_dependent_relations(){
+void BoxOffice::get_dependent_relations(){
     std::map<int, Elder>::iterator itr; 
     std::map<int, Adult>::iterator itr2; 
     std::vector<int>::iterator itrChildren; 
-    std::string str;
 
     for (itr = elders.begin(); itr != elders.end(); ++itr) { 
         if(!itr->second.get_children().empty()){
-            str += itr->second.get_name() + "(ID: " + std::to_string(itr->second.get_id()) + "): ";
-            for(auto child: itr->second.get_children()){
-                str += kids[child].get_name(); + "(ID: " + std::to_string(child) + "),";
-            }
+            std::cout << std::setprecision(0) << std::fixed << itr->second.get_name() + "(ID: " << itr->second.get_id() << "): ";
+            for(auto child: itr->second.get_children())
+                std::cout << kids[child].get_name() + "(ID: " << child << "),";
         }
     } 
 
     for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
         if(!itr2->second.get_children().empty()){
-            str += "\n" + itr2->second.get_name() + "(ID: " + std::to_string(itr2->second.get_id()) + "): ";
+            std::cout << std::setprecision(0) << std::fixed << "\n" + itr2->second.get_name() + "(ID: " << itr2->second.get_id() << "): ";
             for(auto child: itr2->second.get_children())
-                str += kids[child].get_name() + "(ID: " + std::to_string(child) + "), ";
-    
+                std::cout << std::setprecision(0) << std::fixed << kids[child].get_name() + "(ID: " << child << "), ";
         }
     }
-    return str;
+    std::cout << std::endl;
 }
 
-std::string BoxOffice::get_event_relations(){
-    return "";
+void BoxOffice::get_event_relations(){
+    std::map<int, Elder>::iterator itr; 
+    std::map<int, Adult>::iterator itr2; 
+
+    for (itr = elders.begin(); itr != elders.end(); ++itr) 
+        if(!itr->second.get_events().empty())
+            std::cout << itr->second.get_name() + "(ID: " << itr->second.get_id() + "): " 
+            << itr->second.get_events().size() << std::endl;
+        
+    for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2)
+        if(!itr2->second.get_events().empty())
+            std::cout << itr2->second.get_name() + "(ID: " << itr2->second.get_id() + "): " 
+            << itr2->second.get_events().size() << std::endl;
+            
+}
+
+void BoxOffice::get_biggest_elder_amount(){
+    std::map<int,Club>::iterator itr;
+    std::map<int,Consert>::iterator itr2;
+    std::string name;
+    std::string id;
+    int max;
+
+    for(itr = clubs.begin(); itr != clubs.end(); ++itr){
+        if(max < itr->second.get_elder_amout()){
+            max = itr->second.get_elder_amout();
+            name = itr->second.get_name();
+            id = std::to_string(itr->second.get_id());
+        }    
+    }
+
+    for(itr2 = conserts.begin(); itr2 != conserts.end(); ++itr2){
+        if(max < itr2->second.get_elder_amout()){
+            max = itr2->second.get_elder_amout();
+            name = itr2->second.get_name();
+            id = std::to_string(itr2->second.get_id());
+        }    
+    }
+    
+    std::cout << name + " (ID: " + id + "): " << max;
+}
+
+void BoxOffice::get_tickets(){
+
+    std::map<float, int> tickets;
+    std::vector<float> prices;
+    std::vector<int> capacity;
+
+    std::map<float, int>::iterator t_itr;
+    std::map<int,PuppetShow>::iterator puppet_itr;
+    std::map<int,MovieTheater>::iterator movie_itr;
+    std::map<int,Consert>::iterator consert_itr;
+    std::map<int,Club>::iterator club_itr;
+
+    for(puppet_itr = puppetShows.begin() ;puppet_itr != puppetShows.end(); ++puppet_itr){
+        prices = puppet_itr->second.get_prices();
+        capacity = puppet_itr->second.get_capacity();
+
+        for (int i = 0; i < puppet_itr->second.get_capacity().size(); i++)
+            tickets[prices[i]] += capacity[i];
+
+        prices.clear();
+        capacity.clear();         
+    }
+
+    for(movie_itr = movieTheaters.begin(); movie_itr != movieTheaters.end(); ++movie_itr){
+        prices = movie_itr->second.get_prices();
+        capacity = movie_itr->second.get_capacity();
+
+        for (int i = 0; i < movie_itr->second.get_capacity().size(); i++)
+            tickets[prices[i]] += capacity[i];
+
+        prices.clear();
+        capacity.clear();         
+    }
+
+    for(consert_itr = conserts.begin() ;consert_itr != conserts.end(); ++consert_itr){
+        prices = consert_itr->second.get_prices();
+        capacity = consert_itr->second.get_capacity();
+
+        for (int i = 0; i < consert_itr->second.get_capacity().size(); i++)
+            tickets[prices[i]] += capacity[i];
+
+        prices.clear();
+        capacity.clear();         
+    }
+
+    for(club_itr = clubs.begin(); club_itr != clubs.end(); ++club_itr){
+        prices = club_itr->second.get_prices();
+        capacity = club_itr->second.get_capacity();
+
+        for (int i = 0; i < club_itr->second.get_capacity().size(); i++)
+            tickets[prices[i]] += capacity[i];
+
+        prices.clear();
+        capacity.clear();   
+    }
+    for (t_itr = tickets.begin() ;t_itr != tickets.end(); ++t_itr)
+        std::cout << "R$:" << t_itr->first << ": " << t_itr->second << std::endl;
+        
 }
 
 void BoxOffice::print_kids(){
@@ -160,7 +257,7 @@ void BoxOffice::print_elders(){
 void BoxOffice::print_clubs(){
     std::map<int, Club>::iterator itr; 
     std::vector<int> capacity;
-    std::vector<int> prices;
+    std::vector<float> prices;
     int id;
     std::string responsible;
 
@@ -200,7 +297,7 @@ void BoxOffice::print_clubs(){
 void BoxOffice::print_conserts(){
     std::map<int, Consert>::iterator itr; 
     std::vector<int> capacity;
-    std::vector<int> prices;
+    std::vector<float> prices;
     std::vector<std::string> artists;
     int id;
     std::string responsible;
@@ -247,7 +344,7 @@ void BoxOffice::print_conserts(){
 void BoxOffice::print_movie_theaters(){
     std::map<int, MovieTheater>::iterator itr; 
     std::vector<int> capacity;
-    std::vector<int> prices;
+    std::vector<float> prices;
     std::vector<int> movieSchedules;
     int id;
     std::string responsible;
@@ -292,7 +389,7 @@ void BoxOffice::print_movie_theaters(){
 void BoxOffice::print_puppet_shows(){
     std::map<int, PuppetShow>::iterator itr; 
     std::vector<int> capacity;
-    std::vector<int> prices;
+    std::vector<float> prices;
     std::vector<int> schedules;
     int id;
     std::string responsible;

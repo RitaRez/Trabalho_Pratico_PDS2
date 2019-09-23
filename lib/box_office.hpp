@@ -45,8 +45,10 @@ class BoxOffice {
 
         std::vector<float> get_ages();
         std::vector<float> get_dependents();
-        std::string get_dependent_relations();
-        std::string get_event_relations();
+        void get_dependent_relations();
+        void get_event_relations();
+        void get_biggest_elder_amount();
+        void get_tickets();
 
         void print_kids();
         void print_adults();

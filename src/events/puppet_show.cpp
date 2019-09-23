@@ -2,7 +2,7 @@
 
 PuppetShow::PuppetShow(){}
 
-PuppetShow::PuppetShow(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+PuppetShow::PuppetShow(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
     std::vector<int> theaterSchedules){
 
     this->id = id;

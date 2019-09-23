@@ -10,7 +10,7 @@ class MovieTheater: public Event {
         int runningTime;
 
     public:
-        MovieTheater(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+        MovieTheater(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
             std::vector<int> movieSchedules, int runningTime);
         
         int get_running_time(){return runningTime;}

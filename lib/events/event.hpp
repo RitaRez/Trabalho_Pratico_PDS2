@@ -13,7 +13,7 @@ class Event {
         std::string category;
         std::string name;
         std::vector<int> capacity;
-        std::vector<int> prices;
+        std::vector<float> prices;
 
     public:  
         int get_id() { return id; }
@@ -21,7 +21,7 @@ class Event {
         std::string get_category() { return category; }
         std::string get_name() { return name; }
         std::vector<int> get_capacity()  { return capacity; }
-        std::vector<int> get_prices()  { return prices; }
+        std::vector<float> get_prices()  { return prices; }
 };
  
 #endif

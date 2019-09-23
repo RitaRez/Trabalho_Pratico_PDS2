@@ -2,7 +2,7 @@
 
 Club::Club(){}
 
-Club::Club(int n_id, std::string n_category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+Club::Club(int n_id, std::string n_category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
     int elderAmount, int startingTime, int endingTime){
 
     this->id = id;

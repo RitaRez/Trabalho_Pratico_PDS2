@@ -2,7 +2,7 @@
 
 
 MovieTheater::MovieTheater(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, 
-    std::vector<int> prices, std::vector<int> movieSchedules, int runningTime){
+    std::vector<float> prices, std::vector<int> movieSchedules, int runningTime){
 
     this->id = id;
     this->category = category;

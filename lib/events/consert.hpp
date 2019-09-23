@@ -11,7 +11,7 @@ class Consert: public AdultEvent {
 
     public:  
         Consert();
-        Consert(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<int> prices,
+        Consert(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
             int elderAmount, int gateOpening, std::vector<std::string> artists);
 
         int get_gate_opening(){return gateOpening;}

@@ -63,7 +63,7 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
     std::vector<std::string> stringEvent = read_file(str);
 
     std::vector<int> capacities;
-    std::vector<int> prices;
+    std::vector<float> prices;
     std::vector<int> schedules;
     std::vector<std::string> artists;
     int gateOpening;
@@ -86,7 +86,7 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
                     if(i % 2 == 0) 
                         capacities.push_back(std::stoi(aux[i]));
                     else 
-                        prices.push_back(std::stoi(aux[i]));
+                        prices.push_back(std::stof(aux[i]));
                 else 
                     schedules.push_back(std::stoi(aux[i]));  
                     if(i == end)
@@ -110,7 +110,7 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
                         if(i % 2 == 0) 
                             capacities.push_back(std::stoi(aux[i]));
                         else 
-                            prices.push_back(std::stoi(aux[i]));
+                            prices.push_back(std::stof(aux[i]));
                     else 
                         schedules.push_back(std::stoi(aux[i]));  
                         if(i == end)
@@ -135,7 +135,7 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
                     if(i % 2 == 0) 
                         capacities.push_back(std::stoi(aux[i]));
                     else 
-                        prices.push_back(std::stoi(aux[i]));
+                        prices.push_back(std::stof(aux[i]));
                 }
                 for (int i = end + 2; i < aux.size(); i++){
                     artists.push_back(aux[i]);
@@ -154,9 +154,9 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
             end = 5 + (std::stoi(aux[4])*2);
             for(int i = 5; i < end; i++){
                 if(i % 2 == 0) 
-                    capacities.push_back(std::stoi(aux[i]));
+                    prices.push_back(std::stoi(aux[i]));
                 else 
-                    prices.push_back(std::stoi(aux[i]));       
+                    capacities.push_back(std::stof(aux[i]));       
             }
             for (int i = end; i < aux.size() - 1; i++)
                 schedules.push_back(std::stoi(aux[i]));

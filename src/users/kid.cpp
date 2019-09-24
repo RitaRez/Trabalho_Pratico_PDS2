@@ -8,7 +8,7 @@ Kid::Kid(int id, std::string category, std::string name, int age, float budget, 
     this->name = name;
     this->age = age;
     this->budget = budget;
-    this->resposible = responsible;
+    this->responsible = responsible;
 }
 
 void Kid::print_kids(std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders){

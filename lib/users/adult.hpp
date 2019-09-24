@@ -2,8 +2,9 @@
 #define ADULT_H
 
 #include "user.hpp"
-#include "elder.hpp"
-#include "kid.hpp"
+
+class Kid;
+class Elder;
 
 class Adult: public User{
     

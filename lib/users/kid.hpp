@@ -2,11 +2,14 @@
 #define KID_H
 
 #include "user.hpp"
+#include "adult.hpp"
+#include "elder.hpp"
+
  
 class Kid: public User{
     
     private:
-        int resposible;
+        int responsible;
 
     public:
         Kid();
@@ -14,7 +17,7 @@ class Kid: public User{
 
         static void print_kids(std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
         
-        int get_responsible(){return resposible;}
+        int get_responsible(){return responsible;}
 };
  
 #endif

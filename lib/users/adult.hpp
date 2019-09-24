@@ -1,8 +1,9 @@
 #ifndef ADULT_H
 #define ADULT_H
 
-class User;
-class Kid;
+#include "user.hpp"
+#include "elder.hpp"
+#include "kid.hpp"
 
 class Adult: public User{
     

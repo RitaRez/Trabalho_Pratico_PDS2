@@ -3,6 +3,8 @@
  
 #include <string>
 #include <vector>
+#include <iostream>
+#include <map>
 
 class User {
         

@@ -1,6 +1,7 @@
 #ifndef ELDER_H
 #define ELDER_H
  
+#include "kid.hpp"
 #include "adult.hpp"
 
 class Elder: public Adult{

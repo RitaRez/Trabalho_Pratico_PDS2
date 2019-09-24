@@ -1,9 +1,5 @@
-#include "../../lib/users/kid.hpp"
 #include "../../lib/users/adult.hpp"
-#include "../../lib/users/elder.hpp"
 
-#include <iostream>
-#include <map>
 
 Adult::Adult(){}
 

@@ -1,5 +1,5 @@
 #ifndef BOXOFFICE_H
-#define BOXOFFICE_
+#define BOXOFFICE_H
 
 #include <vector>
 #include <map>
@@ -46,11 +46,6 @@ class BoxOffice {
         void get_event_relations();
         void get_biggest_elder_amount();
         void get_tickets();
-
-        void print_clubs();
-        void print_conserts();
-        void print_puppet_shows();
-        void print_movie_theaters();
 };
 
 #endif

@@ -47,9 +47,6 @@ class BoxOffice {
         void get_biggest_elder_amount();
         void get_tickets();
 
-        void print_kids();
-        void print_adults();
-        void print_elders();
         void print_clubs();
         void print_conserts();
         void print_puppet_shows();

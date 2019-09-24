@@ -63,10 +63,7 @@ int main(int argc, const char** argv) {
 
     BoxOffice *boxOffice = new BoxOffice(argv);
     output(*boxOffice);
-    // boxOffice.print_adults();
-    // boxOffice.print_elders();
-    //boxOffice.print_movie_theaters();
-
     delete(boxOffice);
+    
     return 0;
 }

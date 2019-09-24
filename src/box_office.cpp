@@ -197,57 +197,6 @@ void BoxOffice::get_tickets(){
         
 }
 
-void BoxOffice::print_kids(){
-    std::map<int, Kid>::iterator itr; 
-    int id;
-    std::string responsible;
-    
-    for (itr = kids.begin(); itr != kids.end(); ++itr) { 
-        id = itr->second.get_responsible();
-        
-        if(adults.find(id) != adults.end())
-            responsible = adults[id].get_name();
-        else 
-            responsible = elders[id].get_name();
-                
-        std::cout 
-            << "\nId: " << itr->second.get_id() 
-            << "\nName:" << itr->second.get_name() 
-            << "\nAge:" << itr->second.get_age() 
-            << "\nBudget:" << itr->second.get_budget() 
-            << "\nResponsible's name:" << responsible
-        << std::endl; 
-    } 
-}
-
-void BoxOffice::print_adults(){
-    std::map<int, Adult>::iterator itr; 
-    int id;
-    
-    for (itr = adults.begin(); itr != adults.end(); ++itr) {
-        std::cout 
-            << "\nId: " << itr->second.get_id() 
-            << "\nName:" << itr->second.get_name() 
-            << "\nAge:" << itr->second.get_age() 
-            << "\nBudget:" << itr->second.get_budget()
-        << std::endl; 
-    } 
-}
-
-void BoxOffice::print_elders(){
-    std::map<int, Elder>::iterator itr; 
-    int id;
-    
-    for (itr = elders.begin(); itr != elders.end(); ++itr) {
-        std::cout 
-            << "\nId: " << itr->second.get_id() 
-            << "\nName:" << itr->second.get_name() 
-            << "\nAge:" << itr->second.get_age() 
-            << "\nBudget:" << itr->second.get_budget()
-        << std::endl; 
-    } 
-}
-
 void BoxOffice::print_clubs(){
     std::map<int, Club>::iterator itr; 
     std::vector<int> capacity;

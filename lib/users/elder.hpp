@@ -11,7 +11,7 @@ class Elder: public Adult{
         Elder();
         Elder(int id, std::string category, std::string name, int age, float budget);
 
-        void print();
+        static void print_elders(std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
 };
  
 #endif

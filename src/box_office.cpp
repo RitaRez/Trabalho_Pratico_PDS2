@@ -107,12 +107,12 @@ void BoxOffice::get_event_relations(){
 
     for (itr = elders.begin(); itr != elders.end(); ++itr) 
         if(!itr->second.get_events().empty())
-            std::cout << itr->second.get_name() + "(ID: " << itr->second.get_id() + "): " 
+            std::cout << itr->second.get_name() << "(ID: " << itr->second.get_id() << "): " 
             << itr->second.get_events().size() << std::endl;
         
     for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2)
         if(!itr2->second.get_events().empty())
-            std::cout << itr2->second.get_name() + "(ID: " << itr2->second.get_id() + "): " 
+            std::cout << itr2->second.get_name() << "(ID: " << itr2->second.get_id() << "): " 
             << itr2->second.get_events().size() << std::endl;
             
 }

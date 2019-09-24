@@ -14,6 +14,6 @@ In case lib folder isnt empty run 'make clean'
 
 To run the already compiled code run 'make run'
 
-###Check memory leaks
+### Check memory leaks
 
 To run the code and check any possible memory leaks run 'make mem'

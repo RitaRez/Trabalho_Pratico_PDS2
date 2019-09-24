@@ -56,21 +56,17 @@ void output(BoxOffice boxOffice){
 }
 
 int main(int argc, const char** argv) {
-    
-    std::vector<std::string> usersArray;
-    std::vector<std::string> eventsArray;
-
     if(argc != 3) {
         std::cerr << "There arent enough arguments\n";
         exit(1);
     }
 
-    BoxOffice boxOffice(argv);
-
-    output(boxOffice);
+    BoxOffice *boxOffice = new BoxOffice(argv);
+    output(*boxOffice);
     // boxOffice.print_adults();
     // boxOffice.print_elders();
     //boxOffice.print_movie_theaters();
 
+    delete(boxOffice);
     return 0;
 }

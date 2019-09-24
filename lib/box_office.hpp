@@ -20,9 +20,6 @@
 class BoxOffice {
     
     private:
-        std::vector<std::string> stringUser;
-        std::vector<std::string> stringEvent;
-
         std::map<int, Kid> kids;
         std::map<int, Adult> adults;
         std::map<int, Elder> elders;

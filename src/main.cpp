@@ -7,7 +7,7 @@
 #include <vector> 
 #include <map> 
 
-#include "./lib/box_office.hpp"
+#include "../lib/box_office.hpp"
 
 
 

@@ -8,7 +8,8 @@ LIB_PATH=./lib
 DATA_PATH=./data
 
 SOURCE_EXT := cpp
-SOURCES := $(shell find $(SOURCE_PATH) -path '*.$(SOURCE_EXT)')
+SOURCES := $(shell find $(SOURCE_PATH) -path '*.$(SOURCE_EXT)' ! -name "main.cpp")
+
 OBJECTS := $(patsubst $(SOURCE_PATH)/%,$(BUILD_PATH)/%,$(SOURCES:.$(SOURCE_EXT)=.o))
 
 all: $(TARGET_NAME)
@@ -19,7 +20,7 @@ $(BUILD_PATH)/%.o: $(SOURCE_PATH)/%.cpp $(LIB_PATH)/%.hpp
 
 $(TARGET_NAME): $(OBJECTS)
 	mkdir -p $(BUILD_PATH)
-	$(CC) -o $(BUILD_PATH)/$(TARGET_NAME) main.cpp $(OBJECTS)
+	$(CC) -o $(BUILD_PATH)/$(TARGET_NAME) $(SOURCE_PATH)/main.cpp $(OBJECTS)
 
 clean:
 	rm -rf $(BUILD_PATH)/*

@@ -10,28 +10,28 @@
 #include "../lib/box_office.hpp"
 
 
-
 void output(BoxOffice boxOffice){
-    std::vector<float> age = boxOffice.get_ages();
-    std::vector<float> dependent = boxOffice.get_dependents();
+    float max,min,avarage;
 
     std::cout 
         << "Número de usuários:" << std::endl
         << "Crianças: " << boxOffice.get_kids().size() << std::endl 
         << "Adultos: " << boxOffice.get_adults().size() + boxOffice.get_elders().size() << std::endl 
         << "Idosos: " << boxOffice.get_elders().size() << std::endl; 
-        
+    
+    boxOffice.get_ages(&max,&min,&avarage);        
     std::cout << std::endl
         << "Idade dos usuários:" << std::endl
-        << "Mínimo: " << age[0] << std::endl
-        << "Máximo: " << age[1] << std::endl
-        << "Média: " << std::setprecision(2) << std::fixed << age[2] << std::endl;
+        << "Mínimo: " << max << std::endl
+        << "Máximo: " << min << std::endl
+        << "Média: " << std::setprecision(2) << std::fixed << avarage << std::endl;
 
+    boxOffice.get_dependents(&max,&min,&avarage);        
     std::cout << std::endl
         << "Número de dependentes:" << std::endl << std::setprecision(0) << std::fixed
-        << "Mínimo: " << dependent[0] << std::endl
-        << "Máximo: " << dependent[1] << std::endl
-        << "Média: " << std::setprecision(2) << std::fixed << dependent[2] << std::endl;
+        << "Mínimo: " << max << std::endl
+        << "Máximo: " << min << std::endl
+        << "Média: " << std::setprecision(2) << std::fixed << avarage << std::endl;
 
     std::cout << std::endl << "Dependentes:"; 
     boxOffice.get_dependent_relations();

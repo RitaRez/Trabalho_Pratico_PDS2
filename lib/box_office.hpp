@@ -43,9 +43,8 @@ class BoxOffice {
         std::map<int, Consert> get_conserts(){return conserts;}
         std::map<int, Club> get_clubs(){return clubs;}
 
-        std::vector<float> get_ages();
-        std::vector<float> get_dependents();
-        
+        void get_ages (float *max, float *min, float *avarage);
+        void get_dependents(float *max, float *min, float *avarage);
         void get_dependent_relations();
         void get_event_relations();
         void get_biggest_elder_amount();

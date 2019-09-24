@@ -8,74 +8,68 @@ BoxOffice::BoxOffice(const char** args){
     FileParser::parse_events((char *)args[2], clubs, conserts, puppetShows, movieTheaters, adults, elders);
 }
 
-std::vector<float> BoxOffice::get_ages(){
+void BoxOffice::get_ages(float *max, float *min, float *avarage){
     std::map<int, Kid>::iterator itr; 
     std::map<int, Adult>::iterator itr2; 
     std::map<int, Elder>::iterator itr3; 
-
-    std::vector<float> ages; 
-    float min, max = 0, avarage = 0;
+    
+    *max = 0;
+    *avarage = 0;
     int userCount = kids.size() + adults.size() + elders.size();
     
     for (itr = kids.begin(); itr != kids.end(); ++itr) { 
-        if(avarage == 0)
-            min = itr->second.get_age();
-        if(itr->second.get_age() < min)
-            min = itr->second.get_age();
-        if(itr->second.get_age() > max)
-            max = itr->second.get_age();
-        avarage += itr->second.get_age();    
+        if(*avarage == 0)
+            *min = itr->second.get_age();
+        if(itr->second.get_age() < *min)
+            *min = itr->second.get_age();
+        if(itr->second.get_age() > *max)
+            *max = itr->second.get_age();
+        *avarage += itr->second.get_age();    
     } 
 
     for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
-        if(itr2->second.get_age() < min)
-            min = itr2->second.get_age();
-        if(itr2->second.get_age() > max)
-            max = itr2->second.get_age();
-        avarage += itr2->second.get_age();    
+        if(itr2->second.get_age() < *min)
+            *min = itr2->second.get_age();
+        if(itr2->second.get_age() > *max)
+            *max = itr2->second.get_age();
+        *avarage += itr2->second.get_age();    
     } 
     for (itr3 = elders.begin(); itr3 != elders.end(); ++itr3) { 
-        if(itr3->second.get_age() < min)
-            min = itr3->second.get_age();
-        if(itr3->second.get_age() > max)
-            max = itr3->second.get_age();
-        avarage += itr3->second.get_age();    
+        if(itr3->second.get_age() < *min)
+            *min = itr3->second.get_age();
+        if(itr3->second.get_age() > *max)
+            *max = itr3->second.get_age();
+        *avarage += itr3->second.get_age();    
     }    
-    avarage = avarage/userCount;
-    ages = {min, max, avarage};
-    return ages;
 }
 
-std::vector<float> BoxOffice::get_dependents(){
+void BoxOffice::get_dependents(float *max, float *min, float *avarage){
     std::map<int, Elder>::iterator itr; 
     std::map<int, Adult>::iterator itr2; 
 
-    std::vector<float> dependents; 
-    float min = elders.begin()->second.get_children().size(), max = 0, avarage = 0;
+    *min = elders.begin()->second.get_children().size(), 
+    *max = 0, 
+    *avarage = 0;
     int userCount = adults.size() + elders.size();
     int size = 0;
 
     for (itr = elders.begin(); itr != elders.end(); ++itr) { 
         if(!itr->second.get_children().empty())
             size = itr->second.get_children().size();
-        if(size < min)
-            min = size;
-        if(size > max)
-            max = size;
-
+        if(size < *min)
+            *min = size;
+        if(size > *max)
+            *max = size;
     } 
 
     for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
         if(!itr2->second.get_children().empty())
             size = itr2->second.get_children().size();
-        if(size < min)
-           min = size;
-        if(size > max)
-            max = size;
+        if(size < *min)
+           *min = size;
+        if(size > *max)
+            *max = size;
     }
-    avarage = (float)kids.size()/userCount;
-    dependents = {min, max, avarage};
-    return dependents;
 }
 
 void BoxOffice::get_dependent_relations(){

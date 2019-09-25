@@ -10,7 +10,7 @@ Elder::Elder(int id, std::string category, std::string name, int age, float budg
     this->budget = budget;
 }
 
-void Elder::print_elders(std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
+void Elder::print_elders(std::map<int,Elder>& elders){
     std::map<int, Elder>::iterator itr; 
     int id;
     
@@ -21,5 +21,7 @@ void Elder::print_elders(std::map<int,Kid>& kids, std::map<int,Adult>& adults, s
             << "\nAge:" << itr->second.get_age() 
             << "\nBudget:" << itr->second.get_budget()
         << std::endl; 
+
+        
     } 
 }

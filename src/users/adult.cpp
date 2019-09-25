@@ -16,7 +16,7 @@ void Adult::add_children(int kid){
     children.push_back(kid);
 }
 
-void Adult::print_adults(std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
+void Adult::print_adults(std::map<int,Adult>& adults){
     std::map<int, Adult>::iterator itr; 
     int id;
     

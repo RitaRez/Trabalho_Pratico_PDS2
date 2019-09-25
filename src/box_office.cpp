@@ -81,7 +81,7 @@ void BoxOffice::get_dependent_relations(){
 
     for (itr = elders.begin(); itr != elders.end(); ++itr) { 
         if(!itr->second.get_children().empty()){
-            std::cout << std::setprecision(0) << std::fixed << itr->second.get_name() + "(ID: " << itr->second.get_id() << "): ";
+            std::cout << itr->second.get_name() + "(ID: " << itr->second.get_id() << "): ";
             for(auto child: itr->second.get_children())
                 std::cout << kids[child].get_name() + "(ID: " << child << "),";
         }
@@ -89,9 +89,9 @@ void BoxOffice::get_dependent_relations(){
 
     for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
         if(!itr2->second.get_children().empty()){
-            std::cout << std::setprecision(0) << std::fixed << "\n" + itr2->second.get_name() + "(ID: " << itr2->second.get_id() << "): ";
+            std::cout << "\n" + itr2->second.get_name() + "(ID: " << itr2->second.get_id() << "): ";
             for(auto child: itr2->second.get_children())
-                std::cout << std::setprecision(0) << std::fixed << kids[child].get_name() + "(ID: " << child << "), ";
+                std::cout << kids[child].get_name() + "(ID: " << child << "), ";
         }
     }
     std::cout << std::endl;

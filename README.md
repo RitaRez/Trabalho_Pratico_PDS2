@@ -1,6 +1,6 @@
 # Trabalho_Pratico_PDS2
 
-This project was made for a college discipline about software develpoment.
+This project was made for a college discipline about software development.
 
 ## Run and compile commands
 

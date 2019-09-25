@@ -41,6 +41,7 @@ void BoxOffice::get_ages(float *max, float *min, float *avarage){
             *max = itr3->second.get_age();
         *avarage += itr3->second.get_age();    
     }    
+    *avarage = *avarage/userCount;
 }
 
 void BoxOffice::get_dependents(float *max, float *min, float *avarage){
@@ -70,6 +71,7 @@ void BoxOffice::get_dependents(float *max, float *min, float *avarage){
         if(size > *max)
             *max = size;
     }
+    *avarage = (float)kids.size()/userCount;
 }
 
 void BoxOffice::get_dependent_relations(){

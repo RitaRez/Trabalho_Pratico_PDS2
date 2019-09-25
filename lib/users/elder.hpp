@@ -1,6 +1,7 @@
 #ifndef ELDER_H
 #define ELDER_H
  
+#include "kid.hpp"
 #include "adult.hpp"
 
 class Elder: public Adult{
@@ -11,7 +12,7 @@ class Elder: public Adult{
         Elder();
         Elder(int id, std::string category, std::string name, int age, float budget);
 
-        void print();
+        static void print_elders(std::map<int,Elder>& elders);
 };
  
 #endif

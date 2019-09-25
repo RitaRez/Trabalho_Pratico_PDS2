@@ -13,7 +13,6 @@ std::vector<std::string> FileParser::read_file(std::string fileName){
     std::vector<std::string> objectsArray;
     std::ifstream inFile;
 
-
     inFile.open(fileName);
     if (!inFile) {
         std::cerr << "Unable to open file\n";

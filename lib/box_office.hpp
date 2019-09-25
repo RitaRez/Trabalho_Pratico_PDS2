@@ -1,5 +1,5 @@
 #ifndef BOXOFFICE_H
-#define BOXOFFICE_
+#define BOXOFFICE_H
 
 #include <vector>
 #include <map>
@@ -20,9 +20,6 @@
 class BoxOffice {
     
     private:
-        std::vector<std::string> stringUser;
-        std::vector<std::string> stringEvent;
-
         std::map<int, Kid> kids;
         std::map<int, Adult> adults;
         std::map<int, Elder> elders;
@@ -43,21 +40,12 @@ class BoxOffice {
         std::map<int, Consert> get_conserts(){return conserts;}
         std::map<int, Club> get_clubs(){return clubs;}
 
-        std::vector<float> get_ages();
-        std::vector<float> get_dependents();
-        
+        void get_ages (float *max, float *min, float *avarage);
+        void get_dependents(float *max, float *min, float *avarage);
         void get_dependent_relations();
         void get_event_relations();
         void get_biggest_elder_amount();
         void get_tickets();
-
-        void print_kids();
-        void print_adults();
-        void print_elders();
-        void print_clubs();
-        void print_conserts();
-        void print_puppet_shows();
-        void print_movie_theaters();
 };
 
 #endif

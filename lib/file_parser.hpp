@@ -1,5 +1,5 @@
 #ifndef FILEPARSER_H
-#define FILEPARSER_
+#define FILEPARSER_H
 
 #include <vector> 
 #include <map> 

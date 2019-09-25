@@ -17,7 +17,6 @@ class Consert: public AdultEvent {
             int elderAmount, int gateOpening, std::vector<std::string> artists);
 
         static void print_conserts(std::map<int,Consert>& conserts, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
-
         
         int get_gate_opening(){return gateOpening;}
         std::vector<std::string> get_artists(){return artists;} 

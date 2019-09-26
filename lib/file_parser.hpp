@@ -21,10 +21,10 @@ class FileParser{
     private:
         std::vector<std::string> static read_file(std::string fileName);
         
-        PuppetShow static *add_puppet_show(std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<int> theaterSchedules);   
-        Club static *add_club(std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices);
-        Consert static *add_consert(std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<std::string> artists);
-        MovieTheater static *add_movie_theater(std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<int> theaterSchedules);
+        void static add_puppet_show(std::map<int,PuppetShow>& puppetShows,std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<int> theaterSchedules);   
+        void static add_club(std::map<int,Club>& clubs, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices);
+        void static add_consert(std::map<int,Consert>& conserts, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<std::string> artists);
+        void static add_movie_theater(std::map<int,MovieTheater>& movieTheaters, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<int> theaterSchedules);
      
     public:
         void static parse_events(char *str, std::map<int,Club>& clubs, std::map<int,Consert>& conserts, std::map<int,PuppetShow>& puppet_shows, std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders);

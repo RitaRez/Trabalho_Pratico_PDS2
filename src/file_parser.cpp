@@ -28,9 +28,11 @@ std::vector<std::string> FileParser::read_file(std::string fileName){
     return objectsArray;
 }
 
-void FileParser::add_puppet_show(std::map<int,PuppetShow>& puppetShows, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<int> schedules){   
-    
+void FileParser::add_puppet_show(std::map<int,PuppetShow>& puppetShows, std::vector<std::string> &objs){   
+    std::vector<int> capacity, schedules;
+    std::vector<float> prices;   
     int end = 6 + (std::stoi(objs[5])*2);
+
     for(int i = 6; i < objs.size(); i++){
         if(i < end)
             if(i % 2 == 0) 
@@ -41,11 +43,13 @@ void FileParser::add_puppet_show(std::map<int,PuppetShow>& puppetShows, std::vec
             schedules.push_back(std::stoi(objs[i]));  
              
     }
-    PuppetShow *ps = new PuppetShow(std::stoi(objs[0]), objs[2], objs[3], std::stoi(objs[4]), capacity, prices, schedules);
-    puppetShows.insert({ps->get_id(), *ps});
+    PuppetShow ps(std::stoi(objs[0]), objs[2], objs[3], std::stoi(objs[4]), capacity, prices, schedules);
+    puppetShows.insert({ps.get_id(), ps});
 }
 
-void FileParser::add_club(std::map<int,Club>& clubs, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices){   
+void FileParser::add_club(std::map<int,Club>& clubs, std::vector<std::string>& objs){   
+    std::vector<int> capacity;    
+    std::vector<float> prices;    
     int end = 6 + (std::stoi(objs[5])*2);
     
     for(int i = 6; i < objs.size(); i++){
@@ -60,8 +64,12 @@ void FileParser::add_club(std::map<int,Club>& clubs, std::vector<std::string> ob
     clubs.insert({c->get_id(), *c});
 }
 
-void FileParser::add_consert(std::map<int,Consert>& conserts, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<std::string> artists){
+void FileParser::add_consert(std::map<int,Consert>& conserts, std::vector<std::string>& objs){
+    std::vector<float> prices;    
+    std::vector<int> capacity;
+    std::vector<std::string> artists;
     int end = 6 + (std::stoi(objs[5])*2);
+
     for(int i = 6; i < end; i++){
         if(i % 2 == 0) 
             capacity.push_back(std::stoi(objs[i]));
@@ -76,7 +84,9 @@ void FileParser::add_consert(std::map<int,Consert>& conserts, std::vector<std::s
     conserts.insert({c->get_id(), *c});
 }
 
-void FileParser::add_movie_theater(std::map<int,MovieTheater>& movieTheaters, std::vector<std::string> objs, std::vector<int> capacity, std::vector<float> prices, std::vector<int> schedules){
+void FileParser::add_movie_theater(std::map<int,MovieTheater>& movieTheaters, std::vector<std::string>& objs){
+    std::vector<int> capacity, schedules;
+    std::vector<float> prices;
     int end = 5 + (std::stoi(objs[4])*2);
     
     for(int i = 5; i < end; i++){
@@ -94,10 +104,7 @@ void FileParser::add_movie_theater(std::map<int,MovieTheater>& movieTheaters, st
 }
 
 void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int,Consert>& conserts, std::map<int,PuppetShow>& puppetShows, std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
-    std::vector<std::string> stringEvent = read_file(str), aux, artists;
-    std::vector<int> capacities, schedules;
-    std::vector<float> prices;
-    int gateOpening; 
+    std::vector<std::string> stringEvent = read_file(str), aux;
     
     for(std::string str : stringEvent){
         std::stringstream ss(str);
@@ -107,35 +114,31 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
             aux.push_back(token);
                      
         if(aux[1].compare("infantil") == 0){         
-            add_puppet_show(puppetShows,aux, capacities, prices, schedules);            
-            
-            if(adults.find(std::stoi(aux[4])) != adults.end())       adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
-            else if(elders.find(std::stoi(aux[4])) != elders.end())  elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
-        
+            add_puppet_show(puppetShows,aux);            
+            if(adults.find(std::stoi(aux[4])) != adults.end())       
+                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+            else if(elders.find(std::stoi(aux[4])) != elders.end())  
+                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
         } else if(aux[1].compare("adulto") == 0 && aux[2].compare("boate") == 0){   
-            add_club(clubs, aux,capacities,prices);
-
-            if(adults.find(std::stoi(aux[4])) != adults.end())        adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
-            else if(elders.find(std::stoi(aux[4])) != elders.end())   elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
-
+            add_club(clubs, aux);
+            if(adults.find(std::stoi(aux[4])) != adults.end())        
+                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+            else if(elders.find(std::stoi(aux[4])) != elders.end())   
+                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
         } else if (aux[1].compare("adulto") == 0 && aux[2].compare("show") == 0){
-            add_consert(conserts, aux, capacities,prices,artists);            
-            
-            if(adults.find(std::stoi(aux[4])) != adults.end())        adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
-            else if(elders.find(std::stoi(aux[4])) != elders.end())   elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
-        
+            add_consert(conserts, aux);                
+            if(adults.find(std::stoi(aux[4])) != adults.end())        
+                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+            else if(elders.find(std::stoi(aux[4])) != elders.end())   
+                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
         } else {    
-            add_movie_theater(movieTheaters, aux,capacities,prices,schedules);
-            
-            if(adults.find(std::stoi(aux[3])) != adults.end())        adults[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
-            else if(elders.find(std::stoi(aux[3])) != elders.end())   elders[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
-
+            add_movie_theater(movieTheaters, aux);            
+            if(adults.find(std::stoi(aux[3])) != adults.end())        
+                adults[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
+            else if(elders.find(std::stoi(aux[3])) != elders.end())   
+                elders[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
         }
         aux.clear();
-        capacities.clear();
-        prices.clear();
-        schedules.clear();
-        artists.clear();
     } 
 }
 

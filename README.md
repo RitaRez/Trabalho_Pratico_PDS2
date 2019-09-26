@@ -8,7 +8,7 @@ This project was made for a college discipline about software development.
 ### Build
 
 Run `make` on the root folder to compile all the library and source files. 
-In case lib folder isnt empty run 'make clean'
+In case lib folder isnt empty run `make clean`
 
 ### Run
 

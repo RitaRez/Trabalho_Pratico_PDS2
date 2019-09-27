@@ -13,6 +13,7 @@ In case lib folder isnt empty run `make clean`
 ### Run
 
 To run the already compiled code run `make run`
+To use the make file, put the output files in the data folder, you can change the file names on line 32 or stick with the original file names 'users.csv' and 'events.csv'
 
 ### Check memory leaks
 

@@ -116,15 +116,15 @@ void BoxOffice::get_event_relations(){
 void BoxOffice::get_biggest_elder_amount(){
     std::map<int,Club>::iterator itr;
     std::map<int,Consert>::iterator itr2;
-    std::string name;
-    std::string id;
-    int max;
+    std::string name = "";
+    int id;
+    int max = 0;
 
     for(itr = clubs.begin(); itr != clubs.end(); ++itr){
         if(max < itr->second.get_elder_amout()){
             max = itr->second.get_elder_amout();
             name = itr->second.get_name();
-            id = std::to_string(itr->second.get_id());
+            id = itr->second.get_id();
         }    
     }
 
@@ -132,11 +132,11 @@ void BoxOffice::get_biggest_elder_amount(){
         if(max < itr2->second.get_elder_amout()){
             max = itr2->second.get_elder_amout();
             name = itr2->second.get_name();
-            id = std::to_string(itr2->second.get_id());
+            id = itr2->second.get_id();
         }    
     }
     
-    std::cout << name + " (ID: " + id + "): " << max;
+    std::cout << name + " (ID: " << id << "): " << max;
 }
 
 void BoxOffice::get_tickets(){

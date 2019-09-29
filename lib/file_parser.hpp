@@ -21,10 +21,10 @@ class FileParser{
     private:
         std::vector<std::string> static read_file(std::string fileName);
         
-        void static add_puppet_show(std::map<int,PuppetShow>& puppetShows,std::vector<std::string> &objs);   
-        void static add_club(std::map<int,Club>& clubs, std::vector<std::string>& objs);
-        void static add_consert(std::map<int,Consert>& conserts, std::vector<std::string>& objs);
-        void static add_movie_theater(std::map<int,MovieTheater>& movieTheaters, std::vector<std::string>& objs);
+        PuppetShow static *create_puppet_show(std::vector<std::string> objs);   
+        Club static *create_club(std::vector<std::string> objs);
+        Consert static *create_consert(std::vector<std::string> objs);
+        MovieTheater static *create_movie_theater(std::vector<std::string> objs);
      
     public:
         void static parse_events(char *str, std::map<int,Club>& clubs, std::map<int,Consert>& conserts, std::map<int,PuppetShow>& puppet_shows, std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders);

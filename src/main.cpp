@@ -63,5 +63,6 @@ int main(int argc, const char** argv) {
 
     BoxOffice *boxOffice = new BoxOffice(argv);
     output(boxOffice);
+    delete(boxOffice);
     return 0;
 }

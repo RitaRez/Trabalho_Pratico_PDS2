@@ -12,7 +12,7 @@ In case lib folder isnt empty run `make clean`
 ### Run
 
 To run the already compiled code run `make run`
-To use the make file, put the output files in the data folder, you can change the file names on line 32 or stick with the original file names 'users.csv' and 'events.csv'
+To use the make file, put the output files in the data folder, you can change the file names on line 32 of the makefile or stick with the original file names 'users.csv' and 'events.csv'
 
 ### Check memory leaks
 
@@ -20,4 +20,4 @@ To run the code and check any possible memory leaks run `make mem`
 
 ## File Structure
 
-The code is devided in two folders, lib and src. Lib contains header files with the declaration of all classes and src contains class functions. The code also has a data folder that contains the csv inputs. 
+The code is divided in two folders, lib and src. Lib contains header files with the declaration of all classes and src contains class functions. The code also has a data folder that contains the csv inputs. 

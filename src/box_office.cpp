@@ -77,39 +77,63 @@ void BoxOffice::get_dependents(float *max, float *min, float *avarage){
 void BoxOffice::get_dependent_relations(){
     std::map<int, Elder>::iterator itr; 
     std::map<int, Adult>::iterator itr2; 
+    std::map<int, std::string>::iterator itr3;
     std::vector<int>::iterator itrChildren; 
+    std::map<int, std::string> out;
+    std::string str;
 
     for (itr = elders.begin(); itr != elders.end(); ++itr) { 
+        str = "";
         if(!itr->second.get_children().empty()){
-            std::cout << itr->second.get_name() + "(ID: " << itr->second.get_id() << "): ";
+            str += itr->second.get_name() + " (ID: " + std::to_string(itr->second.get_id()) + "): ";
             for(auto child: itr->second.get_children())
-                std::cout << kids[child].get_name() + "(ID: " << child << "),";
+                str+= kids[child].get_name() + " (ID: " + std::to_string(child) + "),";
         }
+        out[itr->second.get_id()] = str;
     } 
 
     for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2) { 
+        str = "";
         if(!itr2->second.get_children().empty()){
-            std::cout << "\n" + itr2->second.get_name() + "(ID: " << itr2->second.get_id() << "): ";
+            str += "\n" +  itr2->second.get_name() + " (ID: " + std::to_string(itr2->second.get_id()) + "): ";
             for(auto child: itr2->second.get_children())
-                std::cout << kids[child].get_name() + "(ID: " << child << "), ";
+                str += kids[child].get_name() + " (ID: " + std::to_string(child) + "), ";
         }
+        out[itr2->second.get_id()] = str;
     }
-    std::cout << std::endl;
+
+    for(itr3 = out.begin(); itr3 != out.end(); ++itr3)
+        std::cout << itr3->second;
+
+    std::cout << std::endl;    
 }
 
 void BoxOffice::get_event_relations(){
     std::map<int, Elder>::iterator itr; 
     std::map<int, Adult>::iterator itr2; 
+    std::map<int, std::string>::iterator itr3;
+    std::map<int, std::string> out;
+    std::string str;
 
-    for (itr = elders.begin(); itr != elders.end(); ++itr) 
-        if(!itr->second.get_events().empty())
-            std::cout << itr->second.get_name() << "(ID: " << itr->second.get_id() << "): " 
-            << itr->second.get_events().size() << std::endl;
-        
-    for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2)
-        if(!itr2->second.get_events().empty())
-            std::cout << itr2->second.get_name() << "(ID: " << itr2->second.get_id() << "): " 
-            << itr2->second.get_events().size() << std::endl;
+    for (itr = elders.begin(); itr != elders.end(); ++itr){
+        if(!itr->second.get_events().empty()){
+            str = "";
+            str += itr->second.get_name() + " (ID: " + std::to_string(itr->second.get_id()) + "): " 
+                + std::to_string(itr->second.get_events().size());
+            out.insert({itr->second.get_id(), str});    
+        }    
+    }    
+    for (itr2 = adults.begin(); itr2 != adults.end(); ++itr2){
+        if(!itr2->second.get_events().empty()){
+            str = "";
+            str += itr2->second.get_name() + " (ID: " + std::to_string(itr2->second.get_id()) + "): " 
+                + std::to_string(itr2->second.get_events().size());
+            out.insert({itr2->second.get_id(), str});    
+        }
+    }    
+
+    for(itr3 = out.begin(); itr3 != out.end(); ++itr3)
+        std::cout << itr3->second << std::endl;
             
 }
 
@@ -195,6 +219,6 @@ void BoxOffice::get_tickets(){
         capacity.clear();   
     }
     for (t_itr = tickets.begin() ;t_itr != tickets.end(); ++t_itr)
-        std::cout << "R$:" << t_itr->first << ": " << t_itr->second << std::endl;
+        std::cout << "R$" << t_itr->first << ": " << t_itr->second << std::endl;
         
 }

@@ -14,7 +14,6 @@ class MovieTheater: public Event {
     public:
         MovieTheater(int id, std::string category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
             std::vector<int> movieSchedules, int runningTime);
-        
         static void print_movie_theaters(std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
 
         int get_running_time(){return runningTime;}

@@ -31,7 +31,7 @@ class BoxOffice {
     
     public:
         BoxOffice(const char** args);
-
+        
         std::map<int, Kid> get_kids(){return kids;}
         std::map<int, Adult> get_adults(){return adults;}
         std::map<int, Elder> get_elders(){return elders;}

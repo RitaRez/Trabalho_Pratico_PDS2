@@ -10,6 +10,8 @@
 std::vector<std::string> FileParser::read_file(std::string fileName){
     
     std::string object;
+    std::string endLine;
+    int num = 48;
     std::vector<std::string> objectsArray;
     std::ifstream inFile;
 
@@ -21,7 +23,10 @@ std::vector<std::string> FileParser::read_file(std::string fileName){
 
     while(!inFile.eof()){
         getline(inFile, object);
-        objectsArray.push_back(object);
+        if((int)object[0] == num){
+            objectsArray.push_back(object);
+        }
+        num++;
     }
     inFile.close();
 

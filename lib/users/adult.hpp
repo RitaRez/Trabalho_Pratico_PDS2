@@ -15,7 +15,7 @@ class Adult: public User{
         Adult();
         Adult(int id, std::string category, std::string name, int age, float budget);
 
-        static void print_adults(std::map<int,Adult>& adults);
+        static void print_adults(std::map<int,Adult> adults);
 
         std::vector<int> get_children(){return children;}
         void add_children(int kid);

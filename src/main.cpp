@@ -6,8 +6,13 @@
 #include <iterator>
 #include <vector> 
 #include <map> 
+#include <stdlib.h>
 
 #include "../lib/box_office.hpp"
+#include "../lib/exceptions/data_not_loaded_exception.hpp"
+#include "../lib/users/kid.hpp"
+#include "../lib/users/adult.hpp"
+#include "../lib/users/elder.hpp"
 
 
 void output(BoxOffice *boxOffice){
@@ -55,14 +60,70 @@ void output(BoxOffice *boxOffice){
     boxOffice->get_tickets();
 }
 
+void print_users(BoxOffice *boxOffice){
+    if(boxOffice == nullptr){
+        system("clear");  
+        throw DataNotLoadedException("Imprimir usuários e ventos", "Você não pode exibir usuários pois eles ainda não foram carregados!");
+    } else {
+        std::cout << "\n\nUsuarios: " << std::endl;
+        Elder::print_elders(boxOffice->get_elders());
+        Adult::print_adults(boxOffice->get_adults());
+        Kid::print_kids(boxOffice->get_kids(),boxOffice->get_adults(), boxOffice->get_elders());
+    }
+    std::cout << "\n\nPressione alguma tecla para voltar ao menu principal!" << std::endl;
+    char c;
+    std::cin >> c;
+    system("clear"); 
+
+}
+
+int menu_text(){
+    int op;
+    std::cout << "\nSISTEMA DE VENDA DE INGRESSOS\n" << std::endl;
+    std::cout << "Favor escolher uma das opções abaixo:" << std::endl;
+
+    std::cout << "\t1. Carregar usuarios e eventos" << std::endl;
+    std::cout << "\t2. Exibir usuarios cadastrados" << std::endl;
+    std::cout << "\t3. Comprar ingressos" << std::endl;
+    std::cout << "\t4. Sair" << std::endl;
+    
+    std::cout << "Opção: ";
+    std::cin >> op;
+    
+    return op;
+}
+
 int main(int argc, const char** argv) {
+    system("clear"); 
+
     if(argc != 3) {
         std::cerr << "There arent enough arguments\n";
         exit(1);
     }
 
-    BoxOffice *boxOffice = new BoxOffice(argv);
-    output(boxOffice);
+    BoxOffice *boxOffice = NULL;
+    int op = 0;
+    
+    while(op != 4){
+        op = menu_text(); 
+        switch(op) {
+            case 1:
+                boxOffice = new BoxOffice(argv);
+                system("clear"); 
+                std::cout << "Dados carregados! " << std::endl;
+                break;
+            case 2:    
+                try { 
+                    print_users(boxOffice);
+                } catch(DataNotLoadedException e){
+                    std::cout << e.what() << std::endl;
+                }
+                break;
+            default:
+                break;
+        } 
+    }
+    
     delete(boxOffice);
     return 0;
 }

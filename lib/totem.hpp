@@ -1,5 +1,5 @@
-#ifndef BOXOFFICE_H
-#define BOXOFFICE_H
+#ifndef TOTEM_H
+#define TOTEM_H
 
 #include <vector>
 #include <map>
@@ -17,7 +17,7 @@
 #include "./events/consert.hpp"
 #include "./events/movie_theater.hpp"
 
-class BoxOffice {
+class Totem {
     
     private:
         std::map<int, Kid> kids;
@@ -28,9 +28,11 @@ class BoxOffice {
         std::map<int, PuppetShow> puppetShows;
         std::map<int, Consert> conserts;
         std::map<int, Club> clubs;
+
+        int loggedId;
     
     public:
-        BoxOffice(const char** args);
+        Totem();
         
         std::map<int, Kid> get_kids(){return kids;}
         std::map<int, Adult> get_adults(){return adults;}
@@ -39,6 +41,13 @@ class BoxOffice {
         std::map<int, PuppetShow> get_puppet_shows(){return puppetShows;} 
         std::map<int, Consert> get_conserts(){return conserts;}
         std::map<int, Club> get_clubs(){return clubs;}
+
+        void initialize(const char** args);
+        int menu_text();
+        int login();
+        void print_users();
+        void print_events();
+
 
         void get_ages (float *max, float *min, float *avarage);
         void get_dependents(float *max, float *min, float *avarage);

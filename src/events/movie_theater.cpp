@@ -14,13 +14,12 @@ MovieTheater::MovieTheater(int id, std::string category, std::string name, int r
 
 }
 
-void MovieTheater::print_movie_theaters(std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
+void MovieTheater::print_movie_theaters(std::map<int,MovieTheater>& movieTheaters){
     std::map<int, MovieTheater>::iterator itr; 
     std::vector<int> capacity;
     std::vector<float> prices;
     std::vector<int> movieSchedules;
     int id;
-    std::string responsible;
 
     std::cout << 
         "-----------------------------------------------------------------------------------------------------------------------------------" 
@@ -30,18 +29,11 @@ void MovieTheater::print_movie_theaters(std::map<int,MovieTheater>& movieTheater
         capacity = itr->second.get_capacity();
         prices = itr->second.get_prices();
         movieSchedules = itr->second.get_movie_schedules();
-        id = itr->second.get_responsible();
-        
-        if(adults.find(id) != adults.end())
-            responsible = adults[id].get_name();
-        else 
-            responsible = elders[id].get_name();
 
         std::cout << "\nFilm: " << itr->second.get_name() << std::endl;
         std::cout 
             << "\nId: " << itr->second.get_id() 
             << "\nRunning time: " << itr->second.get_running_time() << " hours"
-            << "\nResponsible's name: " << responsible 
         << std::endl; 
 
         std::cout << "\nSchedules: ";    

@@ -5,7 +5,7 @@ Club::Club(){}
 Club::Club(int n_id, std::string n_category, std::string name, int responsible, std::vector<int> capacity, std::vector<float> prices,
     int elderAmount, int startingTime, int endingTime){
 
-    this->id = id;
+    this->id = n_id;
     this->category = category;
     this->name = name;
     this->responsible = responsible;
@@ -17,7 +17,7 @@ Club::Club(int n_id, std::string n_category, std::string name, int responsible, 
 
 }
 
-void Club::print_clubs(std::map<int,Club>& clubs){
+void Club::print_clubs(std::map<int,Club> clubs){
     std::map<int, Club>::iterator itr; 
     std::vector<int> capacity;
     int c = 0;
@@ -34,6 +34,7 @@ void Club::print_clubs(std::map<int,Club>& clubs){
         std::cout 
             << "\nId: " << itr->second.get_id() 
             << "\nClassificacao: Adulto"
+            << "\nCategoria: Boate"
             << "\nNúmero de ingressos: " << c 
         << std::endl;   
 

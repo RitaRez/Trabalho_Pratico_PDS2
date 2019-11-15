@@ -17,7 +17,7 @@ Consert::Consert(int id, std::string category, std::string  name, int  responsib
 
 }
 
-void Consert::print_conserts(std::map<int,Consert>& conserts){
+void Consert::print_conserts(std::map<int,Consert> conserts){
     std::map<int, Consert>::iterator itr; 
     std::vector<int> capacity;
     int c = 0;
@@ -35,6 +35,7 @@ void Consert::print_conserts(std::map<int,Consert>& conserts){
         std::cout 
             << "\nId: " << itr->second.get_id() 
             << "\nClassificacao: Adulto"
+            << "\nCategoria: Show"
             << "\nNúmero de ingressos: " << c 
         << std::endl;   
         

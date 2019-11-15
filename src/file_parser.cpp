@@ -56,7 +56,7 @@ Club* FileParser::create_club(std::vector<std::string> objs){
     std::vector<int> capacity;    
     std::vector<float> prices;    
     int end = 6 + (std::stoi(objs[5])*2);
-    
+
     for(int i = 6; i < objs.size(); i++){
         if(i < end)
             if(i % 2 == 0)  
@@ -66,6 +66,7 @@ Club* FileParser::create_club(std::vector<std::string> objs){
     }
     Club *c = new Club(std::stoi(objs[0]), objs[2], objs[3], std::stoi(objs[4]), capacity, prices, std::stoi(objs[objs.size() - 3]), 
         std::stoi(objs[objs.size() - 2]), std::stoi(objs[objs.size() - 1]));
+   
     return c;    
 }
 
@@ -119,9 +120,9 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
         std::stringstream ss(str);
         std::string token;
         
-        while (std::getline(ss, token, ','))
+        while (std::getline(ss, token, ',')){
             aux.push_back(token);
-                     
+        }    
         if(aux[1].compare("infantil") == 0){         
             ps = create_puppet_show(aux);
             puppetShows.insert({ps->get_id(), *ps});

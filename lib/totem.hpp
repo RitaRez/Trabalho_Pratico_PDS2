@@ -8,6 +8,7 @@
 #include "./users/kid.hpp"
 #include "./users/adult.hpp"
 #include "./users/elder.hpp"
+#include "./box_office.hpp"
 
 #include "./events/event.hpp"
 #include "./events/infant_event.hpp"
@@ -20,41 +21,13 @@
 class Totem {
     
     private:
-        std::map<int, Kid> kids;
-        std::map<int, Adult> adults;
-        std::map<int, Elder> elders;
-
-        std::map<int, MovieTheater> movieTheaters;
-        std::map<int, PuppetShow> puppetShows;
-        std::map<int, Consert> conserts;
-        std::map<int, Club> clubs;
-
-        int loggedId;
+        std::vector<int> loggedId;
     
     public:
-        Totem();
-        
-        std::map<int, Kid> get_kids(){return kids;}
-        std::map<int, Adult> get_adults(){return adults;}
-        std::map<int, Elder> get_elders(){return elders;}
-        std::map<int, MovieTheater> get_movie_theaters(){return movieTheaters;}    
-        std::map<int, PuppetShow> get_puppet_shows(){return puppetShows;} 
-        std::map<int, Consert> get_conserts(){return conserts;}
-        std::map<int, Club> get_clubs(){return clubs;}
-
-        void initialize(const char** args);
-        int menu_text();
-        int login();
-        void print_users();
-        void print_events();
-
-
-        void get_ages (float *max, float *min, float *avarage);
-        void get_dependents(float *max, float *min, float *avarage);
-        void get_dependent_relations();
-        void get_event_relations();
-        void get_biggest_elder_amount();
-        void get_tickets();
+        Totem();   
+        int login(BoxOffice *bf);
+        void print_users(BoxOffice *bf);
+        void print_events(BoxOffice *bf);
 };
 
 #endif

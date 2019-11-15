@@ -9,6 +9,8 @@
 #include <stdlib.h>
 
 #include "../lib/totem.hpp"
+#include "../lib/box_office.hpp"
+#include "../lib/events/club.hpp"
 #include "../lib/exceptions/data_not_loaded_exception.hpp"
 #include "../lib/exceptions/invalid_entity_exception.hpp"
 
@@ -68,36 +70,40 @@ int main(int argc, const char** argv) {
     }
 
     Totem *totem = new Totem();
+    BoxOffice *boxOffice = new BoxOffice();
+
     int op = 0;
     
     while(op != 4){
-        op = totem->menu_text(); 
+        op = boxOffice->menu_text(); 
         switch(op) {
             case 1:
-                totem->initialize(argv) ;
-                system("clear"); 
+                boxOffice->initialize(argv) ;
                 std::cout << "Dados carregados! " << std::endl;
                 break;
             case 2:    
                 try { 
-                    totem->print_users();
+                    totem->print_users(boxOffice);
                 } catch(DataNotLoadedException e){
                     std::cout << e.what() << std::endl;
                 }
                 break;
             case 3:
                 try{
-                    totem->login();
-                    totem->print_events();
+                    totem->login(boxOffice);
+                    totem->print_events(boxOffice);
                 } catch (InvalidEntityException e){
                     std::cout << e.what() << std::endl;
-                }    
+                } catch (DataNotLoadedException e) {
+                    std::cout << e.what() << std::endl;
+                } 
                 break;
             default:
                 break;
         } 
     }
-    
+
     delete(totem);
+    delete(boxOffice);
     return 0;
 }

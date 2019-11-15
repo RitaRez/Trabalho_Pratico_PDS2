@@ -15,13 +15,10 @@ PuppetShow::PuppetShow(int id, std::string category, std::string name, int respo
     
 }
 
-void PuppetShow::print_puppet_shows(std::map<int,PuppetShow>& puppetShows, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
+void PuppetShow::print_puppet_shows(std::map<int,PuppetShow> puppetShows){
     std::map<int, PuppetShow>::iterator itr; 
     std::vector<int> capacity;
-    std::vector<float> prices;
-    std::vector<int> schedules;
-    int id;
-    std::string responsible;
+    int c;
 
     std::cout << 
         "-----------------------------------------------------------------------------------------------------------------------------------" 
@@ -29,32 +26,16 @@ void PuppetShow::print_puppet_shows(std::map<int,PuppetShow>& puppetShows, std::
     
     for (itr = puppetShows.begin(); itr != puppetShows.end(); ++itr) { 
         capacity = itr->second.get_capacity();
-        prices = itr->second.get_prices();
-        schedules = itr->second.get_schedules();
-        id = itr->second.get_responsible();
-        
-        if(adults.find(id) != adults.end())
-            responsible = adults[id].get_name();
-        else 
-            responsible = elders[id].get_name();
+        for (int i = 0; i < capacity.size(); i++)
+            c += capacity[i];
 
-        std::cout << "\nPuppet Show: " << itr->second.get_name() << std::endl;
+        std::cout << "\nNome: " << itr->second.get_name() << std::endl;
         std::cout 
             << "\nId: " << itr->second.get_id() 
-            << "\nResponsible's name: " << responsible 
+            << "\nClassificacao: Infantil"
+            << "\nCategoria: Teatro de fantoches"
         << std::endl; 
-
-        std::cout << "\nSchedules: ";    
-        for (int i = 0; i < schedules.size(); i++)
-            std::cout << "\n- " << schedules[i] << ":00";    
-        
-        std::cout << "\n\n";
-        for (int i = 0; i < prices.size(); i++)
-            std::cout << "Capacity: " << capacity[i] << "  Price: " << prices[i] << std::endl;
-        std::cout << "\n";  
-
-        schedules.clear();
-        capacity.clear();
-        prices.clear();  
+            
+        capacity.clear(); 
     } 
 }

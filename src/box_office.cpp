@@ -1,7 +1,5 @@
 #include "../lib/box_office.hpp"
 #include "../lib/file_parser.hpp"
-#include "../lib/events/event.hpp"
-#include "../lib/ticket_machines/puppet_tickets.hpp"
 #include "../lib/exceptions/data_not_loaded_exception.hpp"
 #include "../lib/exceptions/invalid_entity_exception.hpp"
 
@@ -66,7 +64,6 @@ int BoxOffice::print_events(){
         PuppetShow::print_puppet_shows(this->get_puppet_shows());
 
         int id;
-        Totem* machine;
         std::cout << "\nDigite o ID do evento desejado: " << std::endl;
         std::cin >> id;
         if(this->get_movie_theaters().count(id) == 0 && this->get_puppet_shows().count(id) == 0 && this->get_clubs().count(id) == 0 && this->get_conserts().count(id) == 0){

@@ -72,6 +72,7 @@ int main(int argc, const char** argv) {
     BoxOffice *boxOffice = new BoxOffice();
 
     int op = 0;
+    int evento;
     
     while(op != 4){
         op = boxOffice->menu_text(); 
@@ -90,7 +91,8 @@ int main(int argc, const char** argv) {
             case 3:
                 try{
                     boxOffice->login();
-                    boxOffice->print_events();
+                    evento = boxOffice->print_events();
+                    //CE VAI INICIALIZAR TOTEM E FACTORY METHOD AQUI
                 } catch (InvalidEntityException e){
                     std::cout << e.what() << std::endl;
                 } catch (DataNotLoadedException e) {

@@ -50,7 +50,7 @@ void BoxOffice::print_users(){
 
 }
 
-void BoxOffice::print_events(){
+int BoxOffice::print_events(){
 
     if(this->get_movie_theaters().empty() && this->get_puppet_shows().empty() && this->get_clubs().empty() && this->get_conserts().empty()){
         system("clear");
@@ -73,7 +73,7 @@ void BoxOffice::print_events(){
             system("clear");
             throw InvalidEntityException("Fazer login", "\nO evento não existe!");
         } else {
-            //machine = factoryMethod(this, id);
+            return id;
         }
     }
 }

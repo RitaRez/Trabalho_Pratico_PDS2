@@ -28,6 +28,9 @@ class BoxOffice {
         std::map<int, PuppetShow> puppetShows;
         std::map<int, Consert> conserts;
         std::map<int, Club> clubs;
+        
+        std::vector<int> loggedId;
+
 
     public:
         BoxOffice();
@@ -42,6 +45,9 @@ class BoxOffice {
 
         void initialize(const char** args);
         int menu_text();
+        int login();
+        void print_users();
+        void print_events();
 
         void get_ages (float *max, float *min, float *avarage);
         void get_dependents(float *max, float *min, float *avarage);

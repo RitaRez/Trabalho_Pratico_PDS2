@@ -4,7 +4,11 @@
 #include "../totem.hpp"
 
 class MovieTheaterTickets: public Totem {
-
+   private:
+       static MovieTheaterTickets* instance;
+       MovieTheaterTickets();
+   public:
+       static MovieTheaterTickets* getInstance();
 };
 
 #endif

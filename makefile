@@ -16,11 +16,11 @@ all: $(TARGET_NAME)
 
 $(BUILD_PATH)/%.o: $(SOURCE_PATH)/%.cpp $(LIB_PATH)/%.hpp
 	mkdir -p $(@D)
-	$(CC) -c -o $@ $<
+	$(CC) -std=$(STD) -c -o $@ $<
 
 $(TARGET_NAME): $(OBJECTS)
 	mkdir -p $(BUILD_PATH)
-	$(CC) -o $(BUILD_PATH)/$(TARGET_NAME) $(SOURCE_PATH)/main.cpp $(OBJECTS)
+	$(CC) -std=$(STD) -o $(BUILD_PATH)/$(TARGET_NAME) $(SOURCE_PATH)/main.cpp $(OBJECTS)
 
 clean:
 	rm -rf $(BUILD_PATH)/*

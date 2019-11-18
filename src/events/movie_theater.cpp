@@ -14,27 +14,24 @@ MovieTheater::MovieTheater(int id, std::string category, std::string name, int r
 
 }
 
-void MovieTheater::print_movie_theaters(std::map<int,MovieTheater> movieTheaters){
-    std::map<int, MovieTheater>::iterator itr; 
-    std::vector<int> capacity;
-    int c;
+void MovieTheater::print_movie_theaters(std::map<int,MovieTheater*> movieTheaters){
+    std::map<int, MovieTheater*>::iterator itr; 
+    int c = 0;
 
     std::cout << 
         "-----------------------------------------------------------------------------------------------------------------------------------" 
     << std::endl;
     
     for (itr = movieTheaters.begin(); itr != movieTheaters.end(); ++itr) { 
-        capacity = itr->second.get_capacity();
-        for (int i = 0; i < capacity.size(); i++)
-            c += capacity[i];
+        for (int i = 0; i < itr->second->get_capacity().size(); i++)
+            c += itr->second->get_capacity()[i];
 
-        std::cout << "\nNome: " << itr->second.get_name() << std::endl;
+        std::cout << "\nNome: " << itr->second->get_name() << std::endl;
         std::cout 
-            << "\nId: " << itr->second.get_id() 
+            << "\nId: " << itr->second->get_id() 
             << "\nClassificacao: Livre"
             << "\nCategoria: Cinema"
-        << std::endl; 
-            
-        capacity.clear();
+            << "\nNúmero de ingressos: " << c
+        << std::endl;             
     } 
 }

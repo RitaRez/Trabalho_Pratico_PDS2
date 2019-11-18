@@ -78,8 +78,12 @@ int main(int argc, const char** argv) {
         op = boxOffice->menu_text(); 
         switch(op) {
             case 1:
-                boxOffice->initialize(argv) ;
-                std::cout << "Dados carregados! " << std::endl;
+                try { 
+                    boxOffice->initialize(argv) ;
+                    std::cout << "Dados carregados! " << std::endl;
+                } catch(DataNotLoadedException e){
+                    std::cout << e.what() << std::endl;
+                }
                 break;
             case 2:    
                 try { 
@@ -92,7 +96,7 @@ int main(int argc, const char** argv) {
                 try{
                     boxOffice->login();
                     evento = boxOffice->print_events();
-                    //CE VAI INICIALIZAR TOTEM E FACTORY METHOD AQUI
+                    Totem::factoryMethod(boxOffice, evento);
                 } catch (InvalidEntityException e){
                     std::cout << e.what() << std::endl;
                 } catch (DataNotLoadedException e) {
@@ -103,7 +107,6 @@ int main(int argc, const char** argv) {
                 break;
         } 
     }
-
     delete(boxOffice);
     return 0;
 }

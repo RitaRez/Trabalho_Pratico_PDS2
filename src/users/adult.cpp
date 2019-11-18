@@ -16,17 +16,17 @@ void Adult::add_children(int kid){
     children.push_back(kid);
 }
 
-void Adult::print_adults(std::map<int,Adult> adults){
-    std::map<int, Adult>::iterator itr; 
+void Adult::print_adults(std::map<int,Adult*> adults){
+    std::map<int, Adult*>::iterator itr; 
     int id;
     
     for (itr = adults.begin(); itr != adults.end(); ++itr) {
         std::cout 
-            << "\nId: " << itr->second.get_id() 
-            << "\nNome: " << itr->second.get_name() 
+            << "\nId: " << itr->second->get_id() 
+            << "\nNome: " << itr->second->get_name() 
             << "\nCategoria: Adulto"
-            << "\nIdade: " << itr->second.get_age() 
-            << "\nSaldo: " << itr->second.get_budget()
+            << "\nIdade: " << itr->second->get_age() 
+            << "\nSaldo: " << itr->second->get_budget()
         << std::endl; 
     } 
 }

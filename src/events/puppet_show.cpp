@@ -15,27 +15,24 @@ PuppetShow::PuppetShow(int id, std::string category, std::string name, int respo
     
 }
 
-void PuppetShow::print_puppet_shows(std::map<int,PuppetShow> puppetShows){
-    std::map<int, PuppetShow>::iterator itr; 
-    std::vector<int> capacity;
-    int c;
+void PuppetShow::print_puppet_shows(std::map<int,PuppetShow*> puppetShows){
+    std::map<int, PuppetShow*>::iterator itr; 
+    int c = 0;
 
     std::cout << 
         "-----------------------------------------------------------------------------------------------------------------------------------" 
     << std::endl;
     
     for (itr = puppetShows.begin(); itr != puppetShows.end(); ++itr) { 
-        capacity = itr->second.get_capacity();
-        for (int i = 0; i < capacity.size(); i++)
-            c += capacity[i];
+        for (int i = 0; i < itr->second->get_capacity().size(); i++)
+            c += itr->second->get_capacity()[i];
 
-        std::cout << "\nNome: " << itr->second.get_name() << std::endl;
+        std::cout << "\nNome: " << itr->second->get_name() << std::endl;
         std::cout 
-            << "\nId: " << itr->second.get_id() 
+            << "\nId: " << itr->second->get_id() 
             << "\nClassificacao: Infantil"
             << "\nCategoria: Teatro de fantoches"
-        << std::endl; 
-            
-        capacity.clear(); 
+            << "\nNúmero de ingressos: " << c
+        << std::endl;             
     } 
 }

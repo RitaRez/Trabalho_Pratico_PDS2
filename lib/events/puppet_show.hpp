@@ -16,7 +16,7 @@ class PuppetShow: public InfantEvent {
             std::vector<int> theaterSchedules);
     
         
-        static void print_puppet_shows(std::map<int,PuppetShow> puppetShows);
+        static void print_puppet_shows(std::map<int,PuppetShow*> puppetShows);
 
         std::vector<int> get_schedules(){return theaterSchedules;}  
 };

@@ -20,28 +20,34 @@
 class BoxOffice {
     
     private:
-        std::map<int, Kid> kids;
-        std::map<int, Adult> adults;
-        std::map<int, Elder> elders;
+        std::map<int, Kid*> kids;
+        std::map<int, Adult*> adults;
+        std::map<int, Elder*> elders;
+        std::map<int, MovieTheater*> movieTheaters;
+        std::map<int, PuppetShow*> puppetShows;
+        std::map<int, Consert*> conserts;
+        std::map<int, Club*> clubs;
+        
+        std::vector<int> loggedId;
 
-        std::map<int, MovieTheater> movieTheaters;
-        std::map<int, PuppetShow> puppetShows;
-        std::map<int, Consert> conserts;
-        std::map<int, Club> clubs;
 
     public:
         BoxOffice();
         
-        std::map<int, Kid> get_kids(){return kids;}
-        std::map<int, Adult> get_adults(){return adults;}
-        std::map<int, Elder> get_elders(){return elders;}
-        std::map<int, MovieTheater> get_movie_theaters(){return movieTheaters;}    
-        std::map<int, PuppetShow> get_puppet_shows(){return puppetShows;} 
-        std::map<int, Consert> get_conserts(){return conserts;}
-        std::map<int, Club> get_clubs(){return clubs;}
+        std::map<int, Kid*> get_kids(){return kids;}
+        std::map<int, Adult*> get_adults(){return adults;}
+        std::map<int, Elder*> get_elders(){return elders;}
+        std::map<int, MovieTheater*> get_movie_theaters(){return movieTheaters;}    
+        std::map<int, PuppetShow*> get_puppet_shows(){return puppetShows;} 
+        std::map<int, Consert*> get_conserts(){return conserts;}
+        std::map<int, Club*> get_clubs(){return clubs;}
+
 
         void initialize(const char** args);
         int menu_text();
+        int login();
+        void print_users();
+        int print_events();
 
         void get_ages (float *max, float *min, float *avarage);
         void get_dependents(float *max, float *min, float *avarage);

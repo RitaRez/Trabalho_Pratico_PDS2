@@ -27,8 +27,8 @@ class FileParser{
         MovieTheater static *create_movie_theater(std::vector<std::string> objs);
      
     public:
-        void static parse_events(char *str, std::map<int,Club>& clubs, std::map<int,Consert>& conserts, std::map<int,PuppetShow>& puppet_shows, std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
-        void static parse_users(char *str, std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders);
+        void static parse_events(char *str, std::map<int,Club*>& clubs, std::map<int,Consert*>& conserts, std::map<int,PuppetShow*>& puppet_shows, std::map<int,MovieTheater*>& movieTheaters, std::map<int,Adult*>& adults, std::map<int,Elder*>& elders);
+        void static parse_users(char *str, std::map<int,Kid*>& kids, std::map<int,Adult*>& adults, std::map<int,Elder*>& elders);
 
 };
  

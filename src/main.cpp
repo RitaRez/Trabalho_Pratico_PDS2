@@ -69,29 +69,34 @@ int main(int argc, const char** argv) {
         exit(1);
     }
 
-    Totem *totem = new Totem();
     BoxOffice *boxOffice = new BoxOffice();
 
     int op = 0;
+    int evento;
     
     while(op != 4){
         op = boxOffice->menu_text(); 
         switch(op) {
             case 1:
-                boxOffice->initialize(argv) ;
-                std::cout << "Dados carregados! " << std::endl;
+                try { 
+                    boxOffice->initialize(argv) ;
+                    std::cout << "Dados carregados! " << std::endl;
+                } catch(DataNotLoadedException e){
+                    std::cout << e.what() << std::endl;
+                }
                 break;
             case 2:    
                 try { 
-                    totem->print_users(boxOffice);
+                    boxOffice->print_users();
                 } catch(DataNotLoadedException e){
                     std::cout << e.what() << std::endl;
                 }
                 break;
             case 3:
                 try{
-                    totem->login(boxOffice);
-                    totem->print_events(boxOffice);
+                    boxOffice->login();
+                    evento = boxOffice->print_events();
+                    Totem::factoryMethod(boxOffice, evento);
                 } catch (InvalidEntityException e){
                     std::cout << e.what() << std::endl;
                 } catch (DataNotLoadedException e) {
@@ -102,8 +107,6 @@ int main(int argc, const char** argv) {
                 break;
         } 
     }
-
-    delete(totem);
     delete(boxOffice);
     return 0;
 }

@@ -17,27 +17,23 @@ Club::Club(int n_id, std::string n_category, std::string name, int responsible, 
 
 }
 
-void Club::print_clubs(std::map<int,Club> clubs){
-    std::map<int, Club>::iterator itr; 
-    std::vector<int> capacity;
+void Club::print_clubs(std::map<int,Club*> clubs){
+    std::map<int, Club*>::iterator itr; 
     int c = 0;
 
     std::cout << 
         "-----------------------------------------------------------------------------------------------------------------------------------" 
     << std::endl;
     for (itr = clubs.begin(); itr != clubs.end(); ++itr) { 
-        capacity = itr->second.get_capacity();
-        for (int i = 0; i < capacity.size(); i++)
-            c += capacity[i];
+        for (int i = 0; i < itr->second->get_capacity().size(); i++)
+            c += itr->second->get_capacity()[i];
          
-        std::cout << "\nNome: " << itr->second.get_name()  << std::endl;
+        std::cout << "\nNome: " << itr->second->get_name()  << std::endl;
         std::cout 
-            << "\nId: " << itr->second.get_id() 
+            << "\nId: " << itr->second->get_id() 
             << "\nClassificacao: Adulto"
             << "\nCategoria: Boate"
             << "\nNúmero de ingressos: " << c 
         << std::endl;   
-
-        capacity.clear();
     } 
 }

@@ -17,9 +17,8 @@ Consert::Consert(int id, std::string category, std::string  name, int  responsib
 
 }
 
-void Consert::print_conserts(std::map<int,Consert> conserts){
-    std::map<int, Consert>::iterator itr; 
-    std::vector<int> capacity;
+void Consert::print_conserts(std::map<int,Consert*> conserts){
+    std::map<int, Consert*>::iterator itr; 
     int c = 0;
 
     std::cout << 
@@ -27,18 +26,15 @@ void Consert::print_conserts(std::map<int,Consert> conserts){
     << std::endl;
     
     for (itr = conserts.begin(); itr != conserts.end(); ++itr) { 
-        capacity = itr->second.get_capacity();
-        for (int i = 0; i < capacity.size(); i++)
-            c += capacity[i];
+        for (int i = 0; i < itr->second->get_capacity().size(); i++)
+            c += itr->second->get_capacity()[i];
 
-        std::cout << "\n\nNome: " << itr->second.get_name()  << std::endl;
+        std::cout << "\n\nNome: " << itr->second->get_name()  << std::endl;
         std::cout 
-            << "\nId: " << itr->second.get_id() 
+            << "\nId: " << itr->second->get_id() 
             << "\nClassificacao: Adulto"
             << "\nCategoria: Show"
             << "\nNúmero de ingressos: " << c 
-        << std::endl;   
-        
-        capacity.clear();
+        << std::endl;           
     } 
 }

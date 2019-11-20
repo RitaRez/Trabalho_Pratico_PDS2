@@ -109,12 +109,8 @@ MovieTheater* FileParser::create_movie_theater(std::vector<std::string> objs){
     return mt;    
 }
 
-void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int,Consert>& conserts, std::map<int,PuppetShow>& puppetShows, std::map<int,MovieTheater>& movieTheaters, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
+void FileParser::parse_events(char *str, std::map<int,Club*>& clubs, std::map<int,Consert*>& conserts, std::map<int,PuppetShow*>& puppetShows, std::map<int,MovieTheater*>& movieTheaters, std::map<int,Adult*>& adults, std::map<int,Elder*>& elders){
     std::vector<std::string> stringEvent = read_file(str), aux;
-    PuppetShow *ps;
-    Club *club;
-    Consert *consert;
-    MovieTheater *mt;
 
     for(std::string str : stringEvent){
         std::stringstream ss(str);
@@ -124,47 +120,43 @@ void FileParser::parse_events(char *str, std::map<int,Club>& clubs, std::map<int
             aux.push_back(token);
         }    
         if(aux[1].compare("infantil") == 0){         
-            ps = create_puppet_show(aux);
-            puppetShows.insert({ps->get_id(), *ps});
+            PuppetShow *ps = create_puppet_show(aux);
+            puppetShows.insert({ps->get_id(), ps});
             
             if(adults.find(std::stoi(aux[4])) != adults.end())       
-                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                adults[std::stoi(aux[4])]->add_event(std::stoi(aux[0]));
             else if(elders.find(std::stoi(aux[4])) != elders.end())  
-                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                elders[std::stoi(aux[4])]->add_event(std::stoi(aux[0]));
         } else if(aux[1].compare("adulto") == 0 && aux[2].compare("boate") == 0){   
-            club = create_club(aux);
-            clubs.insert({club->get_id(), *club});
+            Club *club = create_club(aux);
+            clubs.insert({club->get_id(), club});
 
             if(adults.find(std::stoi(aux[4])) != adults.end())        
-                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                adults[std::stoi(aux[4])]->add_event(std::stoi(aux[0]));
             else if(elders.find(std::stoi(aux[4])) != elders.end())   
-                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                elders[std::stoi(aux[4])]->add_event(std::stoi(aux[0]));
         } else if (aux[1].compare("adulto") == 0 && aux[2].compare("show") == 0){
-            consert = create_consert(aux);                
-            conserts.insert({consert->get_id(), *consert});
+            Consert *consert = create_consert(aux);                
+            conserts.insert({consert->get_id(), consert});
 
             if(adults.find(std::stoi(aux[4])) != adults.end())        
-                adults[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                adults[std::stoi(aux[4])]->add_event(std::stoi(aux[0]));
             else if(elders.find(std::stoi(aux[4])) != elders.end())   
-                elders[std::stoi(aux[4])].add_event(std::stoi(aux[0]));
+                elders[std::stoi(aux[4])]->add_event(std::stoi(aux[0]));
         } else {    
-            mt = create_movie_theater(aux);  
-            movieTheaters.insert({mt->get_id(), *mt});
+            MovieTheater *mt = create_movie_theater(aux);  
+            movieTheaters.insert({mt->get_id(), mt});
           
             if(adults.find(std::stoi(aux[3])) != adults.end())        
-                adults[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
+                adults[std::stoi(aux[3])]->add_event(std::stoi(aux[0]));
             else if(elders.find(std::stoi(aux[3])) != elders.end())   
-                elders[std::stoi(aux[3])].add_event(std::stoi(aux[0]));
+                elders[std::stoi(aux[3])]->add_event(std::stoi(aux[0]));
         }
         aux.clear();
     } 
-    delete(ps);
-    delete(mt);
-    delete(consert);
-    delete(club);
 }
 
-void FileParser::parse_users(char *str, std::map<int,Kid>& kids, std::map<int,Adult>& adults, std::map<int,Elder>& elders){
+void FileParser::parse_users(char *str, std::map<int,Kid*>& kids, std::map<int,Adult*>& adults, std::map<int,Elder*>& elders){
     std::vector<std::string> aux;  
     std::vector<std::string> stringUser = read_file(str);
     
@@ -176,18 +168,18 @@ void FileParser::parse_users(char *str, std::map<int,Kid>& kids, std::map<int,Ad
             aux.push_back(token);
         }  
         if(aux[1] == "crianca"){    
-            Kid newKid(std::stoi(aux[0]), aux[1], aux[2], std::stoi(aux[3]), std::stof(aux[4]), std::stoi(aux[5]));
-            kids[newKid.get_id()] = newKid;
+            Kid *newKid = new Kid(std::stoi(aux[0]), aux[1], aux[2], std::stoi(aux[3]), std::stof(aux[4]), std::stoi(aux[5]));
+            kids.insert({newKid->get_id(), newKid});
             if(adults.find(std::stoi(aux[5])) != adults.end())
-                adults[std::stoi(aux[5])].add_children(newKid.get_id());
+                adults[std::stoi(aux[5])]->add_children(newKid->get_id());
             else    
-                elders[std::stoi(aux[5])].add_children(newKid.get_id());
+                elders[std::stoi(aux[5])]->add_children(newKid->get_id());
          } else if(aux[1] == "adulto"){
-            Adult newAdult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
-            adults[newAdult.get_id()] = newAdult;    
+            Adult *newAdult = new Adult(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
+            adults.insert({newAdult->get_id(), newAdult});    
         } else if (aux[1] == "idoso") {
-            Elder newElder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
-            elders[newElder.get_id()] = newElder;   
+            Elder *newElder = new Elder(std::stoi(aux[0]),aux[1], aux[2],std::stoi(aux[3]),std::stof(aux[4]));
+            elders.insert({newElder->get_id(), newElder});   
         }
         aux.clear();
     } 

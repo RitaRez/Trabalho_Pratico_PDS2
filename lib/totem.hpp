@@ -19,15 +19,10 @@
 #include "./events/movie_theater.hpp"
 
 class Totem {
-    
-    private:
-        std::vector<int> loggedId;
-    
+
     public:
-        Totem();   
-        int login(BoxOffice *bf);
-        void print_users(BoxOffice *bf);
-        void print_events(BoxOffice *bf);
+        Totem();
+        static Totem* factoryMethod(BoxOffice *boxOffice, int id);
 };
 
 #endif

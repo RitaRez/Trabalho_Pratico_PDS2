@@ -1,7 +1,7 @@
 #ifndef BOX_OFFICE_H
 #define BOX_OFFICE_H
 
-#include <vector>
+#include <set>
 #include <map>
 
 #include "./users/user.hpp"
@@ -9,10 +9,7 @@
 #include "./users/adult.hpp"
 #include "./users/elder.hpp"
 
-#include "./events/event.hpp"
-#include "./events/infant_event.hpp"
 #include "./events/puppet_show.hpp"
-#include "./events/adult_event.hpp"
 #include "./events/club.hpp"
 #include "./events/consert.hpp"
 #include "./events/movie_theater.hpp"
@@ -28,7 +25,8 @@ class BoxOffice {
         std::map<int, Consert*> conserts;
         std::map<int, Club*> clubs;
         
-        std::vector<int> loggedId;
+        std::set<int> loggedId;
+        std::map<int, int> boughtClubs, boughtConserts, boughtMovies, boughtPuppets;
 
 
     public:
@@ -55,6 +53,22 @@ class BoxOffice {
         void get_event_relations();
         void get_biggest_elder_amount();
         void get_tickets();
+
+        std::set<int> get_logged_id(){return this->loggedId;}
+        void add_logged_id(int id){
+            this->loggedId.insert(id);
+        }
+
+
+        std::map<int,int> get_bought_clubs(){return this->boughtClubs;}
+        std::map<int,int> get_bought_conserts(){return this->boughtConserts;}
+        std::map<int,int> get_bought_movies(){return this->boughtMovies;}
+        std::map<int,int> get_bought_puppet(){return this->boughtPuppets;}
+        
+        void add_bought_club(int id, int amount);      
+        void add_bought_consert(int id, int amount);       
+        void add_bought_movie(int id, int amount);      
+        void add_bought_puppet(int id, int amount);
 };
 
 #endif

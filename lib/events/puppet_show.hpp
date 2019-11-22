@@ -2,8 +2,6 @@
 #define PUPPETSHOW_H
  
 #include "infant_event.hpp"
-#include "club.hpp"
-#include "../../lib/users/elder.hpp"
 
 class PuppetShow: public InfantEvent {
 

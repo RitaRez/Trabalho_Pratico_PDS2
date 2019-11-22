@@ -10,6 +10,7 @@ class AdultEvent: public Event {
 
     public:
         int get_elder_amout(){return elderAmount;}
+	void decrease_elder_amout();
 };
  
 #endif

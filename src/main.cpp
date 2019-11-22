@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iterator>
 #include <vector> 
+#include <set> 
 #include <map> 
 #include <stdlib.h>
 
@@ -13,53 +14,77 @@
 #include "../lib/events/club.hpp"
 #include "../lib/exceptions/data_not_loaded_exception.hpp"
 #include "../lib/exceptions/invalid_entity_exception.hpp"
+#include "../lib/exceptions/ticket_unavailable_exception.hpp"
+#include "../lib/exceptions/not_enough_tickets_exception.hpp"
 
-// void output(Totem *totem){
-//     float max,min,avarage;
+void output_users(BoxOffice *bf){    
+    system("clear");
+    std::cout << "Usuarios que compraram ingressos: " << std::endl;
+    if(bf->get_logged_id().empty())
+        std::cout << "Nenhum usuario comprou ingresso!" << std::endl;
+    for(std::set<int>::iterator it = bf->get_logged_id().begin(); it != bf->get_logged_id().end(); ++it){
+        if(bf->get_adults()[*it] != nullptr){
+            std::cout 
+                << "\nNome: " << bf->get_adults()[*it]->get_name() 
+                << "\nID: " << *it
+                << "\nSaldo: " << bf->get_adults()[*it]->get_budget()
+                << "\nQuantidade de ingressos adquiridos: " << bf->get_adults()[*it]->get_bought_tickets()
+            << std::endl;
+        }
+        else if (bf->get_elders()[*it] != nullptr){
+            std::cout 
+                << "\nNome: " << bf->get_elders()[*it]->get_name() 
+                << "\nID: " << *it
+                << "\nSaldo: " << bf->get_elders()[*it]->get_budget()
+                << "\nQuantidade de ingressos adquiridos: " << bf->get_elders()[*it]->get_bought_tickets()
+            << std::endl;
+        }
+    }
+}
 
-//     std::cout 
-//         << "Numero de usuarios:" << std::endl
-//         << "Criancas: " << totem->get_kids().size() << std::endl 
-//         << "Adultos: " << totem->get_adults().size() + totem->get_elders().size() << std::endl 
-//         << "Idosos: " << totem->get_elders().size() << std::endl; 
-    
-//     totem->get_ages(&min,&max,&avarage);        
-//     std::cout << std::endl
-//         << "Idade dos usuarios:" << std::endl
-//         << "Minima: " << max << std::endl
-//         << "Maxima: " << min << std::endl
-//         << "Media: " << std::setprecision(2) << std::fixed << avarage << std::endl;
-
-//     totem->get_dependents(&min,&max,&avarage);        
-//     std::cout << std::endl
-//         << "Numero de dependentes:" << std::endl << std::setprecision(0) << std::fixed
-//         << "Minimo: " << max << std::endl
-//         << "Maximo: " << min << std::endl
-//         << "Media: " << std::setprecision(2) << std::fixed << avarage << std::endl;
-
-//     std::cout << std::endl << "Dependentes:"; 
-//     totem->get_dependent_relations();
-
-//     std::cout << std::endl << "Numero de eventos:" << std::endl
-//         << "Adultos:" << std::endl
-//         << '\t' << "Boate: " << totem->get_clubs().size() << std::endl
-//         << '\t' << "Show: " << totem->get_conserts().size() << std::endl
-//         << "Livres: " << std::endl
-//         << '\t' << "Cinema: " << totem->get_movie_theaters().size() << std::endl
-//         << "Infantis: " << std::endl
-//         << '\t' << "Teatro de Fantoches: " << totem->get_puppet_shows().size() << std::endl;
-
-//     std::cout << std::endl << "Numero de eventos que o usuario possui:" << std::endl;
-//     totem->get_event_relations();
-
-//     std::cout << std::endl << "Evento com maior cota para idoso:" << std::endl;
-//     totem->get_biggest_elder_amount();
-
-//     std::cout << std::endl << std::endl << "Numero de ingressos por preco:" << std::endl;
-//     totem->get_tickets();
-// }
-
-
+void output_events(BoxOffice *bf){
+    std::map<int, int>::iterator itr;
+    int id, amount;
+    std::cout << "\nEventos comprados: " << std::endl;
+    if(!bf->get_bought_clubs().empty()){
+        std::cout << "\nBoates: " << std::endl;
+        for(itr = bf->get_bought_clubs().begin(); itr != bf->get_bought_clubs().end(); ++itr){
+            std::cout 
+                << itr->first << " - " << bf->get_clubs()[itr->first]->get_name()
+                << "\nNumero de ingressos vendidos: " << itr->second
+            << std::endl;    
+        }
+    }
+    if(!bf->get_bought_conserts().empty()){
+        std::cout << "\nShows: " << std::endl;
+        for(itr = bf->get_bought_conserts().begin(); itr != bf->get_bought_conserts().end(); ++itr){
+            std::cout 
+                << itr->first << " - " << bf->get_conserts()[itr->first]->get_name()
+                << "\nNumero de ingressos vendidos: " << itr->second
+            << std::endl;    
+        }
+    }
+    if(!bf->get_bought_movies().empty()){
+        std::cout << "\nFilmes: "  << std::endl;
+        for(itr = bf->get_bought_movies().begin(); itr != bf->get_bought_movies().end(); ++itr){
+            std::cout 
+                << itr->first << " - " << bf->get_movie_theaters()[itr->first]->get_name()
+                << "\nNumero de ingressos vendidos: " << itr->second
+            << std::endl;    
+        }
+    }    
+    if(!bf->get_bought_puppet().empty()){
+        std::cout << "\nTeatros de fantoche: " << std::endl;
+        for(itr = bf->get_bought_puppet().begin(); itr != bf->get_bought_puppet().end(); ++itr){
+            std::cout 
+                << itr->first << " - " << bf->get_puppet_shows()[itr->first]->get_name()
+                << "\nNumero de ingressos vendidos: " << itr->second
+            << std::endl;    
+        }
+    }    
+    if(bf->get_bought_clubs().empty() && bf->get_bought_conserts().empty() && bf->get_bought_movies().empty() && bf->get_bought_puppet().empty())
+        std::cout << "Nenhum ingresso foi comprado!" << std::endl;
+}
 
 int main(int argc, const char** argv) {
     system("clear"); 
@@ -69,11 +94,11 @@ int main(int argc, const char** argv) {
         exit(1);
     }
 
-    BoxOffice *boxOffice = new BoxOffice();
+    BoxOffice *boxOffice = new BoxOffice();    
 
-    int op = 0;
-    int evento;
-    
+    Totem* machine;
+    int event = -1, user, op = 0;
+
     while(op != 4){
         op = boxOffice->menu_text(); 
         switch(op) {
@@ -94,19 +119,30 @@ int main(int argc, const char** argv) {
                 break;
             case 3:
                 try{
-                    boxOffice->login();
-                    evento = boxOffice->print_events();
-                    Totem::factoryMethod(boxOffice, evento);
+                    user = boxOffice->login();
+                    event = boxOffice->print_events();
+                    machine = Totem::factoryMethod(boxOffice, event);
+                    machine->sell_tickets(boxOffice, event, user);
                 } catch (InvalidEntityException e){
                     std::cout << e.what() << std::endl;
                 } catch (DataNotLoadedException e) {
                     std::cout << e.what() << std::endl;
-                } 
+                } catch (TicketUnavailableException e){
+                    std::cout << e.what() << std::endl;
+                } catch (NotEnoughtTicketsException e){
+                    std::cout << e.what() << std::endl;
+                }
                 break;
+            case 4:
+                output_users(boxOffice);
+                output_events(boxOffice);
+                break;       
             default:
                 break;
         } 
     }
+    if(event != -1)
+        delete(machine);
     delete(boxOffice);
     return 0;
 }

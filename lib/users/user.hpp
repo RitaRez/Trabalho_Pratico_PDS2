@@ -25,6 +25,7 @@ class User {
         std::vector<int> get_events(){return events;}
 
         void add_event(int event);
+	    void set_budget(double subtract);
 };
  
 #endif

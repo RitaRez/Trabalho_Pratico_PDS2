@@ -84,6 +84,7 @@ void MovieTheaterTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int i
             boxOffice->add_logged_id(id_user);
             boxOffice->add_bought_movie(id_event,ticketsWanted);
             this->change_capacity(boxOffice->get_movie_theaters()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice,id_event,ticketsWanted,totalPrice);
         }
     } else{
         if(boxOffice->get_elders()[id_user]->get_budget() < totalPrice){
@@ -97,12 +98,20 @@ void MovieTheaterTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int i
             boxOffice->add_bought_movie(id_event,ticketsWanted);
             boxOffice->add_logged_id(id_user);
             this->change_capacity(boxOffice->get_movie_theaters()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice,id_event,ticketsWanted,totalPrice);
         }
     }
 
 }    
 
-void MovieTheaterTickets::emit_ticket(BoxOffice, int id_event, int price){
-
-    
+void MovieTheaterTickets::emit_ticket(BoxOffice *boxOffice, int id_event, int tickets, int price){
+system("clear");
+    std::cout << "================================================================================================\n" << std::endl;
+    std::cout 
+        << "INGRESSO: "
+        << boxOffice->get_movie_theaters()[id_event]->get_name()
+        << "\nQuantidade de unidades: " << tickets
+        << "\nPreco total: " << price
+    << std::endl;
+    std::cout << "\n================================================================================================" << std::endl;
 }

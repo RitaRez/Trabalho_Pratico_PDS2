@@ -66,6 +66,10 @@ void PuppetTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user
 
     std::cout << "\nDigite quantos ingressos você deseja: ";    
     std::cin >> ticketsWanted;
+
+    if(ticketsWanted == 0){
+        throw TicketUnavailableException("","");
+    }
     
     int ticketsAvailable = this->get_tickets_available(boxOffice, id_event, ticketsWanted);
     double totalPrice = this->get_total_price(boxOffice->get_puppet_shows()[id_event], id_event, ticketsWanted);
@@ -83,6 +87,7 @@ void PuppetTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user
             boxOffice->add_logged_id(id_user);
             boxOffice->add_bought_puppet(id_event,ticketsWanted);
             this->change_capacity(boxOffice->get_puppet_shows()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice,id_event,ticketsWanted,totalPrice);
         }
     } else{
         if(boxOffice->get_elders()[id_user]->get_budget() < totalPrice){
@@ -96,9 +101,20 @@ void PuppetTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user
             boxOffice->add_bought_puppet(id_event,ticketsWanted);
             boxOffice->add_logged_id(id_user);
             this->change_capacity(boxOffice->get_puppet_shows()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice,id_event,ticketsWanted,totalPrice);
         }
     }
 
 }    
 
-void PuppetTickets::emit_ticket(BoxOffice, int id_event, int price){}
+void PuppetTickets::emit_ticket(BoxOffice *boxOffice, int id_event, int tickets, int price){
+    system("clear");
+    std::cout << "================================================================================================\n" << std::endl;
+    std::cout 
+        << "INGRESSO: "
+        << boxOffice->get_puppet_shows()[id_event]->get_name()
+        << "\nQuantidade de unidades: " << tickets
+        << "\nPreco total: " << price
+    << std::endl;
+    std::cout << "\n================================================================================================" << std::endl;
+}

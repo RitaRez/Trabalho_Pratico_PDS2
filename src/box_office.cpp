@@ -112,10 +112,7 @@ int BoxOffice::print_events(){
 }
 
 void BoxOffice::add_bought_club(int id, int amount){
-    if(this->boughtClubs.find(id) == this->boughtClubs.end())
-        this->boughtClubs[id] = amount;
-    else     
-        this->boughtClubs[id] += amount;
+    this->boughtClubs[id] += amount;
 } 
         
 void BoxOffice::add_bought_consert(int id, int amount){

@@ -72,6 +72,7 @@ void ConsertTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_use
             boxOffice->add_logged_id(id_user);
             boxOffice->add_bought_consert(id_event,ticketsWanted);
             this->change_capacity(boxOffice->get_conserts()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice,id_event,ticketsWanted,totalPrice);
         }
     } else{
         if(boxOffice->get_elders()[id_user]->get_budget() < totalPrice){
@@ -85,12 +86,20 @@ void ConsertTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_use
             boxOffice->add_bought_consert(id_event,ticketsWanted);
             boxOffice->add_logged_id(id_user);
             this->change_capacity(boxOffice->get_conserts()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice,id_event,ticketsWanted,totalPrice);
         }
     }
 }    
 
 
-void ConsertTickets::emit_ticket(BoxOffice, int id_event, int price){
-
-    
+void ConsertTickets::emit_ticket(BoxOffice *boxOffice, int id_event, int tickets, int price){
+system("clear");
+    std::cout << "================================================================================================\n" << std::endl;
+    std::cout 
+        << "INGRESSO: "
+        << boxOffice->get_conserts()[id_event]->get_name()
+        << "\nQuantidade de unidades: " << tickets
+        << "\nPreco total: " << price
+    << std::endl;
+    std::cout << "\n================================================================================================" << std::endl;
 }

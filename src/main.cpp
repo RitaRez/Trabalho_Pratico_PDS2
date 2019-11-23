@@ -22,63 +22,62 @@ void output_users(BoxOffice *bf){
     std::cout << "Usuarios que compraram ingressos: " << std::endl;
     if(bf->get_logged_id().empty())
         std::cout << "Nenhum usuario comprou ingresso!" << std::endl;
-    for(std::set<int>::iterator it = bf->get_logged_id().begin(); it != bf->get_logged_id().end(); ++it){
-        if(bf->get_adults()[*it] != nullptr){
+    for(auto const& adults: bf->get_logged_id()){
+        if(bf->get_adults()[adults] != nullptr){
             std::cout 
-                << "\nNome: " << bf->get_adults()[*it]->get_name() 
-                << "\nID: " << *it
-                << "\nSaldo: " << bf->get_adults()[*it]->get_budget()
-                << "\nQuantidade de ingressos adquiridos: " << bf->get_adults()[*it]->get_bought_tickets()
+                << "\nNome: " << bf->get_adults()[adults]->get_name() 
+                << "\nID: " << adults
+                << "\nSaldo: " << bf->get_adults()[adults]->get_budget()
+                << "\nQuantidade de ingressos adquiridos: " << bf->get_adults()[adults]->get_bought_tickets()
             << std::endl;
         }
-        else if (bf->get_elders()[*it] != nullptr){
+        else if (bf->get_elders()[adults] != nullptr){
             std::cout 
-                << "\nNome: " << bf->get_elders()[*it]->get_name() 
-                << "\nID: " << *it
-                << "\nSaldo: " << bf->get_elders()[*it]->get_budget()
-                << "\nQuantidade de ingressos adquiridos: " << bf->get_elders()[*it]->get_bought_tickets()
+                << "\nNome: " << bf->get_elders()[adults]->get_name() 
+                << "\nID: " << adults
+                << "\nSaldo: " << bf->get_elders()[adults]->get_budget()
+                << "\nQuantidade de ingressos adquiridos: " << bf->get_elders()[adults]->get_bought_tickets()
             << std::endl;
         }
     }
 }
 
 void output_events(BoxOffice *bf){
-    std::map<int, int>::iterator itr;
-    int id, amount;
-    std::cout << "\nEventos comprados: " << std::endl;
+
+    std::cout << "\n\nEventos comprados: " << std::endl;
     if(!bf->get_bought_clubs().empty()){
         std::cout << "\nBoates: " << std::endl;
-        for(itr = bf->get_bought_clubs().begin(); itr != bf->get_bought_clubs().end(); ++itr){
+        for(auto const& clubs: bf->get_bought_clubs()){
             std::cout 
-                << itr->first << " - " << bf->get_clubs()[itr->first]->get_name()
-                << "\nNumero de ingressos vendidos: " << itr->second
+                << clubs.first << " - " << bf->get_clubs()[clubs.first]->get_name()
+                << "\nNumero de ingressos vendidos: " << clubs.second
             << std::endl;    
         }
     }
     if(!bf->get_bought_conserts().empty()){
         std::cout << "\nShows: " << std::endl;
-        for(itr = bf->get_bought_conserts().begin(); itr != bf->get_bought_conserts().end(); ++itr){
+        for(auto const& conserts: bf->get_bought_conserts()){
             std::cout 
-                << itr->first << " - " << bf->get_conserts()[itr->first]->get_name()
-                << "\nNumero de ingressos vendidos: " << itr->second
+                << conserts.first << " - " << bf->get_conserts()[conserts.first]->get_name()
+                << "\nNumero de ingressos vendidos: " << conserts.second
             << std::endl;    
         }
     }
     if(!bf->get_bought_movies().empty()){
         std::cout << "\nFilmes: "  << std::endl;
-        for(itr = bf->get_bought_movies().begin(); itr != bf->get_bought_movies().end(); ++itr){
+        for(auto const& movies: bf->get_bought_movies()){
             std::cout 
-                << itr->first << " - " << bf->get_movie_theaters()[itr->first]->get_name()
-                << "\nNumero de ingressos vendidos: " << itr->second
+                << movies.first << " - " << bf->get_movie_theaters()[movies.first]->get_name()
+                << "\nNumero de ingressos vendidos: " << movies.second
             << std::endl;    
         }
     }    
     if(!bf->get_bought_puppet().empty()){
         std::cout << "\nTeatros de fantoche: " << std::endl;
-        for(itr = bf->get_bought_puppet().begin(); itr != bf->get_bought_puppet().end(); ++itr){
+        for(auto const& puppet: bf->get_bought_puppet()){
             std::cout 
-                << itr->first << " - " << bf->get_puppet_shows()[itr->first]->get_name()
-                << "\nNumero de ingressos vendidos: " << itr->second
+                << puppet.first << " - " << bf->get_puppet_shows()[puppet.first]->get_name()
+                << "\nNumero de ingressos vendidos: " << puppet.second
             << std::endl;    
         }
     }    

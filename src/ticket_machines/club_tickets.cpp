@@ -55,7 +55,6 @@ void ClubTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user){
     
     int ticketsAvailable = this->get_tickets_available(boxOffice, id_event, ticketsWanted);
     double totalPrice = this->get_total_price(boxOffice->get_clubs()[id_event], id_event, ticketsWanted);
-    std::cout <<"\nPreço total: " << totalPrice << std::endl;
     
     if(boxOffice->get_clubs()[id_event]->get_elder_amout() >= ticketsAvailable && boxOffice->get_elders()[id_user] != nullptr){
         system("clear");
@@ -74,6 +73,7 @@ void ClubTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user){
             boxOffice->add_logged_id(id_user);
             boxOffice->add_bought_club(id_event,ticketsWanted);
             this->change_capacity(boxOffice->get_clubs()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice, id_event, ticketsWanted, totalPrice);
         }
     } else{
         if(boxOffice->get_elders()[id_user]->get_budget() < totalPrice){
@@ -87,11 +87,19 @@ void ClubTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user){
             boxOffice->add_bought_club(id_event,ticketsWanted);
             boxOffice->add_logged_id(id_user);
             this->change_capacity(boxOffice->get_clubs()[id_event], id_event, ticketsWanted);
+            emit_ticket(boxOffice, id_event, ticketsWanted, totalPrice);
         }
     }  
 }
 
-void ClubTickets::emit_ticket(BoxOffice, int id_event, int price){
-
-    
+void ClubTickets::emit_ticket(BoxOffice *boxOffice, int id_event, int tickets, int price){
+    system("clear");
+    std::cout << "================================================================================================\n" << std::endl;
+    std::cout 
+        << "INGRESSO: "
+        << boxOffice->get_clubs()[id_event]->get_name()
+        << "\nQuantidade de unidades: " << tickets
+        << "\nPreco total: " << price
+    << std::endl;
+    std::cout << "\n================================================================================================" << std::endl;
 }

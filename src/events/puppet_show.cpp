@@ -27,9 +27,9 @@ void PuppetShow::print_puppet_shows(std::map<int,PuppetShow*> puppetShows){
         for (int i = 0; i < itr->second->get_capacity().size(); i++)
             c += itr->second->get_capacity()[i];
 
-        std::cout << "\nNome: " << itr->second->get_name() << std::endl;
+        std::cout << "\n\n" << itr->second->get_name() << std::endl;
         std::cout 
-            << "\nId: " << itr->second->get_id() 
+            << "\nId: " << itr->first
             << "\nClassificacao: Infantil"
             << "\nCategoria: Teatro de fantoches"
             << "\nNúmero de ingressos: " << c

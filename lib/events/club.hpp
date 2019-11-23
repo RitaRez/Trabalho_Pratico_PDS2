@@ -2,7 +2,6 @@
 #define CLUB_H
 
 #include "../../lib/events/adult_event.hpp"
-#include "../../lib/users/elder.hpp"
 
 class Club: public AdultEvent {
 

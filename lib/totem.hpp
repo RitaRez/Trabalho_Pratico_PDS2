@@ -10,19 +10,23 @@
 #include "./users/elder.hpp"
 #include "./box_office.hpp"
 
-#include "./events/event.hpp"
-#include "./events/infant_event.hpp"
 #include "./events/puppet_show.hpp"
-#include "./events/adult_event.hpp"
 #include "./events/club.hpp"
 #include "./events/consert.hpp"
 #include "./events/movie_theater.hpp"
 
 class Totem {
-
+    
     public:
         Totem();
         static Totem* factoryMethod(BoxOffice *boxOffice, int id);
+	    virtual void sell_tickets(BoxOffice *boxOffice, int id_event, int id_user) = 0;
+        virtual void show_schedules(BoxOffice *boxOffice, int id_event, int price, int l) = 0;
+        virtual void emit_ticket(BoxOffice *boxOffice, int id_event, int tickets, int price) = 0;
+        
+        int get_total_price(Event *mt, int id_event, int ticketsWanted);
+        void change_capacity(Event *mt, int id_event, int ticketsWanted);
+
 };
 
 #endif

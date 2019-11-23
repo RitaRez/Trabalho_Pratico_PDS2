@@ -29,9 +29,9 @@ void Consert::print_conserts(std::map<int,Consert*> conserts){
         for (int i = 0; i < itr->second->get_capacity().size(); i++)
             c += itr->second->get_capacity()[i];
 
-        std::cout << "\n\nNome: " << itr->second->get_name()  << std::endl;
+        std::cout << "\n\n" << itr->second->get_name()  << std::endl;
         std::cout 
-            << "\nId: " << itr->second->get_id() 
+            << "\nId: " << itr->first
             << "\nClassificacao: Adulto"
             << "\nCategoria: Show"
             << "\nNúmero de ingressos: " << c 

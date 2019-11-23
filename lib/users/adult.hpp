@@ -10,6 +10,7 @@ class Adult: public User{
     
     private:
         std::vector<int> children;
+        int boughtTickets = 0;
         
     public:
         Adult();
@@ -19,6 +20,8 @@ class Adult: public User{
 
         std::vector<int> get_children(){return children;}
         void add_children(int kid);
+        int get_bought_tickets(){return this->boughtTickets;}
+        void increase_bought_tickets(){this->boughtTickets++;}
 
 };
  

@@ -22,6 +22,7 @@ class Event {
         std::string get_category() { return category; }
         std::string get_name() { return name; }
         std::vector<int> get_capacity()  { return capacity; }
+        void set_capacity(int new_capacity, int index)  { this->capacity[index] -= new_capacity; }
         std::vector<float> get_prices()  { return prices; }
 };
  

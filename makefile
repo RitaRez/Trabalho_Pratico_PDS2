@@ -29,4 +29,4 @@ run:
 	$(BUILD_PATH)/$(TARGET_NAME) $(DATA_PATH)/users.csv $(DATA_PATH)/events.csv
 
 mem:
-	valgrind --leak-check=full --show-leak-kinds=all $(BUILD_PATH)/$(TARGET_NAME) $(DATA_PATH)/users.csv $(DATA_PATH)/events.csv
+	valgrind --leak-check=yes $(BUILD_PATH)/$(TARGET_NAME) $(DATA_PATH)/users.csv $(DATA_PATH)/events.csv < build/in

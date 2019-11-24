@@ -1,0 +1,189 @@
+\hypertarget{class_club_tickets}{}\section{Club\+Tickets Class Reference}
+\label{class_club_tickets}\index{Club\+Tickets@{Club\+Tickets}}
+
+
+Maquina de ingressos de boate, realiza compras e emite bilhetes dessas.  
+
+
+
+
+{\ttfamily \#include $<$club\+\_\+tickets.\+hpp$>$}
+
+
+
+Inheritance diagram for Club\+Tickets\+:
+% FIG 0
+
+
+Collaboration diagram for Club\+Tickets\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_club_tickets_a88dc2bfc85b1cb4f40ad67169c1e6898}{Club\+Tickets} ()
+\item 
+void \hyperlink{class_club_tickets_afc1b589af88796163f9561b5c64b9667}{sell\+\_\+tickets} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int id\+\_\+user) override
+\begin{DoxyCompactList}\small\item\em Realiza a compra de ingressos de show. \end{DoxyCompactList}\item 
+void \hyperlink{class_club_tickets_a54c6301365f63a9a3894a4f949ce38a1}{show\+\_\+schedules} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int price, int l) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela os dados do evento. \end{DoxyCompactList}\item 
+void \hyperlink{class_club_tickets_ab4bc6e785c0b919923577ffc2e58042b}{emit\+\_\+ticket} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets, int price) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_club_tickets_ad29cfeea8d924408f0ce3a01572dabfe}{get\+\_\+tickets\+\_\+available} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets\+Wanted) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_club_tickets_a1de83341b2457f0352e1cdd86d27e1e3}{get\+\_\+current\+\_\+price} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event) override
+\begin{DoxyCompactList}\small\item\em Calcula o preco do lote atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_club_tickets}{Club\+Tickets} $\ast$ \hyperlink{class_club_tickets_a05bfa4f5379a6fd7229efd00e98f1e7f}{get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Maquina de ingressos de boate, realiza compras e emite bilhetes dessas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_club_tickets_a88dc2bfc85b1cb4f40ad67169c1e6898}\label{class_club_tickets_a88dc2bfc85b1cb4f40ad67169c1e6898}} 
+\index{Club\+Tickets@{Club\+Tickets}!Club\+Tickets@{Club\+Tickets}}
+\index{Club\+Tickets@{Club\+Tickets}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{Club\+Tickets()}{ClubTickets()}}
+{\footnotesize\ttfamily Club\+Tickets\+::\+Club\+Tickets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_club_tickets_ab4bc6e785c0b919923577ffc2e58042b}\label{class_club_tickets_ab4bc6e785c0b919923577ffc2e58042b}} 
+\index{Club\+Tickets@{Club\+Tickets}!emit\+\_\+ticket@{emit\+\_\+ticket}}
+\index{emit\+\_\+ticket@{emit\+\_\+ticket}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{emit\+\_\+ticket()}{emit\_ticket()}}
+{\footnotesize\ttfamily void Club\+Tickets\+::emit\+\_\+ticket (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets,  }\item[{int}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets} & Quantidade de ingressos comprada \\
+\hline
+{\em price} & Preço pago pelo usuario \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}{Totem}.
+
+\mbox{\Hypertarget{class_club_tickets_a1de83341b2457f0352e1cdd86d27e1e3}\label{class_club_tickets_a1de83341b2457f0352e1cdd86d27e1e3}} 
+\index{Club\+Tickets@{Club\+Tickets}!get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}}
+\index{get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+price()}{get\_current\_price()}}
+{\footnotesize\ttfamily int Club\+Tickets\+::get\+\_\+current\+\_\+price (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcula o preco do lote atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Preco do lote atual 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_ae05433d0eebc0f403d904700499f091b}{Totem}.
+
+\mbox{\Hypertarget{class_club_tickets_ad29cfeea8d924408f0ce3a01572dabfe}\label{class_club_tickets_ad29cfeea8d924408f0ce3a01572dabfe}} 
+\index{Club\+Tickets@{Club\+Tickets}!get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}}
+\index{get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+tickets\+\_\+available()}{get\_tickets\_available()}}
+{\footnotesize\ttfamily int Club\+Tickets\+::get\+\_\+tickets\+\_\+available (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos desejada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ingressos disponiveis 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}{Totem}.
+
+\mbox{\Hypertarget{class_club_tickets_a05bfa4f5379a6fd7229efd00e98f1e7f}\label{class_club_tickets_a05bfa4f5379a6fd7229efd00e98f1e7f}} 
+\index{Club\+Tickets@{Club\+Tickets}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_club_tickets}{Club\+Tickets} $\ast$ Club\+Tickets\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_club_tickets_afc1b589af88796163f9561b5c64b9667}\label{class_club_tickets_afc1b589af88796163f9561b5c64b9667}} 
+\index{Club\+Tickets@{Club\+Tickets}!sell\+\_\+tickets@{sell\+\_\+tickets}}
+\index{sell\+\_\+tickets@{sell\+\_\+tickets}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{sell\+\_\+tickets()}{sell\_tickets()}}
+{\footnotesize\ttfamily void Club\+Tickets\+::sell\+\_\+tickets (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{id\+\_\+user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Realiza a compra de ingressos de show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}{Totem}.
+
+\mbox{\Hypertarget{class_club_tickets_a54c6301365f63a9a3894a4f949ce38a1}\label{class_club_tickets_a54c6301365f63a9a3894a4f949ce38a1}} 
+\index{Club\+Tickets@{Club\+Tickets}!show\+\_\+schedules@{show\+\_\+schedules}}
+\index{show\+\_\+schedules@{show\+\_\+schedules}!Club\+Tickets@{Club\+Tickets}}
+\subsubsection{\texorpdfstring{show\+\_\+schedules()}{show\_schedules()}}
+{\footnotesize\ttfamily void Club\+Tickets\+::show\+\_\+schedules (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{price,  }\item[{int}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela os dados do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+{\em l} & Lote em que as vendas se encontram \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}{Totem}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/ticket\+\_\+machines/\hyperlink{club__tickets_8hpp}{club\+\_\+tickets.\+hpp}\item 
+src/ticket\+\_\+machines/\hyperlink{club__tickets_8cpp}{club\+\_\+tickets.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,189 @@
+\hypertarget{class_consert_tickets}{}\section{Consert\+Tickets Class Reference}
+\label{class_consert_tickets}\index{Consert\+Tickets@{Consert\+Tickets}}
+
+
+Maquina de ingressos de show, realiza compras e emite bilhetes dessas.  
+
+
+
+
+{\ttfamily \#include $<$consert\+\_\+tickets.\+hpp$>$}
+
+
+
+Inheritance diagram for Consert\+Tickets\+:
+% FIG 0
+
+
+Collaboration diagram for Consert\+Tickets\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_consert_tickets_ab5d6797982b8c17b329d54b6f0dfb615}{Consert\+Tickets} ()
+\item 
+void \hyperlink{class_consert_tickets_a12a927f5284af7463c8947eda023ce92}{sell\+\_\+tickets} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int id\+\_\+user) override
+\begin{DoxyCompactList}\small\item\em Realiza a compra de ingressos de show. \end{DoxyCompactList}\item 
+void \hyperlink{class_consert_tickets_a4cc1eefa1e883b7ebad0fa679b81159c}{show\+\_\+schedules} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int price, int l) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela os dados do evento. \end{DoxyCompactList}\item 
+void \hyperlink{class_consert_tickets_af1c027f9ef23dc346c6c51f9d2b5ac68}{emit\+\_\+ticket} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets, int price) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_consert_tickets_a1c4ea135087a4990cbe7b10a97949864}{get\+\_\+tickets\+\_\+available} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets\+Wanted) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_consert_tickets_a313b214e5fb67be2561563756ab79ad9}{get\+\_\+current\+\_\+price} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event) override
+\begin{DoxyCompactList}\small\item\em Calcula o preco do lote atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_consert_tickets}{Consert\+Tickets} $\ast$ \hyperlink{class_consert_tickets_a5a4cdef5d2d75042421c5d979074fcb0}{get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Maquina de ingressos de show, realiza compras e emite bilhetes dessas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_consert_tickets_ab5d6797982b8c17b329d54b6f0dfb615}\label{class_consert_tickets_ab5d6797982b8c17b329d54b6f0dfb615}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!Consert\+Tickets@{Consert\+Tickets}}
+\index{Consert\+Tickets@{Consert\+Tickets}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{Consert\+Tickets()}{ConsertTickets()}}
+{\footnotesize\ttfamily Consert\+Tickets\+::\+Consert\+Tickets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_consert_tickets_af1c027f9ef23dc346c6c51f9d2b5ac68}\label{class_consert_tickets_af1c027f9ef23dc346c6c51f9d2b5ac68}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!emit\+\_\+ticket@{emit\+\_\+ticket}}
+\index{emit\+\_\+ticket@{emit\+\_\+ticket}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{emit\+\_\+ticket()}{emit\_ticket()}}
+{\footnotesize\ttfamily void Consert\+Tickets\+::emit\+\_\+ticket (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets,  }\item[{int}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets} & Quantidade de ingressos comprada \\
+\hline
+{\em price} & Preço pago pelo usuario \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}{Totem}.
+
+\mbox{\Hypertarget{class_consert_tickets_a313b214e5fb67be2561563756ab79ad9}\label{class_consert_tickets_a313b214e5fb67be2561563756ab79ad9}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}}
+\index{get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+price()}{get\_current\_price()}}
+{\footnotesize\ttfamily int Consert\+Tickets\+::get\+\_\+current\+\_\+price (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcula o preco do lote atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Preco do lote atual 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_ae05433d0eebc0f403d904700499f091b}{Totem}.
+
+\mbox{\Hypertarget{class_consert_tickets_a1c4ea135087a4990cbe7b10a97949864}\label{class_consert_tickets_a1c4ea135087a4990cbe7b10a97949864}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}}
+\index{get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+tickets\+\_\+available()}{get\_tickets\_available()}}
+{\footnotesize\ttfamily int Consert\+Tickets\+::get\+\_\+tickets\+\_\+available (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos desejada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ingressos disponiveis 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}{Totem}.
+
+\mbox{\Hypertarget{class_consert_tickets_a5a4cdef5d2d75042421c5d979074fcb0}\label{class_consert_tickets_a5a4cdef5d2d75042421c5d979074fcb0}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_consert_tickets}{Consert\+Tickets} $\ast$ Consert\+Tickets\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_consert_tickets_a12a927f5284af7463c8947eda023ce92}\label{class_consert_tickets_a12a927f5284af7463c8947eda023ce92}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!sell\+\_\+tickets@{sell\+\_\+tickets}}
+\index{sell\+\_\+tickets@{sell\+\_\+tickets}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{sell\+\_\+tickets()}{sell\_tickets()}}
+{\footnotesize\ttfamily void Consert\+Tickets\+::sell\+\_\+tickets (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{id\+\_\+user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Realiza a compra de ingressos de show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}{Totem}.
+
+\mbox{\Hypertarget{class_consert_tickets_a4cc1eefa1e883b7ebad0fa679b81159c}\label{class_consert_tickets_a4cc1eefa1e883b7ebad0fa679b81159c}} 
+\index{Consert\+Tickets@{Consert\+Tickets}!show\+\_\+schedules@{show\+\_\+schedules}}
+\index{show\+\_\+schedules@{show\+\_\+schedules}!Consert\+Tickets@{Consert\+Tickets}}
+\subsubsection{\texorpdfstring{show\+\_\+schedules()}{show\_schedules()}}
+{\footnotesize\ttfamily void Consert\+Tickets\+::show\+\_\+schedules (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{price,  }\item[{int}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela os dados do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+{\em l} & Lote em que as vendas se encontram \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}{Totem}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/ticket\+\_\+machines/\hyperlink{consert__tickets_8hpp}{consert\+\_\+tickets.\+hpp}\item 
+src/ticket\+\_\+machines/\hyperlink{consert__tickets_8cpp}{consert\+\_\+tickets.\+cpp}\end{DoxyCompactItemize}

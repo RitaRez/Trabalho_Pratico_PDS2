@@ -1,0 +1,244 @@
+\hypertarget{class_totem}{}\section{Totem Class Reference}
+\label{class_totem}\index{Totem@{Totem}}
+
+
+Classe mãe das maquinas de venda.  
+
+
+
+
+{\ttfamily \#include $<$totem.\+hpp$>$}
+
+
+
+Inheritance diagram for Totem\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_totem_a21614625adf52c03a7281f2738771495}{Totem} ()
+\item 
+virtual void \hyperlink{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}{sell\+\_\+tickets} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int id\+\_\+user)=0
+\begin{DoxyCompactList}\small\item\em Realiza a compra de ingressos de show. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}{show\+\_\+schedules} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int price, int l)=0
+\begin{DoxyCompactList}\small\item\em Imprime na tela os dados do evento. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}{emit\+\_\+ticket} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets, int price)=0
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+virtual int \hyperlink{class_totem_a72f671d4db9c034526fa6d69e2df9812}{get\+\_\+total\+\_\+price} (\hyperlink{class_event}{Event} $\ast$mt, int id\+\_\+event, int tickets\+Wanted)
+\begin{DoxyCompactList}\small\item\em Calcula o preco total pago pelo ususario. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_totem_a2cc7898315e4c14036b2a01a38325f2d}{change\+\_\+capacity} (\hyperlink{class_event}{Event} $\ast$mt, int id\+\_\+event, int tickets\+Wanted)
+\begin{DoxyCompactList}\small\item\em Reduz a quantidade de ingressos disponivel na estrutura. \end{DoxyCompactList}\item 
+virtual int \hyperlink{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}{get\+\_\+tickets\+\_\+available} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets\+Wanted)=0
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+virtual int \hyperlink{class_totem_ae05433d0eebc0f403d904700499f091b}{get\+\_\+current\+\_\+price} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event)=0
+\begin{DoxyCompactList}\small\item\em Calcula o preco do lote atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_totem}{Totem} $\ast$ \hyperlink{class_totem_a796d3c828ae38b68ff0a4c97344429de}{factory\+Method} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id)
+\begin{DoxyCompactList}\small\item\em Chama a funcao construtora da maquina do respectivo evento. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe mãe das maquinas de venda. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_totem_a21614625adf52c03a7281f2738771495}\label{class_totem_a21614625adf52c03a7281f2738771495}} 
+\index{Totem@{Totem}!Totem@{Totem}}
+\index{Totem@{Totem}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{Totem()}{Totem()}}
+{\footnotesize\ttfamily Totem\+::\+Totem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_totem_a2cc7898315e4c14036b2a01a38325f2d}\label{class_totem_a2cc7898315e4c14036b2a01a38325f2d}} 
+\index{Totem@{Totem}!change\+\_\+capacity@{change\+\_\+capacity}}
+\index{change\+\_\+capacity@{change\+\_\+capacity}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{change\+\_\+capacity()}{change\_capacity()}}
+{\footnotesize\ttfamily void Totem\+::change\+\_\+capacity (\begin{DoxyParamCaption}\item[{\hyperlink{class_event}{Event} $\ast$}]{mt,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reduz a quantidade de ingressos disponivel na estrutura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mt} & Evento que vai ser comprado \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos comprados \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}\label{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}} 
+\index{Totem@{Totem}!emit\+\_\+ticket@{emit\+\_\+ticket}}
+\index{emit\+\_\+ticket@{emit\+\_\+ticket}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{emit\+\_\+ticket()}{emit\_ticket()}}
+{\footnotesize\ttfamily virtual void Totem\+::emit\+\_\+ticket (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets,  }\item[{int}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets} & Quantidade de ingressos comprada \\
+\hline
+{\em price} & Preço pago pelo usuario \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_movie_theater_tickets_a17e3580fee82f4477c4cc3f27283af5a}{Movie\+Theater\+Tickets}, \hyperlink{class_puppet_tickets_a1d458fbaa6f21e2ba82c805299bb5025}{Puppet\+Tickets}, \hyperlink{class_club_tickets_ab4bc6e785c0b919923577ffc2e58042b}{Club\+Tickets}, and \hyperlink{class_consert_tickets_af1c027f9ef23dc346c6c51f9d2b5ac68}{Consert\+Tickets}.
+
+\mbox{\Hypertarget{class_totem_a796d3c828ae38b68ff0a4c97344429de}\label{class_totem_a796d3c828ae38b68ff0a4c97344429de}} 
+\index{Totem@{Totem}!factory\+Method@{factory\+Method}}
+\index{factory\+Method@{factory\+Method}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{factory\+Method()}{factoryMethod()}}
+{\footnotesize\ttfamily \hyperlink{class_totem}{Totem} $\ast$ Totem\+::factory\+Method (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Chama a funcao construtora da maquina do respectivo evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna Maquina respectiva do evento 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_totem_ae05433d0eebc0f403d904700499f091b}\label{class_totem_ae05433d0eebc0f403d904700499f091b}} 
+\index{Totem@{Totem}!get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}}
+\index{get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+price()}{get\_current\_price()}}
+{\footnotesize\ttfamily virtual int Totem\+::get\+\_\+current\+\_\+price (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcula o preco do lote atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Preco do lote atual 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_movie_theater_tickets_a51e0ad53bf50085a53625a97bf4ebd6a}{Movie\+Theater\+Tickets}, \hyperlink{class_puppet_tickets_a73477909b6f61d1fff4afff51d26e6b6}{Puppet\+Tickets}, \hyperlink{class_club_tickets_a1de83341b2457f0352e1cdd86d27e1e3}{Club\+Tickets}, and \hyperlink{class_consert_tickets_a313b214e5fb67be2561563756ab79ad9}{Consert\+Tickets}.
+
+\mbox{\Hypertarget{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}\label{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}} 
+\index{Totem@{Totem}!get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}}
+\index{get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{get\+\_\+tickets\+\_\+available()}{get\_tickets\_available()}}
+{\footnotesize\ttfamily virtual int Totem\+::get\+\_\+tickets\+\_\+available (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos desejada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ingressos disponiveis 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_movie_theater_tickets_ae823c90ab6c3d25a2168972e6e16953f}{Movie\+Theater\+Tickets}, \hyperlink{class_puppet_tickets_a8b76b650cb25cdccd1c8fb8c81585353}{Puppet\+Tickets}, \hyperlink{class_club_tickets_ad29cfeea8d924408f0ce3a01572dabfe}{Club\+Tickets}, and \hyperlink{class_consert_tickets_a1c4ea135087a4990cbe7b10a97949864}{Consert\+Tickets}.
+
+\mbox{\Hypertarget{class_totem_a72f671d4db9c034526fa6d69e2df9812}\label{class_totem_a72f671d4db9c034526fa6d69e2df9812}} 
+\index{Totem@{Totem}!get\+\_\+total\+\_\+price@{get\+\_\+total\+\_\+price}}
+\index{get\+\_\+total\+\_\+price@{get\+\_\+total\+\_\+price}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{get\+\_\+total\+\_\+price()}{get\_total\_price()}}
+{\footnotesize\ttfamily int Totem\+::get\+\_\+total\+\_\+price (\begin{DoxyParamCaption}\item[{\hyperlink{class_event}{Event} $\ast$}]{mt,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calcula o preco total pago pelo ususario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mt} & Evento que vai ser comprado \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos comprados \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Preco total 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}\label{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}} 
+\index{Totem@{Totem}!sell\+\_\+tickets@{sell\+\_\+tickets}}
+\index{sell\+\_\+tickets@{sell\+\_\+tickets}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{sell\+\_\+tickets()}{sell\_tickets()}}
+{\footnotesize\ttfamily virtual void Totem\+::sell\+\_\+tickets (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{id\+\_\+user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Realiza a compra de ingressos de show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_movie_theater_tickets_a5b82ac266d97c8517955c67e83ac810e}{Movie\+Theater\+Tickets}, \hyperlink{class_puppet_tickets_a719a391bb489e9f741a1caabbaa2d2b8}{Puppet\+Tickets}, \hyperlink{class_club_tickets_afc1b589af88796163f9561b5c64b9667}{Club\+Tickets}, and \hyperlink{class_consert_tickets_a12a927f5284af7463c8947eda023ce92}{Consert\+Tickets}.
+
+\mbox{\Hypertarget{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}\label{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}} 
+\index{Totem@{Totem}!show\+\_\+schedules@{show\+\_\+schedules}}
+\index{show\+\_\+schedules@{show\+\_\+schedules}!Totem@{Totem}}
+\subsubsection{\texorpdfstring{show\+\_\+schedules()}{show\_schedules()}}
+{\footnotesize\ttfamily virtual void Totem\+::show\+\_\+schedules (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{price,  }\item[{int}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Imprime na tela os dados do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+{\em l} & Lote em que as vendas se encontram \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_movie_theater_tickets_a488ff6563e0970877213098cee719c50}{Movie\+Theater\+Tickets}, \hyperlink{class_puppet_tickets_a45d59ff08614919b1afad11dff21d5e4}{Puppet\+Tickets}, \hyperlink{class_club_tickets_a54c6301365f63a9a3894a4f949ce38a1}{Club\+Tickets}, and \hyperlink{class_consert_tickets_a4cc1eefa1e883b7ebad0fa679b81159c}{Consert\+Tickets}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{totem_8hpp}{totem.\+hpp}\item 
+src/\hyperlink{totem_8cpp}{totem.\+cpp}\end{DoxyCompactItemize}

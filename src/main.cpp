@@ -135,6 +135,7 @@ int main(int argc, const char** argv) {
             case 4:
                 output_users(boxOffice);
                 output_events(boxOffice);
+                boxOffice->free_maps();
                 break;       
             default:
                 break;

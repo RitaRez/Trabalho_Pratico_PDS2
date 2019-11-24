@@ -1,0 +1,206 @@
+\hypertarget{class_movie_theater_tickets}{}\section{Movie\+Theater\+Tickets Class Reference}
+\label{class_movie_theater_tickets}\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+
+
+Maquina de ingressos de cinema, realiza compras e emite bilhetes dessas.  
+
+
+
+
+{\ttfamily \#include $<$movie\+\_\+theater\+\_\+tickets.\+hpp$>$}
+
+
+
+Inheritance diagram for Movie\+Theater\+Tickets\+:
+% FIG 0
+
+
+Collaboration diagram for Movie\+Theater\+Tickets\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_movie_theater_tickets_aef090188bf8b001538ee280c1ed889e5}{Movie\+Theater\+Tickets} ()
+\item 
+void \hyperlink{class_movie_theater_tickets_a5a68fb8fa3f990ea7087b620595bda04}{time\+\_\+exists} (int time, std\+::vector$<$ int $>$ schedule)
+\begin{DoxyCompactList}\small\item\em Verifica se o horario digitado pelo usuario existe. \end{DoxyCompactList}\item 
+void \hyperlink{class_movie_theater_tickets_a5b82ac266d97c8517955c67e83ac810e}{sell\+\_\+tickets} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int id\+\_\+user) override
+\begin{DoxyCompactList}\small\item\em Realiza a compra de ingressos de show. \end{DoxyCompactList}\item 
+void \hyperlink{class_movie_theater_tickets_a488ff6563e0970877213098cee719c50}{show\+\_\+schedules} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int price, int l) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela os dados do evento. \end{DoxyCompactList}\item 
+void \hyperlink{class_movie_theater_tickets_a17e3580fee82f4477c4cc3f27283af5a}{emit\+\_\+ticket} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets, int price) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_movie_theater_tickets_ae823c90ab6c3d25a2168972e6e16953f}{get\+\_\+tickets\+\_\+available} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets\+Wanted) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_movie_theater_tickets_a51e0ad53bf50085a53625a97bf4ebd6a}{get\+\_\+current\+\_\+price} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event) override
+\begin{DoxyCompactList}\small\item\em Calcula o preco do lote atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_movie_theater_tickets}{Movie\+Theater\+Tickets} $\ast$ \hyperlink{class_movie_theater_tickets_af7634290813078d05ef46a4321ced062}{get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Maquina de ingressos de cinema, realiza compras e emite bilhetes dessas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_movie_theater_tickets_aef090188bf8b001538ee280c1ed889e5}\label{class_movie_theater_tickets_aef090188bf8b001538ee280c1ed889e5}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{Movie\+Theater\+Tickets()}{MovieTheaterTickets()}}
+{\footnotesize\ttfamily Movie\+Theater\+Tickets\+::\+Movie\+Theater\+Tickets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_movie_theater_tickets_a17e3580fee82f4477c4cc3f27283af5a}\label{class_movie_theater_tickets_a17e3580fee82f4477c4cc3f27283af5a}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!emit\+\_\+ticket@{emit\+\_\+ticket}}
+\index{emit\+\_\+ticket@{emit\+\_\+ticket}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{emit\+\_\+ticket()}{emit\_ticket()}}
+{\footnotesize\ttfamily void Movie\+Theater\+Tickets\+::emit\+\_\+ticket (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets,  }\item[{int}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets} & Quantidade de ingressos comprada \\
+\hline
+{\em price} & Preço pago pelo usuario \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}{Totem}.
+
+\mbox{\Hypertarget{class_movie_theater_tickets_a51e0ad53bf50085a53625a97bf4ebd6a}\label{class_movie_theater_tickets_a51e0ad53bf50085a53625a97bf4ebd6a}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}}
+\index{get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+price()}{get\_current\_price()}}
+{\footnotesize\ttfamily int Movie\+Theater\+Tickets\+::get\+\_\+current\+\_\+price (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcula o preco do lote atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Preco do lote atual 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_ae05433d0eebc0f403d904700499f091b}{Totem}.
+
+\mbox{\Hypertarget{class_movie_theater_tickets_ae823c90ab6c3d25a2168972e6e16953f}\label{class_movie_theater_tickets_ae823c90ab6c3d25a2168972e6e16953f}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}}
+\index{get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+tickets\+\_\+available()}{get\_tickets\_available()}}
+{\footnotesize\ttfamily int Movie\+Theater\+Tickets\+::get\+\_\+tickets\+\_\+available (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos desejada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ingressos disponiveis 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}{Totem}.
+
+\mbox{\Hypertarget{class_movie_theater_tickets_af7634290813078d05ef46a4321ced062}\label{class_movie_theater_tickets_af7634290813078d05ef46a4321ced062}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_movie_theater_tickets}{Movie\+Theater\+Tickets} $\ast$ Movie\+Theater\+Tickets\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_movie_theater_tickets_a5b82ac266d97c8517955c67e83ac810e}\label{class_movie_theater_tickets_a5b82ac266d97c8517955c67e83ac810e}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!sell\+\_\+tickets@{sell\+\_\+tickets}}
+\index{sell\+\_\+tickets@{sell\+\_\+tickets}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{sell\+\_\+tickets()}{sell\_tickets()}}
+{\footnotesize\ttfamily void Movie\+Theater\+Tickets\+::sell\+\_\+tickets (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{id\+\_\+user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Realiza a compra de ingressos de show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}{Totem}.
+
+\mbox{\Hypertarget{class_movie_theater_tickets_a488ff6563e0970877213098cee719c50}\label{class_movie_theater_tickets_a488ff6563e0970877213098cee719c50}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!show\+\_\+schedules@{show\+\_\+schedules}}
+\index{show\+\_\+schedules@{show\+\_\+schedules}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{show\+\_\+schedules()}{show\_schedules()}}
+{\footnotesize\ttfamily void Movie\+Theater\+Tickets\+::show\+\_\+schedules (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{price,  }\item[{int}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela os dados do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+{\em l} & Lote em que as vendas se encontram \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}{Totem}.
+
+\mbox{\Hypertarget{class_movie_theater_tickets_a5a68fb8fa3f990ea7087b620595bda04}\label{class_movie_theater_tickets_a5a68fb8fa3f990ea7087b620595bda04}} 
+\index{Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}!time\+\_\+exists@{time\+\_\+exists}}
+\index{time\+\_\+exists@{time\+\_\+exists}!Movie\+Theater\+Tickets@{Movie\+Theater\+Tickets}}
+\subsubsection{\texorpdfstring{time\+\_\+exists()}{time\_exists()}}
+{\footnotesize\ttfamily void Movie\+Theater\+Tickets\+::time\+\_\+exists (\begin{DoxyParamCaption}\item[{int}]{time,  }\item[{std\+::vector$<$ int $>$}]{schedule }\end{DoxyParamCaption})}
+
+
+
+Verifica se o horario digitado pelo usuario existe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em schedule} & horarios disponiveis \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/ticket\+\_\+machines/\hyperlink{movie__theater__tickets_8hpp}{movie\+\_\+theater\+\_\+tickets.\+hpp}\item 
+src/ticket\+\_\+machines/\hyperlink{movie__theater__tickets_8cpp}{movie\+\_\+theater\+\_\+tickets.\+cpp}\end{DoxyCompactItemize}

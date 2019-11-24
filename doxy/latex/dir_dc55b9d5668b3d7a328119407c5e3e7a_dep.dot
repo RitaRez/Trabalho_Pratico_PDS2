@@ -1,0 +1,11 @@
+digraph "src/ticket_machines" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_68267d1309a1af8e8297ef4c3efbcdba {
+    graph [ bgcolor="#ddddee", pencolor="black", label="src" fontname="Helvetica", fontsize="10", URL="dir_68267d1309a1af8e8297ef4c3efbcdba.html"]
+  dir_dc55b9d5668b3d7a328119407c5e3e7a [shape=box, label="ticket_machines", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_dc55b9d5668b3d7a328119407c5e3e7a.html"];
+  }
+  dir_97aefd0d527b934f1d99a682da8fe6a9 [shape=box label="lib" fillcolor="white" style="filled" color="red" URL="dir_97aefd0d527b934f1d99a682da8fe6a9.html"];
+  dir_dc55b9d5668b3d7a328119407c5e3e7a->dir_97aefd0d527b934f1d99a682da8fe6a9 [headlabel="15", labeldistance=1.5 headhref="dir_000008_000000.html"];
+}

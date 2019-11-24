@@ -1,0 +1,206 @@
+\hypertarget{class_puppet_tickets}{}\section{Puppet\+Tickets Class Reference}
+\label{class_puppet_tickets}\index{Puppet\+Tickets@{Puppet\+Tickets}}
+
+
+Maquina de ingressos de teatro de fantoche, realiza compras e emite bilhetes dessas.  
+
+
+
+
+{\ttfamily \#include $<$puppet\+\_\+tickets.\+hpp$>$}
+
+
+
+Inheritance diagram for Puppet\+Tickets\+:
+% FIG 0
+
+
+Collaboration diagram for Puppet\+Tickets\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_puppet_tickets_ac5cbccccc59aa7c88ebebab8b97eafdf}{Puppet\+Tickets} ()
+\item 
+void \hyperlink{class_puppet_tickets_adb4f3ea38df65d39fb9d9599dc22460b}{time\+\_\+exists} (int time, std\+::vector$<$ int $>$ schedule)
+\begin{DoxyCompactList}\small\item\em Verifica se o horario digitado pelo usuario existe. \end{DoxyCompactList}\item 
+void \hyperlink{class_puppet_tickets_a719a391bb489e9f741a1caabbaa2d2b8}{sell\+\_\+tickets} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int id\+\_\+user) override
+\begin{DoxyCompactList}\small\item\em Realiza a compra de ingressos de show. \end{DoxyCompactList}\item 
+void \hyperlink{class_puppet_tickets_a45d59ff08614919b1afad11dff21d5e4}{show\+\_\+schedules} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int price, int l) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela os dados do evento. \end{DoxyCompactList}\item 
+void \hyperlink{class_puppet_tickets_a1d458fbaa6f21e2ba82c805299bb5025}{emit\+\_\+ticket} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets, int price) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_puppet_tickets_a8b76b650cb25cdccd1c8fb8c81585353}{get\+\_\+tickets\+\_\+available} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event, int tickets\+Wanted) override
+\begin{DoxyCompactList}\small\item\em Imprime na tela o bilhete da compra. \end{DoxyCompactList}\item 
+int \hyperlink{class_puppet_tickets_a73477909b6f61d1fff4afff51d26e6b6}{get\+\_\+current\+\_\+price} (\hyperlink{class_box_office}{Box\+Office} $\ast$box\+Office, int id\+\_\+event) override
+\begin{DoxyCompactList}\small\item\em Calcula o preco do lote atual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_puppet_tickets}{Puppet\+Tickets} $\ast$ \hyperlink{class_puppet_tickets_a49284dd6d0a41760127a9706c2591c01}{get\+Instance} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Maquina de ingressos de teatro de fantoche, realiza compras e emite bilhetes dessas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_puppet_tickets_ac5cbccccc59aa7c88ebebab8b97eafdf}\label{class_puppet_tickets_ac5cbccccc59aa7c88ebebab8b97eafdf}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!Puppet\+Tickets@{Puppet\+Tickets}}
+\index{Puppet\+Tickets@{Puppet\+Tickets}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{Puppet\+Tickets()}{PuppetTickets()}}
+{\footnotesize\ttfamily Puppet\+Tickets\+::\+Puppet\+Tickets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_puppet_tickets_a1d458fbaa6f21e2ba82c805299bb5025}\label{class_puppet_tickets_a1d458fbaa6f21e2ba82c805299bb5025}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!emit\+\_\+ticket@{emit\+\_\+ticket}}
+\index{emit\+\_\+ticket@{emit\+\_\+ticket}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{emit\+\_\+ticket()}{emit\_ticket()}}
+{\footnotesize\ttfamily void Puppet\+Tickets\+::emit\+\_\+ticket (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets,  }\item[{int}]{price }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets} & Quantidade de ingressos comprada \\
+\hline
+{\em price} & Preço pago pelo usuario \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_af7ae700ac13703c0a7381cfe663f0ac7}{Totem}.
+
+\mbox{\Hypertarget{class_puppet_tickets_a73477909b6f61d1fff4afff51d26e6b6}\label{class_puppet_tickets_a73477909b6f61d1fff4afff51d26e6b6}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}}
+\index{get\+\_\+current\+\_\+price@{get\+\_\+current\+\_\+price}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+current\+\_\+price()}{get\_current\_price()}}
+{\footnotesize\ttfamily int Puppet\+Tickets\+::get\+\_\+current\+\_\+price (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcula o preco do lote atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Preco do lote atual 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_ae05433d0eebc0f403d904700499f091b}{Totem}.
+
+\mbox{\Hypertarget{class_puppet_tickets_a8b76b650cb25cdccd1c8fb8c81585353}\label{class_puppet_tickets_a8b76b650cb25cdccd1c8fb8c81585353}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}}
+\index{get\+\_\+tickets\+\_\+available@{get\+\_\+tickets\+\_\+available}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{get\+\_\+tickets\+\_\+available()}{get\_tickets\_available()}}
+{\footnotesize\ttfamily int Puppet\+Tickets\+::get\+\_\+tickets\+\_\+available (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{tickets\+Wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela o bilhete da compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em tickets\+Wanted} & Quantidade de ingressos desejada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ingressos disponiveis 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_totem_a1849ecd70214b1b2a1b4c116fdbf6d81}{Totem}.
+
+\mbox{\Hypertarget{class_puppet_tickets_a49284dd6d0a41760127a9706c2591c01}\label{class_puppet_tickets_a49284dd6d0a41760127a9706c2591c01}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_puppet_tickets}{Puppet\+Tickets} $\ast$ Puppet\+Tickets\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_puppet_tickets_a719a391bb489e9f741a1caabbaa2d2b8}\label{class_puppet_tickets_a719a391bb489e9f741a1caabbaa2d2b8}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!sell\+\_\+tickets@{sell\+\_\+tickets}}
+\index{sell\+\_\+tickets@{sell\+\_\+tickets}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{sell\+\_\+tickets()}{sell\_tickets()}}
+{\footnotesize\ttfamily void Puppet\+Tickets\+::sell\+\_\+tickets (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{id\+\_\+user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Realiza a compra de ingressos de show. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_ad0c0e1a8e9441601d7899184e368ce2b}{Totem}.
+
+\mbox{\Hypertarget{class_puppet_tickets_a45d59ff08614919b1afad11dff21d5e4}\label{class_puppet_tickets_a45d59ff08614919b1afad11dff21d5e4}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!show\+\_\+schedules@{show\+\_\+schedules}}
+\index{show\+\_\+schedules@{show\+\_\+schedules}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{show\+\_\+schedules()}{show\_schedules()}}
+{\footnotesize\ttfamily void Puppet\+Tickets\+::show\+\_\+schedules (\begin{DoxyParamCaption}\item[{\hyperlink{class_box_office}{Box\+Office} $\ast$}]{box\+Office,  }\item[{int}]{id\+\_\+event,  }\item[{int}]{price,  }\item[{int}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Imprime na tela os dados do evento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box\+Office} & Instancia da classe bilheteria que contem dados de usuarios e eventos \\
+\hline
+{\em id\+\_\+event} & Identificador do evento desejado \\
+\hline
+{\em id\+\_\+user} & Identificador do usuário que está fazendo a compra \\
+\hline
+{\em l} & Lote em que as vendas se encontram \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_totem_a458d7bf060d703d7306aa4cc9d19e63c}{Totem}.
+
+\mbox{\Hypertarget{class_puppet_tickets_adb4f3ea38df65d39fb9d9599dc22460b}\label{class_puppet_tickets_adb4f3ea38df65d39fb9d9599dc22460b}} 
+\index{Puppet\+Tickets@{Puppet\+Tickets}!time\+\_\+exists@{time\+\_\+exists}}
+\index{time\+\_\+exists@{time\+\_\+exists}!Puppet\+Tickets@{Puppet\+Tickets}}
+\subsubsection{\texorpdfstring{time\+\_\+exists()}{time\_exists()}}
+{\footnotesize\ttfamily void Puppet\+Tickets\+::time\+\_\+exists (\begin{DoxyParamCaption}\item[{int}]{time,  }\item[{std\+::vector$<$ int $>$}]{schedule }\end{DoxyParamCaption})}
+
+
+
+Verifica se o horario digitado pelo usuario existe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em schedule} & horarios disponiveis \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/ticket\+\_\+machines/\hyperlink{puppet__tickets_8hpp}{puppet\+\_\+tickets.\+hpp}\item 
+src/ticket\+\_\+machines/\hyperlink{puppet__tickets_8cpp}{puppet\+\_\+tickets.\+cpp}\end{DoxyCompactItemize}

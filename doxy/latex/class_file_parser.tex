@@ -1,0 +1,50 @@
+\hypertarget{class_file_parser}{}\section{File\+Parser Class Reference}
+\label{class_file_parser}\index{File\+Parser@{File\+Parser}}
+
+
+Classe que realiza a leitura dos arquivos e transforma os arquivos em mapas de ponteiro de Usuario e evento.  
+
+
+
+
+{\ttfamily \#include $<$file\+\_\+parser.\+hpp$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_file_parser_a4aacd1cee3ccf913ab98faca60879f35}{parse\+\_\+events} (char $\ast$str, std\+::map$<$ int, \hyperlink{class_club}{Club} $\ast$$>$ \&clubs, std\+::map$<$ int, \hyperlink{class_consert}{Consert} $\ast$$>$ \&conserts, std\+::map$<$ int, \hyperlink{class_puppet_show}{Puppet\+Show} $\ast$$>$ \&puppet\+\_\+shows, std\+::map$<$ int, \hyperlink{class_movie_theater}{Movie\+Theater} $\ast$$>$ \&movie\+Theaters, std\+::map$<$ int, \hyperlink{class_adult}{Adult} $\ast$$>$ \&adults, std\+::map$<$ int, \hyperlink{class_elder}{Elder} $\ast$$>$ \&elders)
+\begin{DoxyCompactList}\small\item\em Recebe o nome do arquivo e a referencia das estruturas e as popula. --$>$ A funcao chamara read\+\_\+file para ambos os arquivos e recebera os objetos em formato de string --$>$ Convertera essa string em strings menores para cada atributo --$>$ Chamara a funcao create respectiva do tipo do objeto e a colocara na estrutura. \end{DoxyCompactList}\item 
+static void \hyperlink{class_file_parser_a9a6629f07f5752cfd488b47dc7ac1690}{parse\+\_\+users} (char $\ast$str, std\+::map$<$ int, \hyperlink{class_kid}{Kid} $\ast$$>$ \&kids, std\+::map$<$ int, \hyperlink{class_adult}{Adult} $\ast$$>$ \&adults, std\+::map$<$ int, \hyperlink{class_elder}{Elder} $\ast$$>$ \&elders)
+\begin{DoxyCompactList}\small\item\em Recebe o nome do arquivo e a referencia das estruturas e as popula. --$>$ A funcao chamara read\+\_\+file para ambos os arquivos e recebera os objetos em formato de string --$>$ Convertera essa string em strings menores para cada atributo --$>$ Chamara a funcao create respectiva do tipo do objeto e a colocara na estrutura. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe que realiza a leitura dos arquivos e transforma os arquivos em mapas de ponteiro de Usuario e evento. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_parser_a4aacd1cee3ccf913ab98faca60879f35}\label{class_file_parser_a4aacd1cee3ccf913ab98faca60879f35}} 
+\index{File\+Parser@{File\+Parser}!parse\+\_\+events@{parse\+\_\+events}}
+\index{parse\+\_\+events@{parse\+\_\+events}!File\+Parser@{File\+Parser}}
+\subsubsection{\texorpdfstring{parse\+\_\+events()}{parse\_events()}}
+{\footnotesize\ttfamily void File\+Parser\+::parse\+\_\+events (\begin{DoxyParamCaption}\item[{char $\ast$}]{str,  }\item[{std\+::map$<$ int, \hyperlink{class_club}{Club} $\ast$$>$ \&}]{clubs,  }\item[{std\+::map$<$ int, \hyperlink{class_consert}{Consert} $\ast$$>$ \&}]{conserts,  }\item[{std\+::map$<$ int, \hyperlink{class_puppet_show}{Puppet\+Show} $\ast$$>$ \&}]{puppet\+\_\+shows,  }\item[{std\+::map$<$ int, \hyperlink{class_movie_theater}{Movie\+Theater} $\ast$$>$ \&}]{movie\+Theaters,  }\item[{std\+::map$<$ int, \hyperlink{class_adult}{Adult} $\ast$$>$ \&}]{adults,  }\item[{std\+::map$<$ int, \hyperlink{class_elder}{Elder} $\ast$$>$ \&}]{elders }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Recebe o nome do arquivo e a referencia das estruturas e as popula. --$>$ A funcao chamara read\+\_\+file para ambos os arquivos e recebera os objetos em formato de string --$>$ Convertera essa string em strings menores para cada atributo --$>$ Chamara a funcao create respectiva do tipo do objeto e a colocara na estrutura. 
+
+\mbox{\Hypertarget{class_file_parser_a9a6629f07f5752cfd488b47dc7ac1690}\label{class_file_parser_a9a6629f07f5752cfd488b47dc7ac1690}} 
+\index{File\+Parser@{File\+Parser}!parse\+\_\+users@{parse\+\_\+users}}
+\index{parse\+\_\+users@{parse\+\_\+users}!File\+Parser@{File\+Parser}}
+\subsubsection{\texorpdfstring{parse\+\_\+users()}{parse\_users()}}
+{\footnotesize\ttfamily void File\+Parser\+::parse\+\_\+users (\begin{DoxyParamCaption}\item[{char $\ast$}]{str,  }\item[{std\+::map$<$ int, \hyperlink{class_kid}{Kid} $\ast$$>$ \&}]{kids,  }\item[{std\+::map$<$ int, \hyperlink{class_adult}{Adult} $\ast$$>$ \&}]{adults,  }\item[{std\+::map$<$ int, \hyperlink{class_elder}{Elder} $\ast$$>$ \&}]{elders }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Recebe o nome do arquivo e a referencia das estruturas e as popula. --$>$ A funcao chamara read\+\_\+file para ambos os arquivos e recebera os objetos em formato de string --$>$ Convertera essa string em strings menores para cada atributo --$>$ Chamara a funcao create respectiva do tipo do objeto e a colocara na estrutura. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{file__parser_8hpp}{file\+\_\+parser.\+hpp}\item 
+src/\hyperlink{file__parser_8cpp}{file\+\_\+parser.\+cpp}\end{DoxyCompactItemize}

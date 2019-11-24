@@ -1,0 +1,302 @@
+\hypertarget{class_box_office}{}\section{Box\+Office Class Reference}
+\label{class_box_office}\index{Box\+Office@{Box\+Office}}
+
+
+Classe que armazena as estruturas do trabalho.  
+
+
+
+
+{\ttfamily \#include $<$box\+\_\+office.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_box_office_afb3ceccdb7d47b091b9256128c2b6d58}{Box\+Office} ()
+\item 
+std\+::map$<$ int, \hyperlink{class_kid}{Kid} $\ast$ $>$ \hyperlink{class_box_office_a2269d234e2d52c7a92f4ff39ca40da5d}{get\+\_\+kids} ()
+\begin{DoxyCompactList}\small\item\em Retorna as crianças. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \hyperlink{class_adult}{Adult} $\ast$ $>$ \hyperlink{class_box_office_a412e8c12fc95dcc51b94883bbfdfc0d8}{get\+\_\+adults} ()
+\begin{DoxyCompactList}\small\item\em Retorna os adultos. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \hyperlink{class_elder}{Elder} $\ast$ $>$ \hyperlink{class_box_office_a4c22fa9fa95585ca73eaeeb708537333}{get\+\_\+elders} ()
+\begin{DoxyCompactList}\small\item\em Retorna os idosos. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \hyperlink{class_movie_theater}{Movie\+Theater} $\ast$ $>$ \hyperlink{class_box_office_ab8369671f04b1ee4a43ee3349dd2e334}{get\+\_\+movie\+\_\+theaters} ()
+\begin{DoxyCompactList}\small\item\em Retorna as sessões de cinema. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \hyperlink{class_puppet_show}{Puppet\+Show} $\ast$ $>$ \hyperlink{class_box_office_a92c8db5f58290cbfb694aa66bd83c9ee}{get\+\_\+puppet\+\_\+shows} ()
+\begin{DoxyCompactList}\small\item\em Retorna os teatros de fantoche. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \hyperlink{class_consert}{Consert} $\ast$ $>$ \hyperlink{class_box_office_a07aef87f21cd6791c3ede1159eeee076}{get\+\_\+conserts} ()
+\begin{DoxyCompactList}\small\item\em Retorna os shows. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \hyperlink{class_club}{Club} $\ast$ $>$ \hyperlink{class_box_office_a8d956508e66e2d8586f17cf34958eba6}{get\+\_\+clubs} ()
+\begin{DoxyCompactList}\small\item\em Retorna as boates. \end{DoxyCompactList}\item 
+void \hyperlink{class_box_office_a066af638cdd43041a0805567ff526ef3}{initialize} (const char $\ast$$\ast$args)
+\begin{DoxyCompactList}\small\item\em Cria uma instância de \hyperlink{class_file_parser}{File\+Parser} que incializa as estruturas. \end{DoxyCompactList}\item 
+int \hyperlink{class_box_office_a1f010f4714351c2f08c7c8940b094914}{menu\+\_\+text} ()
+\begin{DoxyCompactList}\small\item\em Exibe menu pro usuário. \end{DoxyCompactList}\item 
+int \hyperlink{class_box_office_a04f554e383b6c6f462473403ae056648}{login} ()
+\begin{DoxyCompactList}\small\item\em O usuario loga em uma das contas do usuarios disponiveis. \end{DoxyCompactList}\item 
+void \hyperlink{class_box_office_a24319af273392225975051add861e037}{print\+\_\+users} ()
+\begin{DoxyCompactList}\small\item\em Imprime usuários do sistema. \end{DoxyCompactList}\item 
+int \hyperlink{class_box_office_a069cc696cc665eeb00419eed14ef1c45}{print\+\_\+events} ()
+\begin{DoxyCompactList}\small\item\em Exibe eventos do sistema e permite o usuario escolher um. \end{DoxyCompactList}\item 
+std\+::set$<$ int $>$ \hyperlink{class_box_office_a5c3ce1833923128d7cd605fc587c7a39}{get\+\_\+logged\+\_\+id} ()
+\begin{DoxyCompactList}\small\item\em Retorna arranjo dos usuários que realizaram compras. \end{DoxyCompactList}\item 
+void \hyperlink{class_box_office_a1a4c56a8bf4e54598a27e03fc256ab85}{add\+\_\+logged\+\_\+id} (int id)
+\begin{DoxyCompactList}\small\item\em Adiciona usuário que realizou uma compra. \end{DoxyCompactList}\item 
+std\+::map$<$ int, int $>$ \hyperlink{class_box_office_a262cc57ff959c0a27b7040e6c81ca62a}{get\+\_\+bought\+\_\+clubs} ()
+\item 
+std\+::map$<$ int, int $>$ \hyperlink{class_box_office_ab31161c5fb3d48c4928cd0e52e932978}{get\+\_\+bought\+\_\+conserts} ()
+\item 
+std\+::map$<$ int, int $>$ \hyperlink{class_box_office_aac6b7054efbeb8e52c53a79e6e918c33}{get\+\_\+bought\+\_\+movies} ()
+\item 
+std\+::map$<$ int, int $>$ \hyperlink{class_box_office_a19e4d16d6aad7259018c92654b7f1fcc}{get\+\_\+bought\+\_\+puppet} ()
+\item 
+void \hyperlink{class_box_office_a38614015d9850c0a85b60078863d7d46}{add\+\_\+bought\+\_\+club} (int id, int amount)
+\item 
+void \hyperlink{class_box_office_ac6ca4155595d2cfa96255d414584fa72}{add\+\_\+bought\+\_\+consert} (int id, int amount)
+\item 
+void \hyperlink{class_box_office_ab200177feac558dca646ce7d47a8347e}{add\+\_\+bought\+\_\+movie} (int id, int amount)
+\item 
+void \hyperlink{class_box_office_a5c199bd7e33a559fc23067d307b52c39}{add\+\_\+bought\+\_\+puppet} (int id, int amount)
+\item 
+void \hyperlink{class_box_office_afc1cff94d7c768f3435089e5f6bc3c50}{free\+\_\+maps} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe que armazena as estruturas do trabalho. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_box_office_afb3ceccdb7d47b091b9256128c2b6d58}\label{class_box_office_afb3ceccdb7d47b091b9256128c2b6d58}} 
+\index{Box\+Office@{Box\+Office}!Box\+Office@{Box\+Office}}
+\index{Box\+Office@{Box\+Office}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{Box\+Office()}{BoxOffice()}}
+{\footnotesize\ttfamily Box\+Office\+::\+Box\+Office (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_box_office_a38614015d9850c0a85b60078863d7d46}\label{class_box_office_a38614015d9850c0a85b60078863d7d46}} 
+\index{Box\+Office@{Box\+Office}!add\+\_\+bought\+\_\+club@{add\+\_\+bought\+\_\+club}}
+\index{add\+\_\+bought\+\_\+club@{add\+\_\+bought\+\_\+club}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{add\+\_\+bought\+\_\+club()}{add\_bought\_club()}}
+{\footnotesize\ttfamily void Box\+Office\+::add\+\_\+bought\+\_\+club (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_box_office_ac6ca4155595d2cfa96255d414584fa72}\label{class_box_office_ac6ca4155595d2cfa96255d414584fa72}} 
+\index{Box\+Office@{Box\+Office}!add\+\_\+bought\+\_\+consert@{add\+\_\+bought\+\_\+consert}}
+\index{add\+\_\+bought\+\_\+consert@{add\+\_\+bought\+\_\+consert}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{add\+\_\+bought\+\_\+consert()}{add\_bought\_consert()}}
+{\footnotesize\ttfamily void Box\+Office\+::add\+\_\+bought\+\_\+consert (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_box_office_ab200177feac558dca646ce7d47a8347e}\label{class_box_office_ab200177feac558dca646ce7d47a8347e}} 
+\index{Box\+Office@{Box\+Office}!add\+\_\+bought\+\_\+movie@{add\+\_\+bought\+\_\+movie}}
+\index{add\+\_\+bought\+\_\+movie@{add\+\_\+bought\+\_\+movie}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{add\+\_\+bought\+\_\+movie()}{add\_bought\_movie()}}
+{\footnotesize\ttfamily void Box\+Office\+::add\+\_\+bought\+\_\+movie (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_box_office_a5c199bd7e33a559fc23067d307b52c39}\label{class_box_office_a5c199bd7e33a559fc23067d307b52c39}} 
+\index{Box\+Office@{Box\+Office}!add\+\_\+bought\+\_\+puppet@{add\+\_\+bought\+\_\+puppet}}
+\index{add\+\_\+bought\+\_\+puppet@{add\+\_\+bought\+\_\+puppet}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{add\+\_\+bought\+\_\+puppet()}{add\_bought\_puppet()}}
+{\footnotesize\ttfamily void Box\+Office\+::add\+\_\+bought\+\_\+puppet (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_box_office_a1a4c56a8bf4e54598a27e03fc256ab85}\label{class_box_office_a1a4c56a8bf4e54598a27e03fc256ab85}} 
+\index{Box\+Office@{Box\+Office}!add\+\_\+logged\+\_\+id@{add\+\_\+logged\+\_\+id}}
+\index{add\+\_\+logged\+\_\+id@{add\+\_\+logged\+\_\+id}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{add\+\_\+logged\+\_\+id()}{add\_logged\_id()}}
+{\footnotesize\ttfamily void Box\+Office\+::add\+\_\+logged\+\_\+id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adiciona usuário que realizou uma compra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Identificador do usuário que realizou a compra. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_box_office_afc1cff94d7c768f3435089e5f6bc3c50}\label{class_box_office_afc1cff94d7c768f3435089e5f6bc3c50}} 
+\index{Box\+Office@{Box\+Office}!free\+\_\+maps@{free\+\_\+maps}}
+\index{free\+\_\+maps@{free\+\_\+maps}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{free\+\_\+maps()}{free\_maps()}}
+{\footnotesize\ttfamily void Box\+Office\+::free\+\_\+maps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_box_office_a412e8c12fc95dcc51b94883bbfdfc0d8}\label{class_box_office_a412e8c12fc95dcc51b94883bbfdfc0d8}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+adults@{get\+\_\+adults}}
+\index{get\+\_\+adults@{get\+\_\+adults}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+adults()}{get\_adults()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_adult}{Adult}$\ast$$>$ Box\+Office\+::get\+\_\+adults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna os adultos. 
+
+\begin{DoxyReturn}{Returns}
+Mapa de adultos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_box_office_a262cc57ff959c0a27b7040e6c81ca62a}\label{class_box_office_a262cc57ff959c0a27b7040e6c81ca62a}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+bought\+\_\+clubs@{get\+\_\+bought\+\_\+clubs}}
+\index{get\+\_\+bought\+\_\+clubs@{get\+\_\+bought\+\_\+clubs}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+bought\+\_\+clubs()}{get\_bought\_clubs()}}
+{\footnotesize\ttfamily std\+::map$<$int,int$>$ Box\+Office\+::get\+\_\+bought\+\_\+clubs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_box_office_ab31161c5fb3d48c4928cd0e52e932978}\label{class_box_office_ab31161c5fb3d48c4928cd0e52e932978}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+bought\+\_\+conserts@{get\+\_\+bought\+\_\+conserts}}
+\index{get\+\_\+bought\+\_\+conserts@{get\+\_\+bought\+\_\+conserts}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+bought\+\_\+conserts()}{get\_bought\_conserts()}}
+{\footnotesize\ttfamily std\+::map$<$int,int$>$ Box\+Office\+::get\+\_\+bought\+\_\+conserts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_box_office_aac6b7054efbeb8e52c53a79e6e918c33}\label{class_box_office_aac6b7054efbeb8e52c53a79e6e918c33}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+bought\+\_\+movies@{get\+\_\+bought\+\_\+movies}}
+\index{get\+\_\+bought\+\_\+movies@{get\+\_\+bought\+\_\+movies}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+bought\+\_\+movies()}{get\_bought\_movies()}}
+{\footnotesize\ttfamily std\+::map$<$int,int$>$ Box\+Office\+::get\+\_\+bought\+\_\+movies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_box_office_a19e4d16d6aad7259018c92654b7f1fcc}\label{class_box_office_a19e4d16d6aad7259018c92654b7f1fcc}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+bought\+\_\+puppet@{get\+\_\+bought\+\_\+puppet}}
+\index{get\+\_\+bought\+\_\+puppet@{get\+\_\+bought\+\_\+puppet}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+bought\+\_\+puppet()}{get\_bought\_puppet()}}
+{\footnotesize\ttfamily std\+::map$<$int,int$>$ Box\+Office\+::get\+\_\+bought\+\_\+puppet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_box_office_a8d956508e66e2d8586f17cf34958eba6}\label{class_box_office_a8d956508e66e2d8586f17cf34958eba6}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+clubs@{get\+\_\+clubs}}
+\index{get\+\_\+clubs@{get\+\_\+clubs}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+clubs()}{get\_clubs()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_club}{Club}$\ast$$>$ Box\+Office\+::get\+\_\+clubs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna as boates. 
+
+\mbox{\Hypertarget{class_box_office_a07aef87f21cd6791c3ede1159eeee076}\label{class_box_office_a07aef87f21cd6791c3ede1159eeee076}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+conserts@{get\+\_\+conserts}}
+\index{get\+\_\+conserts@{get\+\_\+conserts}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+conserts()}{get\_conserts()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_consert}{Consert}$\ast$$>$ Box\+Office\+::get\+\_\+conserts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna os shows. 
+
+\mbox{\Hypertarget{class_box_office_a4c22fa9fa95585ca73eaeeb708537333}\label{class_box_office_a4c22fa9fa95585ca73eaeeb708537333}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+elders@{get\+\_\+elders}}
+\index{get\+\_\+elders@{get\+\_\+elders}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+elders()}{get\_elders()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_elder}{Elder}$\ast$$>$ Box\+Office\+::get\+\_\+elders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna os idosos. 
+
+\mbox{\Hypertarget{class_box_office_a2269d234e2d52c7a92f4ff39ca40da5d}\label{class_box_office_a2269d234e2d52c7a92f4ff39ca40da5d}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+kids@{get\+\_\+kids}}
+\index{get\+\_\+kids@{get\+\_\+kids}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+kids()}{get\_kids()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_kid}{Kid}$\ast$$>$ Box\+Office\+::get\+\_\+kids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna as crianças. 
+
+\begin{DoxyReturn}{Returns}
+Mapa de crianças 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_box_office_a5c3ce1833923128d7cd605fc587c7a39}\label{class_box_office_a5c3ce1833923128d7cd605fc587c7a39}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+logged\+\_\+id@{get\+\_\+logged\+\_\+id}}
+\index{get\+\_\+logged\+\_\+id@{get\+\_\+logged\+\_\+id}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+logged\+\_\+id()}{get\_logged\_id()}}
+{\footnotesize\ttfamily std\+::set$<$int$>$ Box\+Office\+::get\+\_\+logged\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna arranjo dos usuários que realizaram compras. 
+
+\mbox{\Hypertarget{class_box_office_ab8369671f04b1ee4a43ee3349dd2e334}\label{class_box_office_ab8369671f04b1ee4a43ee3349dd2e334}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+movie\+\_\+theaters@{get\+\_\+movie\+\_\+theaters}}
+\index{get\+\_\+movie\+\_\+theaters@{get\+\_\+movie\+\_\+theaters}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+movie\+\_\+theaters()}{get\_movie\_theaters()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_movie_theater}{Movie\+Theater}$\ast$$>$ Box\+Office\+::get\+\_\+movie\+\_\+theaters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna as sessões de cinema. 
+
+\mbox{\Hypertarget{class_box_office_a92c8db5f58290cbfb694aa66bd83c9ee}\label{class_box_office_a92c8db5f58290cbfb694aa66bd83c9ee}} 
+\index{Box\+Office@{Box\+Office}!get\+\_\+puppet\+\_\+shows@{get\+\_\+puppet\+\_\+shows}}
+\index{get\+\_\+puppet\+\_\+shows@{get\+\_\+puppet\+\_\+shows}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{get\+\_\+puppet\+\_\+shows()}{get\_puppet\_shows()}}
+{\footnotesize\ttfamily std\+::map$<$int, \hyperlink{class_puppet_show}{Puppet\+Show}$\ast$$>$ Box\+Office\+::get\+\_\+puppet\+\_\+shows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retorna os teatros de fantoche. 
+
+\mbox{\Hypertarget{class_box_office_a066af638cdd43041a0805567ff526ef3}\label{class_box_office_a066af638cdd43041a0805567ff526ef3}} 
+\index{Box\+Office@{Box\+Office}!initialize@{initialize}}
+\index{initialize@{initialize}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily void Box\+Office\+::initialize (\begin{DoxyParamCaption}\item[{const char $\ast$$\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Cria uma instância de \hyperlink{class_file_parser}{File\+Parser} que incializa as estruturas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & Nome dos arquivos csv. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_box_office_a04f554e383b6c6f462473403ae056648}\label{class_box_office_a04f554e383b6c6f462473403ae056648}} 
+\index{Box\+Office@{Box\+Office}!login@{login}}
+\index{login@{login}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily int Box\+Office\+::login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+O usuario loga em uma das contas do usuarios disponiveis. 
+
+\begin{DoxyReturn}{Returns}
+Id do usuário digitado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_box_office_a1f010f4714351c2f08c7c8940b094914}\label{class_box_office_a1f010f4714351c2f08c7c8940b094914}} 
+\index{Box\+Office@{Box\+Office}!menu\+\_\+text@{menu\+\_\+text}}
+\index{menu\+\_\+text@{menu\+\_\+text}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{menu\+\_\+text()}{menu\_text()}}
+{\footnotesize\ttfamily int Box\+Office\+::menu\+\_\+text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe menu pro usuário. 
+
+\begin{DoxyReturn}{Returns}
+Inteiro que representa a escolha do usuário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_box_office_a069cc696cc665eeb00419eed14ef1c45}\label{class_box_office_a069cc696cc665eeb00419eed14ef1c45}} 
+\index{Box\+Office@{Box\+Office}!print\+\_\+events@{print\+\_\+events}}
+\index{print\+\_\+events@{print\+\_\+events}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{print\+\_\+events()}{print\_events()}}
+{\footnotesize\ttfamily int Box\+Office\+::print\+\_\+events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe eventos do sistema e permite o usuario escolher um. 
+
+\begin{DoxyReturn}{Returns}
+Id do evento escolhido pelo usuário. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_box_office_a24319af273392225975051add861e037}\label{class_box_office_a24319af273392225975051add861e037}} 
+\index{Box\+Office@{Box\+Office}!print\+\_\+users@{print\+\_\+users}}
+\index{print\+\_\+users@{print\+\_\+users}!Box\+Office@{Box\+Office}}
+\subsubsection{\texorpdfstring{print\+\_\+users()}{print\_users()}}
+{\footnotesize\ttfamily void Box\+Office\+::print\+\_\+users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime usuários do sistema. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{box__office_8hpp}{box\+\_\+office.\+hpp}\item 
+src/\hyperlink{box__office_8cpp}{box\+\_\+office.\+cpp}\end{DoxyCompactItemize}

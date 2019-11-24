@@ -1,0 +1,19 @@
+This project was made for a college discipline about software development.
+
+\subsection*{Run and compile commands}
+
+\subsubsection*{Build}
+
+Run {\ttfamily make} on the root folder to compile all the library and source files. In case lib folder isnt empty run {\ttfamily make clean}
+
+\subsubsection*{Run}
+
+To run the already compiled code run {\ttfamily make run} To use the make file, put the output files in the data folder, you can change the file names on line 32 of the makefile or stick with the original file names \textquotesingle{}users.\+csv\textquotesingle{} and \textquotesingle{}events.\+csv\textquotesingle{}
+
+\subsubsection*{Check memory leaks}
+
+To run the code and check any possible memory leaks run {\ttfamily make mem}
+
+\subsection*{File Structure}
+
+The code is divided in two folders, lib and src. Lib contains header files with the declaration of all classes and src contains class functions. The code also has a data folder that contains the csv inputs. 

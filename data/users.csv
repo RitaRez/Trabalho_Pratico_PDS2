@@ -1,5 +1,5 @@
-0,adulto,Arthur Weasley,41,10000
-1,idoso,Albus Dumbledore,109,60000
+0,adulto,Arthur Weasley,41,100
+1,idoso,Albus Dumbledore,109,600
 2,adulto,Petunia Dursley,38,300
 3,adulto,Sr Granger,39,300
 4,adulto,Lucius Malfoy,38,500
@@ -7,7 +7,3 @@
 6,crianca,Dudley Dursley,11,100,2
 7,crianca,Ron Weasley,11,50,0
 8,crianca,Hermione Granger,11,200,3
-
-
-
-

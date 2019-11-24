@@ -133,3 +133,14 @@ void BoxOffice::add_bought_puppet(int id, int amount){
     else
         this->boughtPuppets[id] += amount;
 }        
+
+void BoxOffice::free_maps(){
+    for(auto const& kid: this->get_kids())  delete(this->get_kids()[kid.first]);
+    for(auto const& adult: this->get_adults())  delete(this->get_adults()[adult.first]);
+    for(auto const& elder: this->get_elders())   delete(this->get_elders()[elder.first]);    
+
+    for(auto const& club: this->get_clubs())   delete(this->get_clubs()[club.first]);    
+    for(auto const& consert: this->get_conserts())   delete(this->get_conserts()[consert.first]);    
+    for(auto const& movie: this->get_movie_theaters())   delete(this->get_movie_theaters()[movie.first]);    
+    for(auto const& puppet: this->get_puppet_shows())   delete(this->get_puppet_shows()[puppet.first]);    
+}

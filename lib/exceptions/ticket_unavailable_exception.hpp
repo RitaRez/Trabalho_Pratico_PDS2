@@ -1,3 +1,7 @@
+/**
+ *  @brief Classe de exceção utilizada quando o usuário não pode comprar o ingresso selecionado.
+*/
+
 #ifndef TICKET_UNAVAILABLE_EXCEPTION_H
 #define TICKET_UNAVAILABLE_EXCEPTION_H
 

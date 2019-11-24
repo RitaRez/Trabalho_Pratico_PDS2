@@ -1,3 +1,7 @@
+/**
+ *  @brief Classe de evento.
+*/
+
 #ifndef EVENT_H
 #define EVENT_H
 

@@ -1,3 +1,7 @@
+/**
+ *  @brief Classe de exceção utilizada quando os ingressos acabarem.
+*/
+
 #ifndef NOT_ENOUGH_TICKETS_EXCEPTION_H
 #define NOT_ENOUGH_TICKETS_EXCEPTION_H
 

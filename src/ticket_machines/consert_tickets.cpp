@@ -15,12 +15,12 @@ ConsertTickets*  ConsertTickets::getInstance(){
 
 ConsertTickets::ConsertTickets(){}
 
-void ConsertTickets::show_schedules(BoxOffice *boxOffice, int id_event, int price, int l){
+void ConsertTickets::show_schedules(BoxOffice *boxOffice, int id_event, int price, int l, int tickets){
     system("clear");
     std::cout 
         << boxOffice->get_conserts()[id_event]->get_name()
         << "\nHorario de abertura dos portões: " << boxOffice->get_conserts()[id_event]->get_gate_opening() << ":00"
-        << "\nQuantidade de ingressos do lote atual: " << boxOffice->get_movie_theaters()[id_event]->get_capacity()[l]
+        << "\nIngressos disponiveis: " << tickets
         << "\nPreço inicial: R$:" << price << ",00"
     << std::endl;  
 }
@@ -28,11 +28,7 @@ void ConsertTickets::show_schedules(BoxOffice *boxOffice, int id_event, int pric
 int ConsertTickets::get_tickets_available(BoxOffice *boxOffice, int id_event, int ticketsWanted){
     int ticketsAvailable = 0;
     for (int i = 0; i < boxOffice->get_conserts()[id_event]->get_capacity().size(); i++)
-        ticketsAvailable += boxOffice->get_conserts()[id_event]->get_capacity()[i];
-    if(ticketsAvailable < ticketsWanted){
-        system("clear");
-        throw NotEnoughtTicketsException("Os ingressos acabaram", ticketsAvailable);
-    }    
+        ticketsAvailable += boxOffice->get_conserts()[id_event]->get_capacity()[i];   
     return ticketsAvailable;    
 }
 
@@ -45,19 +41,36 @@ int ConsertTickets::get_current_price(BoxOffice *boxOffice, int id_event){
 
 void ConsertTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user) {
     int lote = 0, ticketsWanted, time;
+
     double priceIndex = this->get_current_price(boxOffice, id_event);   
     double individuaPrice = boxOffice->get_conserts()[id_event]->get_prices()[priceIndex];
+    int ticketsAvailable = this->get_tickets_available(boxOffice, id_event, ticketsWanted);
+
+    if(boxOffice->get_adults()[id_user] != nullptr)
+        this->show_schedules(boxOffice, id_event, individuaPrice, priceIndex, ticketsAvailable - boxOffice->get_conserts()[id_event]->get_elder_amout());
+    else 
+        this->show_schedules(boxOffice, id_event, individuaPrice, priceIndex, ticketsAvailable);
+
 
     std::cout << "\nDigite quantos ingressos você deseja: ";    
     std::cin >> ticketsWanted;
     
-    int ticketsAvailable = this->get_tickets_available(boxOffice, id_event, ticketsWanted);
     double totalPrice = this->get_total_price(boxOffice->get_conserts()[id_event], id_event, ticketsWanted);
     std::cout <<"\nPreço total: " << totalPrice << std::endl;
-
-    if(boxOffice->get_conserts()[id_event]->get_elder_amout() >= ticketsAvailable && boxOffice->get_elders()[id_user] != nullptr){
+    
+    if(ticketsWanted == 0){
         system("clear");
-        throw TicketUnavailableException("Não existem ingressos de nao idosos", "Não há mais ingressos da sua categoria");
+        throw TicketUnavailableException("","");
+    }
+
+    if(ticketsAvailable < ticketsWanted){
+        system("clear");
+        throw NotEnoughtTicketsException("Os ingressos acabaram", ticketsAvailable);
+    } 
+
+    if((ticketsAvailable - boxOffice->get_conserts()[id_event]->get_elder_amout()) < ticketsWanted && boxOffice->get_adults()[id_user] != nullptr){
+        system("clear");
+        throw TicketUnavailableException("Não existem ingressos de nao idosos", "Não há essa quantidade de  ingressos na sua categoria");
     }
     
     if(boxOffice->get_adults()[id_user] != nullptr){
@@ -99,7 +112,7 @@ system("clear");
         << "INGRESSO: "
         << boxOffice->get_conserts()[id_event]->get_name()
         << "\nQuantidade de unidades: " << tickets
-        << "\nPreco total: " << price
+        << "\nPreco total: R$:" << price << ",00"
     << std::endl;
     std::cout << "\n================================================================================================" << std::endl;
 }

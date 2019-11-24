@@ -47,8 +47,9 @@ class Totem {
          *  @param id_event Identificador do evento desejado
          *  @param id_user Identificador do usuário que está fazendo a compra
          *  @param l Lote em que as vendas se encontram
+         *  @param tickets Ingressos disponiveis
         */
-        virtual void show_schedules(BoxOffice *boxOffice, int id_event, int price, int l) = 0;
+        virtual void show_schedules(BoxOffice *boxOffice, int id_event, int price, int l, int tickets) = 0;
         
         /**
          *  @brief Imprime na tela o bilhete da compra.

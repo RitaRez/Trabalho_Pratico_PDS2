@@ -16,12 +16,12 @@ PuppetTickets* PuppetTickets::getInstance(){
 
 PuppetTickets::PuppetTickets(){}
 
-void PuppetTickets::show_schedules(BoxOffice *boxOffice, int id_event, int price, int l){
+void PuppetTickets::show_schedules(BoxOffice *boxOffice, int id_event, int price, int l, int tickets){
     system("clear");
     std::cout 
         << boxOffice->get_puppet_shows()[id_event]->get_name()
-        << "\nQuantidade de ingressos do lote atual: " << boxOffice->get_puppet_shows()[id_event]->get_capacity()[l]
-        << "\nPreço inicial: R$:" << price << ",00"
+        << "\nIngressos disponiveis: " << tickets
+        << "\nPreço atual: R$:" << price << ",00"
     << std::endl;  
     std::cout << "\nHorarios:\n";
     for (auto s: boxOffice->get_puppet_shows()[id_event]->get_schedules())
@@ -30,19 +30,16 @@ void PuppetTickets::show_schedules(BoxOffice *boxOffice, int id_event, int price
 }
 
 void PuppetTickets::time_exists(int time, std::vector<int> schedule){
-    if (std::find(schedule.begin(), schedule.end(), time) == schedule.end())
+    if (std::find(schedule.begin(), schedule.end(), time) == schedule.end()){
+        system("clear");
         throw InvalidEntityException("Horario nao existe", "O horario selecionado nao existe");
-
+    }
 }
 
 int PuppetTickets::get_tickets_available(BoxOffice *boxOffice, int id_event, int ticketsWanted){
     int ticketsAvailable = 0;
     for (int i = 0; i < boxOffice->get_puppet_shows()[id_event]->get_capacity().size(); i++)
-        ticketsAvailable += boxOffice->get_puppet_shows()[id_event]->get_capacity()[i];
-    if(ticketsAvailable < ticketsWanted){
-        system("clear");
-        throw NotEnoughtTicketsException("Os ingressos acabaram", ticketsAvailable);
-    }    
+        ticketsAvailable += boxOffice->get_puppet_shows()[id_event]->get_capacity()[i];   
     return ticketsAvailable;    
 }
 
@@ -57,8 +54,9 @@ void PuppetTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user
     int lote = 0, ticketsWanted, time;
     double priceIndex = this->get_current_price(boxOffice, id_event);   
     double individuaPrice = boxOffice->get_puppet_shows()[id_event]->get_prices()[priceIndex];
+    int ticketsAvailable = this->get_tickets_available(boxOffice, id_event, ticketsWanted);
 
-    this->show_schedules(boxOffice, id_event, individuaPrice, priceIndex);
+    this->show_schedules(boxOffice, id_event, individuaPrice, priceIndex, ticketsAvailable);
     
     std::cout << "\n\nDigite o horário desejado: ";    
     std::cin >> time;
@@ -68,10 +66,15 @@ void PuppetTickets::sell_tickets(BoxOffice *boxOffice, int id_event, int id_user
     std::cin >> ticketsWanted;
 
     if(ticketsWanted == 0){
+        system("clear");
         throw TicketUnavailableException("","");
     }
+
+    if(ticketsAvailable < ticketsWanted){
+        system("clear");
+        throw NotEnoughtTicketsException("Os ingressos acabaram", ticketsAvailable);
+    } 
     
-    int ticketsAvailable = this->get_tickets_available(boxOffice, id_event, ticketsWanted);
     double totalPrice = this->get_total_price(boxOffice->get_puppet_shows()[id_event], id_event, ticketsWanted);
     std::cout <<"\nPreço total: " << totalPrice << std::endl;
     
@@ -114,7 +117,7 @@ void PuppetTickets::emit_ticket(BoxOffice *boxOffice, int id_event, int tickets,
         << "INGRESSO: "
         << boxOffice->get_puppet_shows()[id_event]->get_name()
         << "\nQuantidade de unidades: " << tickets
-        << "\nPreco total: " << price
+        << "\nPreco total: R$:" << price << ",00"
     << std::endl;
     std::cout << "\n================================================================================================" << std::endl;
 }
